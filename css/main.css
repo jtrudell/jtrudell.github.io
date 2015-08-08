@@ -25,7 +25,6 @@ a:hover {
 header {
   margin-top: 5em;
   text-align: center;
-  float: center;
 }
 
 #jenpic {
@@ -45,7 +44,7 @@ main {
     text-align: justify;
     width: 35%;
     display: inline-block;
-    float: center;
+    float: left;
     margin: 5%;
 }
 
