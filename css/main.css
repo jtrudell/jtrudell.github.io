@@ -1,0 +1,142 @@
+/*general styles*/
+
+body {
+  background-color: #f5f5f5;
+  color: #393E40;
+  font-family: Verdana, sans-serif;
+}
+
+a {
+  color: #393E40;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #393E40;
+}
+
+a:hover {
+  color: #ACE1FD;
+}
+
+/*header and picture*/
+
+header {
+  margin-top: 5em;
+  text-align: center;
+  float: center;
+}
+
+#jenpic {
+  border-radius: 250px;
+  width: 20%;
+  opacity: 0.7;
+  display: inline-block;
+  float: left;
+  margin-left: 5%;
+  padding: 2%;
+}
+
+/*main content*/
+
+main {
+    font-size: 1.25em;
+    text-align: justify;
+    width: 35%;
+    display: inline-block;
+    float: center;
+    margin: 5%;
+}
+
+#about {
+  width: 100%;
+  text-align: justify;
+}
+
+/*navigation bar*/
+
+nav {
+  width: 10em;
+  display: inline-block;
+  float: right;
+  margin-right: 8%;
+}
+
+ul {
+    font-size: 1.75em;
+    list-style-type: none;
+    padding: 1.5em 1.5em 1.5em 0;
+}
+
+li {
+  padding: .5em;
+  text-align: left;
+}
+
+/*footer*/
+
+footer {
+  clear: both;
+  padding-top: 10em;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+#copyright {
+  font-weight: bold;
+  font-size: 0.75em;
+  float: left;
+  display: inline-block;
+}
+
+footer > p {
+  margin: 0;
+  float: left;
+  display: inline-block;
+}
+
+/*footer buttons */
+
+#github {
+  float: right;
+  display: inline-block;
+  margin: .25em;
+}
+
+#twitter {
+  float: right;
+  display: inline-block;
+  margin: .25em;
+}
+
+#linkedin {
+  float: right;
+  display: inline-block;
+  margin: .25em;
+}
+
+/*Custom CSS for blog-index and blog posts*/
+
+#bloglist {
+  font-size: 1em;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.blogentry {
+  width: 60%;
+  float: left;
+  display: inline;
+}
+
+section > ul {
+  font-size: 1em;
+  padding: 0;
+}
