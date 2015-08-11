@@ -51,6 +51,7 @@ main {
 #about {
   width: 100%;
   text-align: justify;
+  margin-left: 2%;
 }
 
 /*navigation bar*/
@@ -58,8 +59,10 @@ main {
 nav {
   width: 10em;
   display: inline-block;
+  position: relative;
   float: right;
   margin-right: 8%;
+  border-left: 2px solid #ACE1FD;
 }
 
 ul {
@@ -146,4 +149,20 @@ section > ul {
   margin: 1em;
   width: 70%;
   display: block;
+}
+
+/*Custom CSS for contact page*/
+
+#contact {
+  text-align: left;
+}
+
+/*Custom CSS for contact page*/
+
+.projectlist {
+  font-size: 1em;
+}
+
+.description {
+  font-size: 0.9em;
 }
