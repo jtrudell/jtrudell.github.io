@@ -158,6 +158,18 @@ section > ul {
   margin-left: 2em;
 }
 
+code > p {
+  margin-left: 2em;
+  color: blue;
+  background-color: white;
+  padding-bottom: 0.5em;
+}
+
+.comment {
+  font-style: italic;
+  color: #393E40;
+}
+
 /*Custom CSS for contact page*/
 
 #contact {
