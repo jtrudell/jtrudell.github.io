@@ -151,6 +151,13 @@ section > ul {
   display: block;
 }
 
+.list {
+  font-size: 0.85em;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-left: 2em;
+}
+
 /*Custom CSS for contact page*/
 
 #contact {
