@@ -6,6 +6,10 @@ body {
   font-family: Verdana, sans-serif;
 }
 
+section{
+  line-height: 1.8em;
+}
+
 a {
   color: #393E40;
   text-decoration: none;
