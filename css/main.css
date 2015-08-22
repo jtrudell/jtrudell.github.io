@@ -165,8 +165,10 @@ section > ul {
 code > p {
   margin-left: 2em;
   color: blue;
+  font-weight: bold;
   background-color: white;
-  padding-bottom: 0.5em;
+  padding: 0.5em;
+  border: 1px solid black;
 }
 
 .comment {
