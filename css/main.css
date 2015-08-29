@@ -176,6 +176,11 @@ code > p {
   color: #393E40;
 }
 
+#cartwheel {
+  float: right;
+  padding: 1.25em;
+}
+
 /*Custom CSS for contact page*/
 
 #contact {
