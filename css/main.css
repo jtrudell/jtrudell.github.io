@@ -52,7 +52,7 @@ main {
     margin: 5%;
 }
 
-#about {
+.about {
   width: 100%;
   text-align: justify;
   margin-left: 2%;
