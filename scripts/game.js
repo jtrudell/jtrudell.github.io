@@ -13,11 +13,6 @@ var magician = {
   startGame: playGame()
 };
 
-function newGameButton() {
-  var button = document.getElementById("play");
-  document.write("<p><button id='play' type='button' onclick = 'window.location.reload();'>Play again!</button></p>");
-}
-
 function printText(line, parentDiv) {
   var newPara = document.createElement("p");
   var text = document.createTextNode(line);
