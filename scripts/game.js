@@ -70,7 +70,7 @@ function guessText(guess) {
   if (player.guesses > 0) {
     var tryAgain = guess + " is not the magic number. You have " + player.guesses + " more guesses.";
   } else {
-    var tryAgain = guess + " is not the magic number. You have no more guesses. You LOSE.";
+    var tryAgain = guess + " is not the magic number. The magic number was " + magicNumber + ". You have no more guesses. You LOSE.";
   }
 
   var footerDiv = document.getElementById("footer");
