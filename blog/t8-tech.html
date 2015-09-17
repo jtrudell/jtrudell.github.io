@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jen Trudell | Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+  <header></header>
+<main class = "blogentry">
+  <h1>Algorithms</h1>
+  <h2>Big-O Notation</h2>
+  <h4>September 17, 2015</h4>
+
+  <section>
+    <h3>What's an algorithm?</h3>
+    <p>An algorithm is simply a set of steps that can be used to solve a problem. A slightly longer definition is that an algorithm is a finite number of steps or rules that, if followed, give you a result. If a set of steps doesn't give you a result, it isn't an algorithm. Algorithms are distinguished by three things: (1) the steps/rules are clear and unambiguous, (2) there is an end to the steps/rules (finite. the steps/rules don't go on forever.) and (3) following the steps/rules gives you a result (whether the result is correct or not depends on whether your algorithm was designed properly). The word "algorithm" scares some people, but algorithms can be quite simple. Addition is an algorithm, which can be expressed with the following steps: 1. given a list of numbers, 2. add the first number to the second number, 3. if there are more than two numers, add the sum of the first number and second number to the third number, 4. repeat step three for the fourth number (if any) and any subsequent numbers until there are no more numbers in the list, 5. return the final sum. If you don't like math, here's a peanut butter sandwich algorithm: 1. get out the peanut butter, 2. get out the bread, 3. get out the knife, 4. spread peanut butter on one slice of bread, 5. put the other slice of break on top of the slice of bread with the peanut butter, 6. return peanut butter sandwich.</p>
+
+    <h3>What makes a good algorithm? Measuring algorithm complexity</h3>
+    <p>Algorithms are measured and compared based on how complex they are. The addition algorithm and the peanut better sandwhich algorithm are linear algorithms--the more numbers you have, or the more peanut butter sandwiches you have to make, the the more steps you have to take and the longer it will take to run the algorithm. The time it takes to run the algorithm depends on you, in the case of how fast you can make sandwhiches or add up numbers on a piece of paper, or your computer, if you are using your computer to do the addition; we can represent these "it depends" factors with the letter K. The number of steps and the time to takes to run the algorith will increase in a linear fashion, depending on how many numbers you are adding or sandwiches you are making. If it takes 3 steps (disregarding taking out the knife, peanut butter and bread for the moment) to make one peanut butter sandwhich, it should take 300 steps to make 100 sandwhiches. If n is the number of peanut butter sandwhiches, or the number of numbers in a list of numbers we want to add, we could represent the complexity of the algorithm by O(n). Pretend that O is the number of steps in the algorithm (e.g., 3 steps for each sandwhich), and n is the number of numbers to be added or sandwhiches to be made.</p>
+
+    <h3>Big-O Notation</h3>
+    <p>That O(n) up there is known as Big-O notation. Big-O notation represents the upper-bound of complexity of an algorithm, or for our purposes the total number of steps it will take to run the algorithm through a given set of n-numbers for addition or n-sandwhiches for sandwich making. Big-O is the worse case scenario of complexity. When calculating what Big-O is for a certain algorithm, we only care about the big picture. Big-O notation is not exact, it is an estimate of the upper-bound based on the significant steps in the algorithm. Trivial stuff, like getting out the peanut butter and bread and pulling the knife from the drawer only happens once, and we don't need to worry about it. If we included it, we might write something like O(n+3), where the +3 is the get out bread step, get out peanut butter step, and get out knife step, each of which we had to do only once before we started making sandwhiches. But if we are making 100 sandwhiches, do we really care about the extra 3 steps in the complexity of our algorithm (300 steps vs. 303)? Nope. We can leave it off, O(n) is good enough for our purposes.</p>
+
+    <h3>Non-linear Algorithms</h3>
+    <p>Not all algorithms are linear. Think about multiplication. If we want to multiply 3*3, that's easy, and we can do that in two steps: 1. multiple 3 by 3, 2. return 9. But what if we wanted to multiply 34*31 using the steps for multiplication we learned in elementary school? The steps would be as follows: 1. multiply 1 by 4, result is 4, 2. mulitply 1 by 3, result is 3, 3. bring down a 0 to start multiplying in the tenth place, 4. multiply 3 by 4, result is 12, 5. carry the 1 and leave the 2, 6. multiply 3 by 3, the result is 9, 7. add 1 (which is the carreid over 1) to 9, the result is 10, 6. bring down the 10, 2 (remainder from carrying the 1), next to the already brought down 0 , 7. add 1020 and 34 (1. add 0 and 4 for 4, 2. add 2 and 3 for 5, 3. bring down 10, 4. combine 10, 5, and 4 for 1054) which would add at least 4 additional steps in the parenthesis in step 7 if you can't add 1020 and 34 in your head, 8. return 1054. So multiplying two single digits numbers took one step, but multiplying two numbers one of which happened to have 2 digits took at least 8. steps and maybe as many as 12 steps. We were still only multiplying two numbers, but the number of steps were different depending on how many digits the are in our numbers. We can't write the multiplication algorithm as O(n), because it isn't linear unless we are multiplying two single digit numbers. It's more like "do n-multiplications and n-additions depending on how many digits the numbers are". We could used n^2 for the number of muliplations, where n is the length of the biggest digit being multiplied--so multiplying two single digit numbers dayes 1^2 (result: 1) multiplication, and multiplying a two 2-digit numbers takes 2^2 (4) multiplications. The addition that has to be done after the muliplication remains linear, and would be represented by something close to 2n, where n is the number of digits we need to add. So we could represent multiplication using big-0 notiation as O(n^2 + 2n). </p>
+
+    <h3>Comparing Algorithms using Big-O</h3>
+    <p>So what's the point of all this? Why do I care if my algorithm for making peanut butter sandwhiches is O(n)? I own a company that makes gourmet peanut butter sandwhiches and I need to make 20,000 peanut butter sandwhiches (represented by n) a day. By hand, with our 3 steps a sandwhich algorithm, that's 60,000 steps. If each step takes me 5 seconds, which we can represent as K, that's 300,000 seconds (K * 3 * n), or around 83 hours. That's hardly efficient. I want to buy a peanut butter sandwhich making machine, but only if it saves me time. With the machine, the steps are as follows for each sandwhich: 1. press button, 2. return sandwhich. At the beginning of each day we have to load up the machine with a ton of bread and peanut butter, but we only do that once and we don't need to include it when calculating Big-O for or algorithm. If takes 30 seconds (K) for the machine to run each operation, so my one sandwhich will come out of the machine in 60 seconds. You can program the machine to make sandwhiches in 100 sandwich batches, so for 100 sandwhiches, it is still two steps: 1. turn on machine, 2. return sandwiches. It still takes 60 seconds (again, K=30 seconds) and you get 100 sandwiches instead of one sandwich. In this case, as long as there are less than or equal to 100 sandwiches, the sandwich machine will take 2 steps to make them. So we could represent the complexity of our sandwich machine making algorithm as O(n/100), where n is the number of sandwhiches. There are some situations where this wouldn't be accurate, but as we learned above, we can ignore the outliers. We care about the big picture. If we are making 20,000 peanut butter sandwiches, this algorithm would suggest that at most it would take about 12,000 seconds to make them (remember, K is 30 seconds, and 2 is the number of steps): K * 2 * (20,000/100). That's around 3 hours. A great improvement over the 83 hours it would take me by myself to make the sandwiches without the machine using my handmade sandwich algorithm.</p>
+
+    <h3>The Big BIG Picture</h3>
+    <p>Obviously the sandwich machine making algorithm is more efficent than the sandwich making by hand algorithm. We can compare those two algorithms using Big-O because they are doing the same thing. It wouldn't make sense to say that the sandwich machine algorithm is more efficent than the multiplication algorithm above. But we could compare different multiplication algorithms (Yes, there are more ways to multiply numbers than the one you learned in elementary school. This <a href="https://www.youtube.com/watch?v=170HCmphjUI&index=1&list=WL" target="_blank">Stanford video</a> is a great intro to algorithms and uses multiplication as an example.). If we are multiplying numbers with hundreds or thousands of digits, we care which set of steps, which algorithm, is more efficient, because our hands are going to hurt like hell multiplying all those numbers and we want to keep the steps to a minimum. Similarly, if we are doing the multiplication on a computer, we care whether one algorithm will process our long list of numbers in 10 seconds, while another algorithm that is more complex will process it in 4 hours and keep us from updating Facebook all afternoon while it processes the list.</p>
+
+    <p>So that's big-O notation. Keep in mind that it is the upper-bound, worse case scenario: it says "this, at most, is how long this algorithm will take to run, given some factor K (which could be how fast your processor is/how fast your peanut butter making machine is/how fast you write), based on the complexity of the algorithm". There's other sorts of notation: big-Omega notation represents the lower bound, best case scenario for an algorithm: this is, at the very least, how long this algorithm will take to run, given some factor K, based on the complexity of the algorithm. There is also theta notation. A gross simplification of theta notation is that it is when the worst case and the best case are the same, given some factory K and the complexity of the algorithm: if, no matter what, an algorithm given factor K will take a certain amount of time to run, then you can represent it using theta notation. </p>
+
+    <h3>Links I found useful:</h3>
+    <p></p>
+  </section>
+</main>
+
+<nav>
+      <ul>
+        <li><a href="../index.html">Main</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <footer>
+      <p id="copyright">Copyright 2015 Jen Trudell</p>
+      <div id = "github">
+        <a href="https://www.github.com/jtrudell" target="_blank"><img src="../images/github.png" alt="github icon"></a>
+      </div>
+      <div id = "twitter">
+        <a href="https://www.twitter.com/jktrudell" target="_blank"><img src="../images/twitter.png" alt="twitter icon"></a>
+      </div>
+      <div id = "linkedin">
+        <a href="https://www.linkedin.com/in/jktrudell" target="_blank"><img src="../images/linkedin.png" alt="linkedin icon"></a>
+      </div>
+    </footer>
+    </body>
+    </html>
+
