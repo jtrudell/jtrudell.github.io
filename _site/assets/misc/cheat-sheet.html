@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cheat Sheet | JavaScript</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/js-cheat-sheet.css">
+  </head>
+
+<body>
+
+  <header>
+    <h1>JavaScript Cheat Sheet</h1>
+    <h2>Objects, Functions, and Loops</h2>
+  </header>
+
+  <div id = left_column>
+    <div id = "js_objects">
+      <h4>How to create objects in Javascript</h4>
+        <h6>Scenario: make a My Little Pony object</h6>
+      <h5>Object Literals</h5>
+        <pre><code><p>
+    var twilightSparkle = {
+      name: "Twilight Sparkle",
+      typeOfPony: "alicorn",
+      color: "purple",
+      hasCutieMark: true
+    }
+        </p></code></pre>
+
+      <h5>Object Prototypes</h5>
+        <p>Scenario: create a template to reuse the pony object...because of course we want to easily be able to make lots of ponies!</p>
+        <pre><code><p>
+    function pony(name, type, color, mark) {
+      this.name = name;
+      this.type = typeOfPony;
+      this.color = color;
+      this.mark = hasCutieMark
+    }
+
+    var rarity = new pony("Rarity", "unicorn",
+                  "silvery white", "true");
+        </p></code></pre>
+    </div>
+
+    <div id = "js_functions">
+      <h4>How to define a function in Javascript</h4>
+
+      <h6>Scenario: create a function that will make a pony object say hi to you</h6>
+
+      <h5>Simple function</h5>
+
+        <pre><code><p>
+    function sayHi(aPony) {
+      console.log(aPony.name + " says hi!");
+    }
+
+    sayHi(twlightSparkle);
+    // "Twilight Spark says hi!"
+        </p></code></pre>
+      </div>
+    </div>
+
+    <div id = "right_column">
+    <div id = "js_loops">
+      <h4>How to loop in Javascript</h4>
+
+      <h6>Scenario: add an exclamation mark to each pony name in an array</h6>
+
+      <h5>for loops</h5>
+        <pre><code><p>
+    var names = ["Twilight", "Rarity", "Rainbow Dash"];
+
+    for (var i = 0; i < names.length; i++) {
+      names[i] += "!";
+    }
+        </p></code></pre>
+
+      <h5>while loops</h5>
+        <pre><code><p>
+    var i = 0;
+
+    while (i < names.length) {
+      names[i] += "!";
+    }
+        </p></code></pre>
+
+        <h5>for in loops</h5>
+          <p>Note: do not use this if the order of the elements in the array matters, because this type of loop will iterate over elements in an arbitrary manner.</p>
+        <pre><code><p>
+    for (var i in names) {
+      names[i] += "!";
+    }
+        </p></code></pre>
+
+
+        <h5>do while loops</h5>
+          <p>Note: will always execute the first statement once, even if the while condition isn't true; if the condition is true, will continue to execute the statement until it is not true.</p>
+        <pre><code><p>
+    do {
+      console.log("Ponies are awesome!")
+      }
+      while (true);
+    // creates an infinite loop. If condition
+    // were false, "Ponies are awesome!" would
+    // still execute one time.
+        </p></code></pre>
+    </div>
+  </div>
+
+  <footer>
+    <p id="copyright">Copyright 2015 Jen Trudell</p>
+  </footer>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/js-cheat-sheet.js" charset="utf-8"></script>
+</body>
+</html>
+

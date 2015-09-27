@@ -1,0 +1,9 @@
+#jenpic {
+  border-radius: 250px;
+  width: 40%;
+  opacity: 0.7;
+  display: inline-block;
+  float: left;
+  margin-left: 5%;
+  padding: 4%;
+}

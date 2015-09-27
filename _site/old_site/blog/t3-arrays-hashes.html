@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jen Trudell | Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+  <header></header>
+<main class = "blogentry">
+  <h1>Ruby: Arrays and Hashes</h1>
+  <h2>All my dogs</h2>
+  <h4>August 16, 2015</h4>
+
+  <section>
+    <h3>My dogs</h3>
+
+    <p>I have had four dogs in my life: my current dog, Sophie; the dog my mom got while I was in law school, Tobey; the dog I had for the longest while growing up, Jesse; and Nick, who was around when I was a toddler. Sophie is part black lab mixed with something (ok, I admit it, I know because we ran a DNA test: whippet). Tobey and Jesse were golden retrievers. From what I have been told, Nick was a real devil of a mutt (sweet dog, but he ran away a lot and almost chewed through our back door). I could arrange my dogs in various ways using ruby. If I wanted to just list out their names, I could use a simple array. Think of an array as just another name for a list. Each item in the array-list is separated by a comma, and the whole list is encapsulated with square brackets. You can put anything into an array (numbers, strings, other arrays, etc.), but since we are talking about my dogs, we are going to make the my_dogs_array an array of dog names:</p>
+
+      <code>
+        <p>my_dogs_array = ["Sophie", "Tobey", "Jesse", "Nick"]</p>
+      </code>
+
+    <p>That's a nice list, but it doesn't really tell us anything other than the names of my dogs. What if you wanted to know what breed they are? We could use a hash, which is like a list of pairs. One member of the pair is a key, and the other member of the pair is the value that the key points to. Think of each key/value pair in a hash as a dog cage (big, roomy cages, with a dog bed, naturally). Each cage has a name tag with the name of the dog (the key) and in each cage is a certain breed of dog (the value). The cages are lined up in a row, in a room between two walls (the walls are curly braces in a hash). Here are my dogs and their breeds as a hash:</p>
+
+      <code>
+        <p>my_dogs_hash = {"Sophie" => "lab mix", "Tobey" => "golden retriever", "Jesse" => "golden retriever", "Nick" => "devil mutt"} <span class="comment"># You can use colons instead of those arrow looking things (hash rockets), like "Sophie": "lab mix"</span></p>
+      </code>
+
+    <p>In a hash, there can only be one of each key (I can't have more than one Sophie--I mean, I guess in real life I could have two dogs named Sophie, but they wouldn't be clones of each other), but different keys can have the same value. It is perfectly ok that both Tobey and Jesse are golden retrievers, for example.</p>
+
+    <h3>Call the dogs</h3>
+
+    <p>So now we know what an array is, and what a hash is, but what if we want to get one piece of information out of the array or the hash? What if we don't want the whole list of names (in the case of an array) or list of key/value pairs (in the case of a hash)? We can call the dogs by their number in line for the array (called an index number) or, in the case of a hash, by the name of the key (in this case, literally the dog's name), as follows:</p>
+
+      <code>
+        <p>my_dogs_array[0] <span class="comment"># Each item in an array is numbered left to right and starts with 0</span><br>
+          => "Sophie"</p>
+
+        <p>my_dogs_array[2] <span class="comment"># Remember, starts with 0, so while Jesse is actually the third dog in the array, her index number for purposes of the array is 2</span><br>
+          => "Jesse"</p>
+
+        <p>my_dogs_hash["Tobey"]<br>
+         => "golden retriever"</p>
+
+        <p>my_dogs_hash["Nick"]<br>
+          => "devil mutt"</p>
+      </code>
+
+      <h3>Mixing it up: Arrays and Hashes</h3>
+
+      <p>What if you wanted to know even more about my dogs? The my_dogs_hash only returns one value (the breed) for each key (the dog's name). What if you wanted to know something else about the dog, like its personality? We can have each key return more than one value by making the value an array, like so:</p>
+
+        <code>
+          <p>my_dogs_super_hash = {"Sophie" => ["lab mix", "great with kids"], "Tobey" => ["golden retriever", "gentle giant"], "Jesse" => ["golden retriever", "afraid of thunderstorms"], "Nick" => ["devil mutt", "nuts"]}</p>
+
+          <p>my_dogs_super_hash["Jesse"]<br>
+          => ["golden retriever", "afraid of thunderstorms"]</p>
+        </code>
+
+      <p>As you can see above, when we call the key "Jesse" from the my_dogs_super_hash, the value we get is an array which includes both that Jesse was a golden retriever and that she was afraid of thunderstorms. Not only can you mix arrays in with hashes (and vice versa, you could have an array OF hashes), you can also mix the methods you use to get values from them. Say you just wanted to know the personality of Sophie, which is the second item of the array in the hash value with the key "Sophie" (remember that the second item of the array is actually index number 1 for our purposes, since the first item is index number 0):</p>
+
+      <code>
+        <p>my_dogs_super_hash["Sophie"][1]<br>
+        => "great with kids"</p>
+      </code>
+
+      <p>There you have it! Thanks Dev Bootcamp, now I'm missing Tobey and Jesse and, yes, even Nick.</p>
+  </section>
+</main>
+
+<nav>
+      <ul>
+        <li><a href="../index.html">Main</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <footer>
+      <p id="copyright">Copyright 2015 Jen Trudell</p>
+      <div id = "github">
+        <a href="https://www.github.com/jtrudell" target="_blank"><img src="../images/github.png" alt="github icon"></a>
+      </div>
+      <div id = "twitter">
+        <a href="https://www.twitter.com/jktrudell" target="_blank"><img src="../images/twitter.png" alt="twitter icon"></a>
+      </div>
+      <div id = "linkedin">
+        <a href="https://www.linkedin.com/in/jktrudell" target="_blank"><img src="../images/linkedin.png" alt="linkedin icon"></a>
+      </div>
+    </footer>
+    </body>
+    </html>
+

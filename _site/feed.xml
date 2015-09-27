@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jen Trudell</title>
+    <description>Developer</description>
+    <link>http://jtrudell.github.io/</link>
+    <atom:link href="http://jtrudell.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 26 Sep 2015 21:49:15 -0500</pubDate>
+    <lastBuildDate>Sat, 26 Sep 2015 21:49:15 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Don&#39;t Be Lazy: how to ask questions on the internet</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;lmost every night, my wife asks me what the weather is going to be like tomorrow. She has an iphone and a laptop, knows how to turn on the television, and can read. But every night, she still asks me, like I&#39;m the farmer&#39;s almanac personified. And every night I pull out my iphone and look up the weather for her. I do it because I love her. But I don&#39;t love strangers on the internet, and neither do you. If you went on Stack Overflow and asked what the weather was going to be like tomorrow every night, you&#39;d probably be banned from posting. It&#39;s simple: people don&#39;t like to feel taken advantage of. People like to help people who are already helping themselves. If you have a question, the very first thing you should do before you post anything on the internet is to Google. You might find the answer to your question. In fact, someone may have already asked your exact same question (there is truly nothing new under the sun, even in programming). If you don&#39;t find the answer to your question, you will likely find answers to similar questions, and can then better frame your own question. Showing that you have looked for your own answers and have gotten close makes it much more likely that people will want to help you over the finish line. This shouldn&#39;t put you off from asking questions--on the contrary, it should be empowering. You can do research. You don&#39;t have to rely on other people to always answer your questions. And when you really do need help, you are more likely to find it if you first put in the work to search for an answer to your own question. Also, tomorrow&#39;s forecast is partly cloudy, high of 75. Should be a beautiful day.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;lmost every night, my wife asks me what the weather is going to be like tomorrow. She has an iphone and a laptop, knows how to turn on the television, and can read. But every night, she still asks me, like I&#39;m the farmer&#39;s almanac personified. And every night I pull out my iphone and look up the weather for her. I do it because I love her. But I don&#39;t love strangers on the internet, and neither do you. If you went on Stack Overflow and asked what the weather was going to be like tomorrow every night, you&#39;d probably be banned from posting. It&#39;s simple: people don&#39;t like to feel taken advantage of. People like to help people who are already helping themselves. If you have a question, the very first thing you should do before you post anything on the internet is to Google. You might find the answer to your question. In fact, someone may have already asked your exact same question (there is truly nothing new under the sun, even in programming). If you don&#39;t find the answer to your question, you will likely find answers to similar questions, and can then better frame your own question. Showing that you have looked for your own answers and have gotten close makes it much more likely that people will want to help you over the finish line. This shouldn&#39;t put you off from asking questions--on the contrary, it should be empowering. You can do research. You don&#39;t have to rely on other people to always answer your questions. And when you really do need help, you are more likely to find it if you first put in the work to search for an answer to your own question. Also, tomorrow&#39;s forecast is partly cloudy, high of 75. Should be a beautiful day.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 24 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/c9-questions/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/c9-questions/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Algorithms: Big-O Notation</title>
+        <description>&lt;h4&gt;What&amp;#39;s an algorithm?&lt;/h4&gt;
+
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;n algorithm is a hard to pronounce word for something simple: a set of steps that can be used to solve a problem. A slightly longer definition is that an algorithm is a finite number of steps or rules that, if followed, give you a result. Algorithms are distinguished by three things: (1) the steps/rules are clear and unambiguous, (2) there is an end to the steps/rules (finite. the steps/rules don&#39;t go on forever.) and (3) following the steps/rules returns a result. Addition is an algorithm, which, given a list of numbers you want to add, can be expressed with the following steps: 1. given a list of numbers, 2. add the first number to the second number, 3. if there are more than two numers, add the sum of the first number and second number to the third number, 4. repeat step three for the fourth number (if any) and any subsequent numbers until there are no more numbers in the list, 5. return the final sum. If you don&#39;t like math, here&#39;s a peanut butter sandwich algorithm: 1. get out the peanut butter, 2. get out the bread, 3. get out the knife, 4. spread peanut butter on one slice of bread, 5. put the other slice of break on top of the slice of bread with the peanut butter on it, 6. return peanut butter sandwich.&lt;/p&gt;
+
+&lt;h4&gt;What makes a good algorithm? Measuring algorithm complexity.&lt;/h4&gt;
+
+&lt;p&gt;Algorithms are measured and compared based on how complex they are. The addition algorithm and the peanut better sandwhich algorithm are linear algorithms--the more numbers you have, or the more peanut butter sandwiches you have to make, the more steps you have to take, and the amount of steps you have to take increase in direct proportion to how many numbers or peanut butter sandwiches you are working with. Think of a graph: the x-axis is the number of steps, and the y axis is the number of sandwhiches/numbers. With linear algorithms, you end up with a straight diagonal line. If it takes 3 steps (disregarding taking out the knife, peanut butter and bread for the moment) to make one peanut butter sandwhich, it should take 300 steps to make 100 sandwhiches. If n is the number of peanut butter sandwhiches, or the number of numbers in a list of numbers we want to add, we could represent the complexity of the algorithm by O(n).&lt;/p&gt;
+
+&lt;h4&gt;Big-O Notation&lt;/h4&gt;
+
+&lt;p&gt;That O(n) up there is known as Big-O notation. Big-O notation represents the upper-bound of complexity of an algorithm, or for our purposes the total number of steps it will take to run the algorithm through a given set of n-numbers for the addition algorithm or n-sandwhiches for the sandwich making algorithm. Big-O represents the worst case scenario of complexity. When calculating what Big-O is for a certain algorithm, we only care about the big picture. Big-O notation is not exact, it is an estimate of the upper-bound based on the significant steps in the algorithm. Trivial stuff, like getting out the peanut butter and bread and pulling the knife from the drawer only happens once--it is a constant. You can drop constants when using Big-O, because Big-O assumes n is trending towards infinity. If we included constants, we might write something like O(n+3), where the +3 is the get out bread step, get out peanut butter step, and get out knife step, each of which we had to do only once before we started making sandwhiches. But if we are making 100 sandwhiches, or a million sandwiches, do we really care about the extra 3 steps in the complexity of our algorithm (300 steps or 1,000,000 steps vs. 303 or 1,000,003)? Nope. We can leave it off, O(n) is good enough for our purposes. Not all algorithms can be represented by O(n) to show their complexity (although it would be a lot easier if they could be!). You could have an algorithm that is O(n^2), or O(2logn), etc.&lt;/p&gt;
+
+&lt;h4&gt;There a difference between complexity and runtime&lt;/h4&gt;
+
+&lt;p&gt;Big-O is a representation of how complex an algorithm is. It is NOT a measure of how long it would take to run the algorithm. It is not a measure of performance. The time it takes to run the algorithm depends on what we can call K. What is K? It&amp;#39;s a constant. K can be you, in the case of how fast you can make sandwhiches or add up numbers on a piece of paper, or your computer, if you are using your computer to do the addition, and the amount of memory and processor speed your computer has to run the data (or sandwiches) you are processing. Big-O doesn&amp;#39;t really care about K, because big-O doesn&amp;#39;t care about constants. Big-O just wants to tell you the upperbound of complexity for a given algorithm so you can compare it to other algorithms that do the same thing.&lt;/p&gt;
+
+&lt;h4&gt;Comparing Algorithms using Big-O&lt;/h4&gt;
+
+&lt;p&gt;So what&amp;#39;s the point of all this? Why do I care if my algorithm for making peanut butter sandwhiches is O(n)? I own a company that makes gourmet peanut butter sandwhiches and I need to make 20,000 peanut butter sandwiches (each sandwich represented by n) a day. By hand, with our 3 steps a sandwhich algorithm, that&amp;#39;s 60,000 steps. I want to buy a peanut butter sandwhich making machine, but only if it makes sense. With the machine, the steps are as follows for each sandwhich: 1. press button, 2. return sandwhich. At the beginning of each day we have to load up the machine with a ton of bread and peanut butter, but we only do that once a day and we don&amp;#39;t need to include it when calculating Big-O for our algorithm. You can program the machine to make sandwhiches in 100 sandwich batches, so for 100 sandwiches, it is still only two steps: 1. turn on machine, 2. return sandwiches. In this case, as long as there are less than or equal to 100 sandwiches, the sandwich machine will take 2 steps to make them. So we could represent the complexity of our sandwich machine making algorithm as O(n/100), where n is the number of sandwiches. There are some situations where this wouldn&amp;#39;t be accurate (if you were only making 50 sandwiches, for example), but as we learned above, we can ignore the outliers. We care about the big picture. If we are making 20,000 peanut butter sandwiches, this algorithm would suggest that at most it would take about 400 steps to make them (2 steps * (20,000 sandwiches/100)). A great improvement over the 60,000 steps it would take me by myself to make the sandwiches without the machine using my handmade sandwich algorithm.&lt;/p&gt;
+
+&lt;h4&gt;The Big BIG Picture&lt;/h4&gt;
+
+&lt;p&gt;Obviously the sandwich machine making algorithm is less complex than the sandwich making by hand algorithm. We can compare those two algorithms using Big-O because they are doing the same thing. It wouldn&amp;#39;t make sense to say that the sandwich machine algorithm is less complex than the addition algorithm above. But we could compare different addition or multiplication algorithms (Yes, there are more ways to multiply numbers than the one you learned in elementary school. This &lt;a href=&quot;https://www.youtube.com/watch?v=170HCmphjUI&amp;index=1&amp;list=WL&quot; target=&quot;_blank&quot;&gt;Stanford video&lt;/a&gt; is a great intro to algorithms and uses multiplication as an example.). If we are multiplying numbers with hundreds or thousands of digits, we care which set of steps, which algorithm, is more efficient, because our hands are going to hurt like hell multiplying all those numbers and we want to keep the steps to a minimum. Similarly, if we are doing the multiplication on a computer, we care whether one algorithm will process our long list of numbers in 2 steps if each step takes 10 seconds, while another algorithm that is more complex will process it in 1000 steps and keep us from updating Facebook for 2000 seconds while it processes the list.&lt;/p&gt;
+
+&lt;p&gt;So that&amp;#39;s big-O notation. Keep in mind that it is the upper-bound, worse case scenario: it says &amp;quot;this, at most, is how many steps this algorithm will take, give some input n&amp;quot;. Big-O isn&amp;#39;t telling you anything about time or performance. If you want to figure that out, you will need to throw in some factor K (which could be how fast your processor is/how fast your peanut butter making machine is/how fast you write), which has nothing to do with the complexity of the algorithm being represented by Big-O. There&amp;#39;s other sorts of notation: big-Omega notation represents the lower bound, best case scenario for an algorithm: this is, at the very least, how many steps this algorithm will take to run. A gross simplification of theta notation is that it is when the worst case and the best case are the same: if, no matter what, an algorithm given an input n will take a certain number of steps to run, then you can represent it using theta notation.&lt;/p&gt;
+
+&lt;h4&gt;Caveat&lt;/h4&gt;
+
+&lt;p&gt;I&amp;#39;m not a math major. I don&amp;#39;t have a CS degree. Half of this is probably wrong. Except I&amp;#39;m 100% positive about Big-O being the upperbound of complexity is right, and anyone who tells you Big-O represents runtime is flat out wrong. That being said, we all call tissue &amp;quot;kleenex&amp;quot; even though Kleenex is a brand name and not all tissue is Kleenex, and if someone asks you for a kleenex and you say &amp;quot;I don&amp;#39;t have kleenex, but I have a tissue&amp;quot; you are just being a jerk because you know damn well what they want. Someone at an interview is inevitably going to ask you about Big-O notation and runtime and you are just going to smile, node and pretend they are the same.&lt;/p&gt;
+
+&lt;h4&gt;Links I found useful:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html&quot; target=&quot;_blank&quot;&gt;Plain English Explanation of Big O Notation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.coursera.org/course/algo&quot; target=&quot;_blank&quot;&gt;Algorithms: Design and Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h4&gt;What&amp;#39;s an algorithm?&lt;/h4&gt;
+</description>
+        
+        <pubDate>Thu, 17 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t8-tech/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t8-tech/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Conflict: the Condo from Hell</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;W&lt;/span&gt;hen I first moved back to Chicago from NYC, I lived in a condo in Roscoe Village. The neighborhood was great, the inside of the condo was beautiful, and I was excited to be paying a fraction of what I would have paid in Brooklyn for the same type of place. There were only two problems: upstairs and downstairs. I lived on the third floor. The fourth floor was the top unit, and a couple with two giant yellow labs lived there. The second floor unit directly below me was  occupied by a guy in his early 20s who liked to party late and sleep-in. (The ground floor unit was commercial, owned by a mortgage company. They were great!). The people above me seemed like good folks, and I love dogs, but I did not love dogs wrestling above my head constantly, shaking my light fixtures. I did not love that the woman who lived above sounded like an elephant in high heels on their wood floors. The guy below me blasted house music at all hours of the night and then complained when my cat jumped off my bed in the morning. The sound of a 12 pound cat landing on the floor woke him up, and this was just completely unacceptable to him. The whole situation enraged me. I felt trapped and powerless, and in a way I was trapped: I couldn&#39;t just up and move, and on top of that I had not just one source of annoyance, but was sandwiched between two: I could barely hear myself think in my condo because of the people above me and the music below me, and I was afraid to walk around in my own place because of the guy below me.&lt;/p&gt;
+
+&lt;p&gt;So what did I do? I fumed, a lot. I googled &amp;quot;how to get back at noisy neighbors&amp;quot;. Reading stories written by people who were in similar situations was validating, and dreaming about &amp;quot;getting even&amp;quot;, even though I knew I wouldn&amp;#39;t do any of the things suggested, was cathartic. I&amp;#39;m not good at confrontation, but eventually I did ask the woman upstairs if she could try not to wear high heels in the house, and if they could try to keep the dogs from wrestling. The high heel situation improved, the dog wrestling did not. I tried talking to the guy below me about his loud music, and his response was basically that he could do whatever he wanted in his own place (but apparently I couldn&amp;#39;t do whatever I wanted in mine if it distured his beauty sleep). So I fumed some more. I blasted the speakers on my tv. I wore headphones. I bought a noise machine. Eventually, I got sort of used to it. Not happy, but used to it. And then finally I did move. Because sometimes you can&amp;#39;t change a situation, you need to remove yourself from it entirely. It&amp;#39;s not fair, but it happens.&lt;/p&gt;
+
+&lt;p&gt;We now live in a 100 year-old house in Oak Park. No one lives above us or below us. There are no granite countertops, double sinks or walk-in closets like in the condo. The kitchen desperately needs to be updated and the main bathroom is the size of a shoebox. But the neighborhood is great and the neighbors are also great (having their own walls, floors and ceilings helps). It&amp;#39;s been years since we moved, but I still cringe whenever my own dogs runs around the living room, until I remember there is nothing living in the basement for her to disturb except for maybe the cat.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;W&lt;/span&gt;hen I first moved back to Chicago from NYC, I lived in a condo in Roscoe Village. The neighborhood was great, the inside of the condo was beautiful, and I was excited to be paying a fraction of what I would have paid in Brooklyn for the same type of place. There were only two problems: upstairs and downstairs. I lived on the third floor. The fourth floor was the top unit, and a couple with two giant yellow labs lived there. The second floor unit directly below me was  occupied by a guy in his early 20s who liked to party late and sleep-in. (The ground floor unit was commercial, owned by a mortgage company. They were great!). The people above me seemed like good folks, and I love dogs, but I did not love dogs wrestling above my head constantly, shaking my light fixtures. I did not love that the woman who lived above sounded like an elephant in high heels on their wood floors. The guy below me blasted house music at all hours of the night and then complained when my cat jumped off my bed in the morning. The sound of a 12 pound cat landing on the floor woke him up, and this was just completely unacceptable to him. The whole situation enraged me. I felt trapped and powerless, and in a way I was trapped: I couldn&#39;t just up and move, and on top of that I had not just one source of annoyance, but was sandwiched between two: I could barely hear myself think in my condo because of the people above me and the music below me, and I was afraid to walk around in my own place because of the guy below me.&lt;/p&gt;
+</description>
+        
+        <pubDate>Wed, 16 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/c8-conflict/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/c8-conflict/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>JavaScript Objects Look Suspiciously Similar to Ruby Hashes</title>
+        <description>&lt;h3&gt;Ruby vs. JavaScript&lt;/h3&gt;
+
+&lt;h4&gt;JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/h4&gt;
+
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;C&lt;/span&gt;ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala &quot;key_1&quot; =&gt; 1, which are also kosher for use in hashes in Ruby). Here&#39;s a hash in Ruby:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;pony&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;yellow&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;earth pony&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And here is an object literal in JavaScript:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pony&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;yellow&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;earth pony&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;cutieMark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Other than the certain syntax differences in the JS version (variable begins with &amp;quot;var&amp;quot;. semi-colon after the closing brace and the camelcase in &amp;quot;cutie mark&amp;quot;), they are identical. You would call the properties slightly differently, however. In Ruby, if you want to know what color the pony is, you would use pony[:color], because the word &amp;quot;color&amp;quot; in this case is a symbol (denoted by a semi-colon), not a string; in JavaScript, it is pony.color or pony[&amp;quot;color&amp;quot;] (the latter would also work with a Ruby hash, if instead of a symbol for color you used &amp;quot;color&amp;quot; =&amp;gt; as the key). These differences are largely cosmetic. Both a Ruby hash and a JavaScript object literal let you define a set of key/value pairs associated and assign that set of pairs to a variable. You can even add key/value pairs to existing JavaScript objects and Ruby hashes in a similar way (in JS, pony.name = &amp;quot;Applejack&amp;quot; or pony[&amp;quot;name&amp;quot;] = &amp;quot;Applejack&amp;quot; and in Ruby, pony[:name] = &amp;quot;Applejack&amp;quot; or pony[&amp;quot;name&amp;quot;] = &amp;quot;Applejack&amp;quot;).&lt;/p&gt;
+
+&lt;p&gt;The underlying difference is in how Ruby and Javascript use objects. In Ruby everything (or almost everything, I&amp;#39;m told) is an object. A string is an object, a symbol is an object, a hash is an object, an integer is an object, and yes, an object is an object. In JavaScript, not everything is an object--booleans, strings, and numbers are not objects. A string literal, Like var x = &amp;quot;earth pony&amp;quot; (which is different from an actual String object in JS, created by declaring var x = newString(&amp;quot;earth pony&amp;quot;)), in JavaScript is a primitive value, and not an object. Objects are groupings of properties and respond to certain methods, and &amp;quot;earth pony&amp;quot; and the number 4, in Javascript, technically do not have properties and methods--they are just the space taken up by the bits necessary to create the values &amp;quot;earth pony&amp;quot; and 4. The reason that you can use methods on string literals is that Javascript coerces them into String (note the capital &amp;quot;S&amp;quot;) objects, much like it can coerce the string &amp;quot;4&amp;quot; into the number 4 (which is something Ruby would not do).&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;Ruby vs. JavaScript&lt;/h3&gt;
+
+&lt;h4&gt;JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/h4&gt;
+</description>
+        
+        <pubDate>Sat, 12 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t7-javascript/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t7-javascript/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Challenge and Integrity</title>
+        <description>&lt;h4&gt;Challenge&lt;/h4&gt;
+
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt; like a good challenge. It is why I went to law school. It is why I moved to NYC to work after law school knowing very few people. It is one of the reasons I taught myself how to code. When I see something that looks hard to do, I want to try it. Sometimes I give up, and that&#39;s ok as long as I&#39;m giving up for the right reasons. When I was in middle school, I dreamed of being an NBA player. I was 4&#39;10 and a girl. It was ok to give up on the impossible. Unlike playing in the NBA, learning to code isn&#39;t impossible. Sure, coding can be really, really tough, but the rush I get when I finally solve a tough coding problem makes the challenge fun.&lt;/p&gt;
+
+&lt;h3&gt;Integrity&lt;/h3&gt;
+
+&lt;p&gt;I value integrity, in myself and in others. Being a lawyer was challenging, and it certainly wouldn&amp;#39;t have been impossible for me to continue to succeed as a practicing lawyer, but, for me, being a lawyer lacked integrity. I was pretty good at being a finance attorney and I provided my clients with excellent representation, but my heart wasn&amp;#39;t in it. I am not of the &amp;quot;you have to love what you do!&amp;quot; school of thought. I think that&amp;#39;s pretty unrealistic, to always love, or even like, your job. But I do think that if you are privileged and lucky enough (because of education, economics, age, ability, where you live, etc.) to be able to do what you want, you should do something that meshes with your interests and does not leave you waking up in the morning dreading the day ahead. Continuing to be a lawyer wasn&amp;#39;t fair to myself, and being unhappy a lot of the time wasn&amp;#39;t fair to my family or friends. Being a lawyer simply was not the way to live the rest of my life, to live a life with integrity.&lt;/p&gt;
+
+&lt;h3&gt;Stereotype Threat and Self-Worth&lt;/h3&gt;
+
+&lt;p&gt;&lt;blockquote&gt;&amp;quot;A general means for protecting the self from perceived threats and the consequences of failure is to allow people to affirm their self-worth.&amp;quot;&lt;/blockquote&gt; The above quote is from &lt;a href = &quot;http://www.reducingstereotypethreat.org/reduce.html#encouragingself&quot; target=&quot;_blank&quot;&gt;an article&lt;/a&gt; DBC suggested we read. Stereotype threat is, in short, performing poorly at a task because you are part of a group which is stereotyped as bad at that task. Think of women and math/tech/code. I&amp;#39;m not incredibly concerned about failing at DBC or coding. I know I&amp;#39;m up to the task, and I&amp;#39;ve worked hard and gotten through rough spots, and will continue to work hard and get through future rough spots. I am concerned, however, about having a difficult time finding a job after DBC because I of the stereotype that women are not good at tech/math, and I&amp;#39;m afraid that my fear will result in me performing poorly during technical interviews. Reminding myself that I like a good challenge (combating stereotypes AND solving problems during interviews == double the challenge!) and that I value integrity (I need to be true to myself, and do the best I can, not worry about how other people might be perceiving me) will hopefully help me assuage my anxiety and feel good about myself. Self-worth translated into a boost of self-confidence to stamp down stereotype threat.&lt;/p&gt;
+</description>
+        
+          <description>&lt;h4&gt;Challenge&lt;/h4&gt;
+</description>
+        
+        <pubDate>Fri, 11 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/c7-values/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/c7-values/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Ruby: blocks, procs and lambdas</title>
+        <description>&lt;h4&gt;blocks&lt;/h4&gt;
+
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;irst, the easy part: blocks! Two ways of representing the same block in Ruby are set out below. In the first case, the block is inside curly braces; in the second, the block is between the words &quot;do&quot; and &quot;end&quot;. You would generally reserve use of curly braces to encapsulate blocks that can be expressed in one line or code, and do/end statements for blocks that stretch our over more than one line.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;quot;|number| number * 2&amp;quot; is the block of code. It is passed to the method .each, and .each runs that block of code on each number in the array. Think of blocks as &amp;quot;blocks of code&amp;quot; and you should be ok.&lt;/p&gt;
+
+&lt;h4&gt;procs&lt;/h4&gt;
+
+&lt;p&gt;Next up, procs. In the simplest terms, a proc is a block assigned to a variable, like &amp;quot;x = |number| number * 2&amp;quot;, only with slightly more complicated syntax. In order to assign a code block to a variable, you have to create a new proc. Let&amp;#39;s see how that works:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;some_code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some_code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here, we have created a variable called some&lt;em&gt;code, which is equal to a new proc. We have created the new proc by calling Proc.new and then typing the code block after it. On the next line, we have again called .each on the array, but instead of typing out the block, we have sent each an argument &amp;quot;&amp;amp;some&lt;/em&gt;code&amp;quot;. The &amp;amp; symbol before our some_code variable let&amp;#39;s the .each method know to expect a proc and not give us an error. The code block is sent to the .each method the exact same way as if we had typed it out like we did in the section on blocks above.&lt;/p&gt;
+
+&lt;p&gt;Why use procs? Imagine that you need to pass the same bit of code over and over to different methods, and that the code block is much more complicated than just &amp;quot;|number| number * 2&amp;quot;. Rather than typing the block repeatedly, you could create a proc with the code block and assign that proc to a variable. Thereafter, you could just pass the variable, preceded by an &amp;amp;, to the methods that need your code block. DRY!&lt;/p&gt;
+
+&lt;h4&gt;lambdas&lt;/h4&gt;
+
+&lt;p&gt;Finally, lambdas. Just like procs are resuable fancy blocks, lambdas are sort of fancy procs. Lambdas are code blocks like procs, but with additional functionality. Lambdas recognize arguments; procs don&amp;#39;t. If your method requires 2 arguments and you called it with a proc using only one argument, the proc will run. If you try that with a lambda, you&amp;#39;ll get an argument error. Let&amp;#39;s see how that works with the code block we have been using and a new method, .call.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;our_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;our_lambda&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;our_proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#this will ignore the 3 and multiply the first argument, 2, by 2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;our_lambda&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#this will raise an argument error, because our_lambda,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#unlike our_proc, knows to look for one argument for the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#variable number, and we have provided two&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You create a lambda like your create a proc, but rather than &amp;quot;Proc.new&amp;quot; you use a lowercase &amp;quot;lambda&amp;quot; followed by the relevant block. In the above code, the method .call does what you would expect: it calls our&lt;em&gt;proc or our&lt;/em&gt;lamba, and passes our&lt;em&gt;proc and/or our&lt;/em&gt;lambda arguments if any are provided. In this way both the proc and the lambda are acting like methods, but the lambda is closer to a real method in that it monitors the number of arguments (and does a few other things that are beyond the scope of this blog entry).&lt;/p&gt;
+</description>
+        
+          <description>&lt;h4&gt;blocks&lt;/h4&gt;
+</description>
+        
+        <pubDate>Sun, 06 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t6-oop-concepts/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t6-oop-concepts/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Stereotype Threat</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;S&lt;/span&gt;tereotype threat is a self-fulfilling prophecy. If you are a member of a group subject to a negative stereotype and you are aware of that stereotype, your performance during certain tasks may suffer as you worry about acting out that stereotype rather than completing the task. I&#39;m a woman in tech. The stereotype is that women are not good at math. I am acutely aware of this stereotype, I honestly don&#39;t think I&#39;m very good at math, and I worry that I will fail or look stupid and not only embarass myself but prove the stereotype to be true. With all that on my mind it is no wonder I could get nervous and preocuppied and perform poorly in a technical interview. I know I am smart, I know my skills are solid and I&#39;m learning more every day, but still I worry that everyone is watching and waiting for me to slip up and prove that the stereotype about women and math is true. I don&#39;t know what to do about this. I suppose being aware of stereotype threat, just like being aware of impostor syndrome, is helpful. Being mindful of negative thoughts and looking at whether they originate from stereotype threat could help combat them. Solidifying my skills, and not comparing myself to others, also helps.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;S&lt;/span&gt;tereotype threat is a self-fulfilling prophecy. If you are a member of a group subject to a negative stereotype and you are aware of that stereotype, your performance during certain tasks may suffer as you worry about acting out that stereotype rather than completing the task. I&#39;m a woman in tech. The stereotype is that women are not good at math. I am acutely aware of this stereotype, I honestly don&#39;t think I&#39;m very good at math, and I worry that I will fail or look stupid and not only embarass myself but prove the stereotype to be true. With all that on my mind it is no wonder I could get nervous and preocuppied and perform poorly in a technical interview. I know I am smart, I know my skills are solid and I&#39;m learning more every day, but still I worry that everyone is watching and waiting for me to slip up and prove that the stereotype about women and math is true. I don&#39;t know what to do about this. I suppose being aware of stereotype threat, just like being aware of impostor syndrome, is helpful. Being mindful of negative thoughts and looking at whether they originate from stereotype threat could help combat them. Solidifying my skills, and not comparing myself to others, also helps.&lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 06 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/c6-stereotype-threat/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/c6-stereotype-threat/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Ruby Classes: Who needs Brogrammers when you&#39;ve got Bronies?</title>
+        <description>&lt;p&gt;&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&amp;#39;ve seen &lt;a href=&quot;http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/&quot; target=&quot;_blank&quot;&gt;Bronies&lt;/a&gt;. &lt;img src=&quot;/../assets/img/cartwheel.gif&quot; alt=&quot;cartwheel&quot;&gt;&lt;/p&gt;
+
+&lt;h4&gt;MyLittlePony&lt;/h4&gt;
+
+&lt;p&gt;Let&amp;#39;s create a class and make some ponies! Below I&amp;#39;ve made a class called MyLittlePony, so we can create our own pony objects. Each pony is initialized with three things we will specify when we call MyLittlePony.new: a name, &lt;a href=&quot;http://mlp.wikia.com/wiki/Ponies&quot; target=&quot;_blank&quot;&gt;type of pony&lt;/a&gt;, and whether the pony has a &lt;a href=&quot;http://mlp.wikia.com/wiki/Cutie_marks&quot; target=&quot;_blank&quot;&gt;cutie mark&lt;/a&gt;. Each pony object is also initialized with a default hometown set to &lt;a href=&quot;http://mlp.wikia.com/wiki/Ponyville&quot; target=&quot;_blank&quot;&gt;Ponyville&lt;/a&gt;, and an empty array to list the pony&amp;#39;s friends. I&amp;#39;ve also created two methods: one to let our pony say hi, and the other to list our pony&amp;#39;s friends. Since the name of our pony and the type of pony it is should never change (ok ok, so Princess Twilight used to be a Unicorn and now she&amp;#39;s an Alicorn, but she&amp;#39;s an outlier), I&amp;#39;ve assigned those variables to attr&lt;em&gt;reader--objects (including other ponies) outside the MyLittlePony class will be able to read each pony&amp;#39;s name and type, but not change it. Since has&lt;/em&gt;cutie&lt;em&gt;mark could change from false to true (little ponies don&amp;#39;t start off with cutie marks, they have to earn them! Or something. Ask my daughters.), and hometown and friends can change (obviously you can add friends, but our ponies will never lose friends!), I&amp;#39;ve made those variables attr&lt;/em&gt;accessor, so they are both readable and writeable outside the class if we want to change them later (say our pony moves to Canterlot, gains friends, etc.)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyLittlePony&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:type&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:has_cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:hometown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:friends&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has_cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@has_cutie_mark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has_cutie_mark&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@hometown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Ponyville&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@friends&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@has_cutie_mark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;do&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;don&amp;#39;t&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi! My name is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; and I am an &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@type&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; pony.&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;    I live in &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@hometown&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. I &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; have my cutie mark.&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;list_friends&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@friends&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we&amp;#39;ve got our MyLittlePony class, let&amp;#39;s make some ponies! I&amp;#39;m going to make each of the main characters from the show &lt;a href=&quot;https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_is_Magic&quot; target=&quot;blank&quot;&gt;Friendship is Magic.&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Twilight Sparkle&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Alicorn&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apple_jack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Applejack&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Earth Pony&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rainbow_dash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Rainbow Dash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pegasus&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pinkie_pie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Pinkie Pie&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Earth Pony&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rarity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Rarity&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Unicorn&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;flutter_shy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Flutter Shy&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pegasus&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Wow, that&amp;#39;s a lot of ponies. Hey Twilight, say hi to the readers!&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twlight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;say_hi&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Hi! My name is Twilight Sparkle and I am an Alicorn pony.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; I live in Ponyville. I do have my cutie mark.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Thanks Twilight! How about we give you some friends? We can do this outside the class by calling twilight.friends=[list some friends here], since we made @friends part of attr&lt;em&gt;accessor. And we can use the list&lt;/em&gt;friends method to list all of Twilight&amp;#39;s friends&amp;#39; names, since each pony&amp;#39;s name variable is included in attr_reader.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;friends&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apple_jack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rainbow_dash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pinkie_pie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;rarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flutter_shy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list_friends&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &amp;quot;Applejack&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Rainbow Dash&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pinkie Pie&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Rarity&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Flutter Shy&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;There you have it, a My Little Pony Ruby lesson. Full source code for your solo pony-creating is &lt;a href=&quot;/../assets/misc/my_little_pony.rb&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&amp;#39;ve seen &lt;a href=&quot;http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/&quot; target=&quot;_blank&quot;&gt;Bronies&lt;/a&gt;. &lt;img src=&quot;/../assets/img/cartwheel.gif&quot; alt=&quot;cartwheel&quot;&gt;&lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 29 Aug 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t5-ruby-classes/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t5-ruby-classes/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Pair Programming</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&lt;p&gt;s it a bad sign that I&#39;m not onsite at DBC yet, and I&#39;m already tired of pair programming? I always like it once I start, but I dread it beforehand. I&#39;m an introvert (I like people, but I need my down time, and I prefer working alone), and when I hear &quot;peer programming&quot; I think &quot;group work&quot;. Ugh, group work. Cue flashbacks to middle school. Does ANYONE like group work? In addition to the gut &quot;ugh&quot; reaction to group work, there&#39;s the awkwardness factor. Everyone I have paired with so far has been great, and I&#39;ve learned a ton from each person and session, but there&#39;s just something awkward about working one on one with someone you barely know. The awkwardness might be improved by pair programming in-person, since I think a lot of it has to do with pairing via google hangouts (you can&#39;t really get a good sense of body language on a video call).&lt;/p&gt;
+
+&lt;p&gt;Reading anonymous feedback has been less uncomfortable than pairing, but giving feedback is tough. When I give specific, constructive feedback, I feel like I&amp;#39;m not being nice, and then I worry about being too nice and not helping the other person out. The only sort of negative (and it isn&amp;#39;t even negative) feedback is that I should try to explain my thought process more to my pair, and slow down. I&amp;#39;m working on that. I recognize that I jump around in my head a ton, and that is probably part of why I dread pair programming. In addition to the awkwardness of a video call, I realize I have difficulty explaining my thought processes to others, and I get sort of tongue tied on the call. I&amp;#39;ve known I have trouble explaining what I am doing for awhile, and it is something I need to work on, because explaining what you are thinking and doing to the rest of your team (or to your client, if you are freelancing) is key to working as a developer. Thankfully, I know how I can improve: more peer programming!&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&lt;p&gt;s it a bad sign that I&#39;m not onsite at DBC yet, and I&#39;m already tired of pair programming? I always like it once I start, but I dread it beforehand. I&#39;m an introvert (I like people, but I need my down time, and I prefer working alone), and when I hear &quot;peer programming&quot; I think &quot;group work&quot;. Ugh, group work. Cue flashbacks to middle school. Does ANYONE like group work? In addition to the gut &quot;ugh&quot; reaction to group work, there&#39;s the awkwardness factor. Everyone I have paired with so far has been great, and I&#39;ve learned a ton from each person and session, but there&#39;s just something awkward about working one on one with someone you barely know. The awkwardness might be improved by pair programming in-person, since I think a lot of it has to do with pairing via google hangouts (you can&#39;t really get a good sense of body language on a video call).&lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 29 Aug 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/c5-feedback/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/c5-feedback/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Enumerable: group_by</title>
+        <description>&lt;h4&gt;group_by&lt;/h4&gt;
+
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;S&lt;/span&gt;ince Dev Bootcamp wouldn&#39;t let me write about my favorite enumerable method of all time, inject, you are getting group_by, which is also pretty useful (just not as awesome as inject). What does group_by do? If you don&#39;t include a block of code after you call the method (blocks are the code wrapped in braces include after calling a method (you can also wrap the code in &quot;do&quot; and &quot;end&quot;, instead of braces) it returns an enumerator, which I&#39;m not going to address here. If you include a block, according to &lt;a href=&quot;http://ruby-doc.org/core-2.2.3/Enumerable.html#method-i-group_by&quot; target=&quot;_blank&quot;&gt;Ruby Docs&lt;/a&gt;, group_by:&lt;/p&gt;
+
+&lt;blockquote&gt;&quot;Groups the collection by result of the block. Returns a hash where the keys are the evaluated result from the block and the values are arrays of elements in the collection that correspond to the key.&quot;&lt;/blockquote&gt;
+
+&lt;p&gt;Yeah, so, in english, it groups a &amp;quot;collection&amp;quot; (range, array, hash) by iterating through each item of the collection and applying the code block to it. The keys are the result of running that block on each item of the collection; the values associated with that key are the items themselves that return that result. So if the block is {|x| x/4}, and the first item in the array group&lt;em&gt;by has been called on is 8, the key will be 2, and at least one of the values will be 8 (any other item in the array that results in 2 when run through the block would also be a value the key 2 points to). In short, group&lt;/em&gt;by returns the results of calculations as keys, and the items that supply that result as values.&lt;/p&gt;
+
+&lt;p&gt;Say, for example, you wanted to split up an array of numbers into two groups: one set even numbers, one set odd. You could do this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group_by&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; {false=&amp;gt;[1, 3, 5], true=&amp;gt;[2, 4]}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above example, you are asking each number in the array if it is even. If it is even, it returns true, which is the key, and that number is a value associated with the true key. If it isn&amp;#39;t even it returns false, which is then a key, and that value is associated with the false key. Pretty easy. You don&amp;#39;t have to return true or false as keys, you can return as keys anything your code block returns:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group_by&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; {1.0=&amp;gt;[1, 8, 15], 2.0=&amp;gt;[2, 9, 16], 3.0=&amp;gt;[3, 10, 17],&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#    0.5=&amp;gt;[4, 11, 18], 1.5=&amp;gt;[5, 12, 19], 2.5=&amp;gt;[6, 13, 20],&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#    0.0=&amp;gt;[7, 14]}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The above code takes all integers between 1 and 20, and groups them by the remainder they return when divided by 3.5. The numbers 1,8, and 15 return a remainder of 1.0 when divided by 3.5; the numbers 2, 9 and 16 return a remainder of 2.0; etc. And that&amp;#39;s a simple explanation of group_by.&lt;/p&gt;
+</description>
+        
+          <description>&lt;h4&gt;group_by&lt;/h4&gt;
+</description>
+        
+        <pubDate>Thu, 20 Aug 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t4-enumerably-methods/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t4-enumerably-methods/</guid>
+        
+        
+      </item>
+      
+    
+  </channel>
+</rss>
