@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Algorithms: Big-O Notation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="Jen Trudell" href="http://jtrudell.github.io/feed.xml" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="http://jtrudell.github.io/blog/t8-tech/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-68107348-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+ 
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">Jen Trudell</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li>
+                 
+                 <li class="element   ">
+                     <a href="/projects.html">Projects</a>
+                 </li>
+                 
+                 <li class="element   ">
+                     <a href="/about.html">About</a>
+                 </li>
+                 
+                 <li class="element   last">
+                     <a href="/contact.html">Contact</a>
+                 </li>
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Algorithms: Big-O Notation</h1>
+  <p class="meta">September 17, 2015 | <span class="time">9</span> Minute Read</p>
+  
+  <h4>What&#39;s an algorithm?</h4>
+
+<p class="intro"><span class="dropcap">A</span>n algorithm is a hard to pronounce word for something simple: a set of steps that can be used to solve a problem. A slightly longer definition is that an algorithm is a finite number of steps or rules that, if followed, give you a result. Algorithms are distinguished by three things: (1) the steps/rules are clear and unambiguous, (2) there is an end to the steps/rules (finite. the steps/rules don't go on forever.) and (3) following the steps/rules returns a result. Addition is an algorithm, which, given a list of numbers you want to add, can be expressed with the following steps: 1. given a list of numbers, 2. add the first number to the second number, 3. if there are more than two numers, add the sum of the first number and second number to the third number, 4. repeat step three for the fourth number (if any) and any subsequent numbers until there are no more numbers in the list, 5. return the final sum. If you don't like math, here's a peanut butter sandwich algorithm: 1. get out the peanut butter, 2. get out the bread, 3. get out the knife, 4. spread peanut butter on one slice of bread, 5. put the other slice of break on top of the slice of bread with the peanut butter on it, 6. return peanut butter sandwich.</p>
+
+<h4>What makes a good algorithm? Measuring algorithm complexity.</h4>
+
+<p>Algorithms are measured and compared based on how complex they are. The addition algorithm and the peanut better sandwhich algorithm are linear algorithms--the more numbers you have, or the more peanut butter sandwiches you have to make, the more steps you have to take, and the amount of steps you have to take increase in direct proportion to how many numbers or peanut butter sandwiches you are working with. Think of a graph: the x-axis is the number of steps, and the y axis is the number of sandwhiches/numbers. With linear algorithms, you end up with a straight diagonal line. If it takes 3 steps (disregarding taking out the knife, peanut butter and bread for the moment) to make one peanut butter sandwhich, it should take 300 steps to make 100 sandwhiches. If n is the number of peanut butter sandwhiches, or the number of numbers in a list of numbers we want to add, we could represent the complexity of the algorithm by O(n).</p>
+
+<h4>Big-O Notation</h4>
+
+<p>That O(n) up there is known as Big-O notation. Big-O notation represents the upper-bound of complexity of an algorithm, or for our purposes the total number of steps it will take to run the algorithm through a given set of n-numbers for the addition algorithm or n-sandwhiches for the sandwich making algorithm. Big-O represents the worst case scenario of complexity. When calculating what Big-O is for a certain algorithm, we only care about the big picture. Big-O notation is not exact, it is an estimate of the upper-bound based on the significant steps in the algorithm. Trivial stuff, like getting out the peanut butter and bread and pulling the knife from the drawer only happens once--it is a constant. You can drop constants when using Big-O, because Big-O assumes n is trending towards infinity. If we included constants, we might write something like O(n+3), where the +3 is the get out bread step, get out peanut butter step, and get out knife step, each of which we had to do only once before we started making sandwhiches. But if we are making 100 sandwhiches, or a million sandwiches, do we really care about the extra 3 steps in the complexity of our algorithm (300 steps or 1,000,000 steps vs. 303 or 1,000,003)? Nope. We can leave it off, O(n) is good enough for our purposes. Not all algorithms can be represented by O(n) to show their complexity (although it would be a lot easier if they could be!). You could have an algorithm that is O(n^2), or O(2logn), etc.</p>
+
+<h4>There a difference between complexity and runtime</h4>
+
+<p>Big-O is a representation of how complex an algorithm is. It is NOT a measure of how long it would take to run the algorithm. It is not a measure of performance. The time it takes to run the algorithm depends on what we can call K. What is K? It&#39;s a constant. K can be you, in the case of how fast you can make sandwhiches or add up numbers on a piece of paper, or your computer, if you are using your computer to do the addition, and the amount of memory and processor speed your computer has to run the data (or sandwiches) you are processing. Big-O doesn&#39;t really care about K, because big-O doesn&#39;t care about constants. Big-O just wants to tell you the upperbound of complexity for a given algorithm so you can compare it to other algorithms that do the same thing.</p>
+
+<h4>Comparing Algorithms using Big-O</h4>
+
+<p>So what&#39;s the point of all this? Why do I care if my algorithm for making peanut butter sandwhiches is O(n)? I own a company that makes gourmet peanut butter sandwhiches and I need to make 20,000 peanut butter sandwiches (each sandwich represented by n) a day. By hand, with our 3 steps a sandwhich algorithm, that&#39;s 60,000 steps. I want to buy a peanut butter sandwhich making machine, but only if it makes sense. With the machine, the steps are as follows for each sandwhich: 1. press button, 2. return sandwhich. At the beginning of each day we have to load up the machine with a ton of bread and peanut butter, but we only do that once a day and we don&#39;t need to include it when calculating Big-O for our algorithm. You can program the machine to make sandwhiches in 100 sandwich batches, so for 100 sandwiches, it is still only two steps: 1. turn on machine, 2. return sandwiches. In this case, as long as there are less than or equal to 100 sandwiches, the sandwich machine will take 2 steps to make them. So we could represent the complexity of our sandwich machine making algorithm as O(n/100), where n is the number of sandwiches. There are some situations where this wouldn&#39;t be accurate (if you were only making 50 sandwiches, for example), but as we learned above, we can ignore the outliers. We care about the big picture. If we are making 20,000 peanut butter sandwiches, this algorithm would suggest that at most it would take about 400 steps to make them (2 steps * (20,000 sandwiches/100)). A great improvement over the 60,000 steps it would take me by myself to make the sandwiches without the machine using my handmade sandwich algorithm.</p>
+
+<h4>The Big BIG Picture</h4>
+
+<p>Obviously the sandwich machine making algorithm is less complex than the sandwich making by hand algorithm. We can compare those two algorithms using Big-O because they are doing the same thing. It wouldn&#39;t make sense to say that the sandwich machine algorithm is less complex than the addition algorithm above. But we could compare different addition or multiplication algorithms (Yes, there are more ways to multiply numbers than the one you learned in elementary school. This <a href="https://www.youtube.com/watch?v=170HCmphjUI&index=1&list=WL" target="_blank">Stanford video</a> is a great intro to algorithms and uses multiplication as an example.). If we are multiplying numbers with hundreds or thousands of digits, we care which set of steps, which algorithm, is more efficient, because our hands are going to hurt like hell multiplying all those numbers and we want to keep the steps to a minimum. Similarly, if we are doing the multiplication on a computer, we care whether one algorithm will process our long list of numbers in 2 steps if each step takes 10 seconds, while another algorithm that is more complex will process it in 1000 steps and keep us from updating Facebook for 2000 seconds while it processes the list.</p>
+
+<p>So that&#39;s big-O notation. Keep in mind that it is the upper-bound, worse case scenario: it says &quot;this, at most, is how many steps this algorithm will take, give some input n&quot;. Big-O isn&#39;t telling you anything about time or performance. If you want to figure that out, you will need to throw in some factor K (which could be how fast your processor is/how fast your peanut butter making machine is/how fast you write), which has nothing to do with the complexity of the algorithm being represented by Big-O. There&#39;s other sorts of notation: big-Omega notation represents the lower bound, best case scenario for an algorithm: this is, at the very least, how many steps this algorithm will take to run. A gross simplification of theta notation is that it is when the worst case and the best case are the same: if, no matter what, an algorithm given an input n will take a certain number of steps to run, then you can represent it using theta notation.</p>
+
+<h4>Caveat</h4>
+
+<p>I&#39;m not a math major. I don&#39;t have a CS degree. Half of this is probably wrong. Except I&#39;m 100% positive about Big-O being the upperbound of complexity is right, and anyone who tells you Big-O represents runtime is flat out wrong. That being said, we all call tissue &quot;kleenex&quot; even though Kleenex is a brand name and not all tissue is Kleenex, and if someone asks you for a kleenex and you say &quot;I don&#39;t have kleenex, but I have a tissue&quot; you are just being a jerk because you know damn well what they want. Someone at an interview is inevitably going to ask you about Big-O notation and runtime and you are just going to smile, node and pretend they are the same.</p>
+
+<h4>Links I found useful:</h4>
+
+<ul>
+<li><a href="http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html" target="_blank">Plain English Explanation of Big O Notation</a></li>
+<li><a href="https://www.coursera.org/course/algo" target="_blank">Algorithms: Design and Analysis</a></li>
+</ul>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/blog/c8-conflict/"><span>&laquo;&nbsp;Conflict: the Condo from Hell</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/blog/c9-questions/"><span>Don't Be Lazy: how to ask questions on the internet&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2015 <a href="http://jentrudell.com">Jen Trudell</a>. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
+
+      <div class="footer-links">
+         <ul class="noList">
+            
+            <li><a href="https://www.linkedin.com/in/jktrudell">
+                  <svg id="linkedin" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M82.539,1H17.461C8.408,1,1,8.408,1,17.461v65.078C1,91.592,8.408,99,17.461,99h65.078C91.592,99,99,91.592,99,82.539 V17.461C99,8.408,91.592,1,82.539,1z M37.75,80.625H25.5V37.75h12.25V80.625z M31.625,31.625c-3.383,0-6.125-2.742-6.125-6.125 s2.742-6.125,6.125-6.125s6.125,2.742,6.125,6.125S35.008,31.625,31.625,31.625z M80.625,80.625h-12.25v-24.5 c0-3.383-2.742-6.125-6.125-6.125s-6.125,2.742-6.125,6.125v24.5h-12.25V37.75h12.25v7.606c2.526-3.47,6.389-7.606,10.719-7.606 c7.612,0,13.782,6.856,13.782,15.312L80.625,80.625L80.625,80.625z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="https://twitter.com/jktrudell">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="https://github.com/jtrudell">
+                  <svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z"></path>
+                  </svg>
+            </a></li>
+            
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>
