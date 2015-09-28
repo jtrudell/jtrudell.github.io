@@ -7,3 +7,12 @@
   margin-left: 5%;
   padding: 4%;
 }
+
+.container {
+  max-width: 900px;
+  text-align: justify;
+
+}
+.post p {
+  font-size: 1.30em;
+}
