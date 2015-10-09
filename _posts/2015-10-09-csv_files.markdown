@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "Working With CSV Files in Ruby"
+date:   2015-10-09
+---
+
+
+####comma, separated, values
+CSV stands for "comma separated values" and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):
+
+{% highlight csv %}
+
+my_database.csv
+
+id,name,phone,email
+1,joe smith, 555-1234,joe@smith.com
+2,jane burns,444-1234,jane@aol.com
+3, pinkie pie,123-9999,pinke_pie@equestria.com
+
+{% endhighlight %}
+
+CSV files can contain headers. In our file above, the first row is the header, and it designates that in the lines of text that follow, the first item in each line before the first comma is an id, the second item before the second comma is a name, the third item before the third comma is a phone number, and the last item is an email. Commas are key here -- if you put a comma in between "jane" and "burns", the id would still be "2" and her first name would be "jane", but the file would think her phone number was "burns". CSV files doen't need to contain headers, but they are useful to have as they act like column headers (and later, hash keys) for the individual pieces of comma separated data in the rows below.
+
+Ruby conveniently includes a <a href= "http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html">CSV class</a>, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:
+
+{% highlight ruby %}
+
+  require 'csv'
+
+  my_file = 'my_database.csv'
+  my_people_data = []
+
+  CSV.foreach(my_file, headers: true) do |row|
+    my_people_data << row
+  end
+
+  print my_people_data
+
+  => [#<CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com">, #<CSV::Row "id":"2" "name":"jane burns" "phone":"444-1234" "email":"jane@aol.com">, #<CSV::Row "id":"3" "name":" pinkie pie" "phone":"123-9999" "email":"pinke_pie@equestria.com">]
+
+{% endhighlight %}
+
+A few things to note in the above code. First, you have to require 'csv' to use the CSV class. Second, the "headers" argument in the CSV.foreach method is optional. If you do not include it and only pass in the file name to CSV.foreach, it will assume that there are no headers and every row will be a set of data. Including headers in the argument sent to CSV.foreach means that CSV knows to look for them in the first row, and will then associate them with the corresponding pieces of data in the following rows.
+
+CSV.foreach, with the headers option on, returns a CSV Row, with "header": "value", sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let's try that with our array of CSV Rows, my_people_data.
+
+{% highlight ruby %}
+
+  require 'csv'
+
+  my_people_data = [
+    #<CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com">,
+    #<CSV::Row "id":"2" "name":"jane burns" "phone":"444-1234" "email":"jane@aol.com">,
+    #<CSV::Row "id":"3" "name":" pinkie pie" "phone":"123-9999" "email":"pinke_pie@equestria.com">
+    ]
+
+  class Pony
+    def initialize(data)
+      @name = data["name"]
+      @phone = data["phone"]
+      @email = data["email"]
+    end
+  end
+
+  pinkie_pie_data = my_people_data.last
+
+  pinkie_pie = Pony.new(pinkie_pie_data)
+
+  puts pinkie_pie.inspect
+
+  #<Pony:0x007f8a0a066cd8 @name=" pinkie pie", @phone="123-9999", @email="pinke_pie@equestria.com">
+=> nil
+
+{% endhighlight %}
+
+So what happend there? We have an array of CSV Row objects, called my_people_data, and we created a new Person class that is initialized by some data. @name, @phone, and @email are each assigned to some value in data we pass in, accessed by a key. We pull the data on pinkie pie from the my_people_data array, and we pass that data into Person.new. Person.new looks for "name", "phone" and "email" in the csv data just as it would search a hash for keys, and finds the data (headers for the win!). And now we have a pinkie pie Pony object. With an email and a phone number, naturally, because pinkie pie is very popular.
+
+CSV is great because it is compact and relatively easy to deal with. You could have a large csv file with many, many lines, and as long as there is a header and the data on each line is appropriately separated by commas, it is easy to pull the data you need out of the csv file and pass it to ruby objects.
