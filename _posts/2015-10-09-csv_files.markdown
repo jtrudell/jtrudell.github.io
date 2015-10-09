@@ -8,7 +8,7 @@ date:   2015-10-09
 ####comma, separated, values
 CSV stands for "comma separated values" and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):
 
-{% highlight csv %}
+{% highlight ruby %}
 
 my_database.csv
 
