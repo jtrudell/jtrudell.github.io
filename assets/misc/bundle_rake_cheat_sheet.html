@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cheat Sheet | Working with ActiveRecord in the Terminal</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/js-cheat-sheet.css">
+  </head>
+
+<body>
+  <header>
+    <h1>Working with ActiveRecord in the Terminal</h1>
+    <h3>Creating Databases and Tables</h2>
+  </header>
+  <div id = "left_column">
+    <h5>Bundler</h5>
+      <p>Use Bundler to install gems required for project and to determine which versions of gems to use. Install bundler if you don't have it.</p>
+      <pre><code><p>
+  $ gem install bundler
+      </p></code></pre>
+
+      <p>We can use Bundler to install any necessary gems (dependencies) that are missing from our system and required for our project. Bundler use Gemfile in our project to determine what to install. </p>
+      <pre><code><p>
+  $ bundle install
+      </p></code></pre>
+
+    <h5>Database: Create</h5>
+      <p>Run the Rake task for creating the SQLite3 database in the db/ directory. Using bundle exec executes the command within the context of the gems specified for the app.</p>
+      <pre><code><p>
+  $ bundle exec rake db:create
+      </p></code></pre>
+
+    <h5>Database: Create Tables with Migration Files</h5>
+      <p> Rake task to generate the migration file for us; remember that you then need to edit the actual migration file to name the table and specify its columns. If you later need to change something with your table structure, you rollback your database and create migration files with a different naming convention (i.e. not create_whatever, but change_whatever, etc.) </p>
+      <pre><code><p>
+  $ bundle exec rake generate:migration NAME=create_tablename
+      </p></code></pre>
+
+    <h5>Database: Migration and Rollback</h5>
+      <p> After creating and editing the migration files, run the migrations.</p>
+      <pre><code><p>
+  $ bundle exec rake db:migrate
+      </p></code></pre>
+
+      <p> If you need to fix your migrations, roll back the database first.</p>
+      <pre><code><p>
+  $ bundle exec rake db:rollback
+      </p></code></pre>
+  </div>
+
+  <div id = "right_column">
+    <h5>Models, aka your Classes</h5>
+      <p>Don't forget to create classes based on your table names in the Models folder. Separate .rb files for each class.</p>
+
+    <h5>Database: Seed</h5>
+      <p> Seed your database with existing data provided with the project, if any.</p>
+      <pre><code><p>
+  $ bundle exec rake db:seed
+      </p></code></pre>
+
+    <h5>ActiveRecord IRB Console</h5>
+      <p> IRB session with project files loaded so we can interact with our database and models (ruby classes).</p>
+      <pre><code><p>
+  $ bundle exec rake console
+      </p></code></pre>
+
+    <h5>Running Tests</h5>
+      <p>The Rake spec task is an alternative to the rspec command for running the test suite</p>
+      <pre><code><p>
+  $ bundle exec rake spec
+      </p></code></pre>
+
+    <h5>Cribsheet</h5>
+      <pre><code><p>
+  $ gem install bundler *
+  $ bundle install
+  $ bundle exec rake db:create
+  $ bundle exec rake generate:migration NAME=create_tablename
+  $ bundle exec rake db:migrate
+  $ bundle exec rake db:rollback **
+  [make your class.rb files in the models directory]
+  $ bundle exec rake db:seed
+  $ bundle exec rake console
+  $ bundle exec rake spec
+
+    *if bundler not already installed
+    **only necessary if your migrations were wrong
+    and you need to redo them
+      </p></code></pre>
+  </div>
+
+
+  <footer>
+    <p id="copyright">Copyright 2015 Jen Trudell</p>
+  </footer>
+
+</body>
+</html>
+
