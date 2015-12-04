@@ -17,6 +17,8 @@ navigation:
    url: /projects.html
  - title: About
    url: /about.html
+- title: Resume
+    url: /resume.html
  - title: Contact
    url: /contact.html
 
