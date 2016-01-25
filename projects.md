@@ -10,7 +10,9 @@ title: Jen Trudell | Projects
 
 		<li><a href="http://apply.exonerationlaw.org" target="_blank">Exoneration Law Intake</a> <span class="description">Intake website for the Exoneration Project at the University of Chicago. Built using Rails, Devise, Active Admin, jQuery, Bootstrap, Postgresql, and Heroku. January 2016.</span></li>
 		<br>
-	  <li><a href="https://github.com/jtrudell/NCAA-Basketball-Scraper" target="_blank">ncaa_scrape</a> <span class="description">a RubyGem that scrapes Division I Men's College Basketball RPI rankings data from NCAA.com using nokogiri. This gem is used in a Rails site I am working on for a "pick five" basketball pool. January 2016.</span></li>
+		<li><a href="http://pickfive.herokuapp.com" target="_blank">NCAA Pick Five Challenge 2015/2016</a> <span class="description">Single-page app built for my neighbor's pick five basketball pool. Built using Sinatra, jQuery, Materialize, Heroku, and the ncaa_scrape gem I made (more on that below). January 2016.</span></li>
+		<br>
+	  <li><a href="https://github.com/jtrudell/NCAA-Basketball-Scraper" target="_blank">ncaa_scrape</a> <span class="description">a RubyGem that scrapes Division I Men's College Basketball RPI rankings data from NCAA.com using nokogiri. January 2016.</span></li>
 		<br>
 		<li><a href="https://github.com/Salt7900/breadcrumbs" target="_blank">breadCrumbs</a> <span class="description"> an iOS app written in Swift with a backend server written in Ruby on Rails. breadCrumbs allows a user to leave themselves or a friend a note and a photo at a specific location. When the recipient visits this location in the real world, they receive a notification that they have a breadCrumb to view. breadCrumbs was my final project for Dev Bootcamp, created over a period of 8 days in November 2015 with two teammates.</span></li>
 		<br>
