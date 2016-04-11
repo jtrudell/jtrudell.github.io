@@ -78,35 +78,27 @@ ga('send', 'pageview');
   <h1 class="postTitle">Enumerable: group_by</h1>
   <p class="meta">August 20, 2015 | <span class="time">2</span> Minute Read</p>
 
-  <p>####group_by</p>
+  <h4>group_by</h4>
 
 <p class="intro"><span class="dropcap">S</span>ince Dev Bootcamp wouldn't let me write about my favorite enumerable method of all time, inject, you are getting group_by, which is also pretty useful (just not as awesome as inject). What does group_by do? If you don't include a block of code after you call the method (blocks are the code wrapped in braces include after calling a method (you can also wrap the code in "do" and "end", instead of braces) it returns an enumerator, which I'm not going to address here. If you include a block, according to <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html#method-i-group_by" target="_blank">Ruby Docs</a>, group_by:</p>
 
 <blockquote>"Groups the collection by result of the block. Returns a hash where the keys are the evaluated result from the block and the values are arrays of elements in the collection that correspond to the key."</blockquote>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Yeah, so, in english, it groups a “collection” (range, array, hash) by iterating through each item of the collection and applying the code block to it. The keys are the result of running that block on each item of the collection; the values associated with that key are the items themselves that return that result. So if the block is {</td>
-      <td>x</td>
-      <td>x/4}, and the first item in the array group_by has been called on is 8, the key will be 2, and at least one of the values will be 8 (any other item in the array that results in 2 when run through the block would also be a value the key 2 points to). In short, group_by returns the results of calculations as keys, and the items that supply that result as values.</td>
-    </tr>
-  </tbody>
-</table>
+<p>Yeah, so, in english, it groups a &quot;collection&quot; (range, array, hash) by iterating through each item of the collection and applying the code block to it. The keys are the result of running that block on each item of the collection; the values associated with that key are the items themselves that return that result. So if the block is {|x| x/4}, and the first item in the array group<em>by has been called on is 8, the key will be 2, and at least one of the values will be 8 (any other item in the array that results in 2 when run through the block would also be a value the key 2 points to). In short, group</em>by returns the results of calculations as keys, and the items that supply that result as values.</p>
 
 <p>Say, for example, you wanted to split up an array of numbers into two groups: one set even numbers, one set odd. You could do this:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">group_by</span> <span class="p">{</span><span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span><span class="p">.</span><span class="nf">even?</span> <span class="p">}</span>
 <span class="c1">#=&gt; {false=&gt;[1, 3, 5], true=&gt;[2, 4]}</span></code></pre></figure>
 
-<p>In the above example, you are asking each number in the array if it is even. If it is even, it returns true, which is the key, and that number is a value associated with the true key. If it isn’t even it returns false, which is then a key, and that value is associated with the false key. Pretty easy. You don’t have to return true or false as keys, you can return as keys anything your code block returns:</p>
+<p>In the above example, you are asking each number in the array if it is even. If it is even, it returns true, which is the key, and that number is a value associated with the true key. If it isn&#39;t even it returns false, which is then a key, and that value is associated with the false key. Pretty easy. You don&#39;t have to return true or false as keys, you can return as keys anything your code block returns:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">20</span><span class="p">).</span><span class="nf">group_by</span> <span class="p">{</span><span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="p">}</span>
 <span class="c1">#=&gt; {1.0=&gt;[1, 8, 15], 2.0=&gt;[2, 9, 16], 3.0=&gt;[3, 10, 17],</span>
 <span class="c1">#    0.5=&gt;[4, 11, 18], 1.5=&gt;[5, 12, 19], 2.5=&gt;[6, 13, 20],</span>
 <span class="c1">#    0.0=&gt;[7, 14]}</span></code></pre></figure>
 
-<p>The above code takes all integers between 1 and 20, and groups them by the remainder they return when divided by 3.5. The numbers 1,8, and 15 return a remainder of 1.0 when divided by 3.5; the numbers 2, 9 and 16 return a remainder of 2.0; etc. And that’s a simple explanation of group_by.</p>
+<p>The above code takes all integers between 1 and 20, and groups them by the remainder they return when divided by 3.5. The numbers 1,8, and 15 return a remainder of 1.0 when divided by 3.5; the numbers 2, 9 and 16 return a remainder of 2.0; etc. And that&#39;s a simple explanation of group_by.</p>
 
 
 <!-- POST COMMENTS -->
