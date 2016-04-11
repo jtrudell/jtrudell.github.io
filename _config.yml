@@ -16,11 +16,11 @@ navigation:
  - title: Home
    url: /index.html
  - title: Projects
-   url: /projects.html
+   url: /projects/index.html
  - title: About
-   url: /about.html
+   url: /about/index.html
  - title: Contact
-   url: /contact.html
+   url: /contact/index.html
 
 social:
    github: jtrudell
