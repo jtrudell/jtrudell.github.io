@@ -76,9 +76,9 @@ z == nil
 
 {% endhighlight %}
 
-We would get the rather unexpected result of z being nil instead of 3. This is because we aren't returning x + y in our add method, we are returning puts x + y, and puts and print always returns nil. (p is a little different. It both prints to the screen and returns, because it is shorthand for the inspect method. Use p to debug, but then pull it out of your methods.) This can and has caused hours of confusion and head-banging-against-wall for beginners, who can't figure out why everything is suddenly nil.
+We would get the rather unexpected result of z being nil instead of 3. This is because we aren't returning x + y in our add method, we are returning puts x + y, and puts and print always returns nil. (p is a little different. It both prints to the screen and returns, because it uses the built-in Ruby inspect method. Use p to debug, but then pull it out of your methods.) This can and has caused hours of confusion and head-banging-against-wall for beginners, who can't figure out why everything is suddenly nil.
 
-###$Explicit return
+####Explicit return
 
 You don't have to return the last line of a method. Ruby will do that automatically as mentioned above, but if you'd rather return line 1 of a 2 line method, you could.
 
