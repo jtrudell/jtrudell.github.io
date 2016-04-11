@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>DBC is all one big experiment (one big enormously expensive experiment)</title>
+    <title>JSON, XML and YOU</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://jtrudell.github.io/blog/c1-chefs-kitchen/">
+    <link rel="canonical" href="http://jtrudell.github.io/blog/json_xml/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -75,20 +75,75 @@ ga('send', 'pageview');
       <div class="container">
          <div class="post">
   
-  <h1 class="postTitle">DBC is all one big experiment (one big enormously expensive experiment)</h1>
-  <p class="meta">July 30, 2015 | <span class="time">3</span> Minute Read</p>
+  <h1 class="postTitle">JSON, XML and YOU</h1>
+  <p class="meta">December 28, 2015 | <span class="time">3</span> Minute Read</p>
 
-  <p class="intro"><span class="dropcap">I</span> watched part of Shereef's <a href="https://vimeo.com/85001014">fireside chat</a>. Here are my thoughts, which are mostly informed by his description of the two mindsets of cohorts (consumer/restaurant patron vs. creator/kitchen worker).</p>
+  <h4>So, I recently bombed a tech interview</h4>
 
-<p>The DBC Experience: As with most things in life, you get out of experiences what you put into them. Completely cliche but hey, it&#39;s true. Life, and evidently DBC, are messy. If you sit around waiting for things to be handed you, it isn&#39;t going to happen (even if you paid $12k for the experience). Which you know initially sounds kind of ridiculous, to be honest. If I paid so much money SHOULDN&#39;T my education be handed to me? Of course what I have paid for is an experience, not a good or service, and an experience means I need to be actively involved. But the money aspect definitely can lead down the entitlment/consumer rabbit hole, which I suppose is where mindfulness comes in: monitor your feelings, if you are starting to feel entitled/annoyed/like coasting through, catch yourself and switch gears. Also important to remember that it&#39;s not just about you, it&#39;s about your whole team/cohort/pair.</p>
+<p>It&#39;s true, I did. I&#39;m pretty new to tech interviews, and I was caught off guard by some of the questions. One question was about the pros and cons of using JSON vs. XML to send and receive data through HTTP requests (in this case, using AJAX), and I gave a vague answer (&quot;JSON is easier to use!&quot;) because I only had a vague understanding. So here&#39;s a post for my edification and yours. And here&#39;s to not bombing the next interview!</p>
 
-<p>Impression of DBC: I&#39;m still not sure what my impression of DBC is. It is overall positive. I&#39;m only 4 days into Phase 0 but my cohort seems great solely passed on the Google Plus community. I&#39;m excited to work with the people in my cohort. Everything so far has been really well organized and I feel like I&#39;m being challenged by the week 1 curriculum. I&#39;m mostly just enjoying myself. And as Shereef said if you don&#39;t like something about DBC, get in there and make it happen, it is your education.</p>
+<h3>JSON</h3>
 
-<p>How I see myself engaging with the DBC culture: I picked up and left a well-established career to go to DBC. My former coworkers think I&#39;m insane but that&#39;s ok, it is sort of insane (and some of them are just jealous!). Leaving your job and upending your life is messy, and it sounds like DBC is going to be messy, and after a career of everything being pretty routine and rather oppressivly buttoned-up, I welcome the mess, the creativity and the freedom. I also like the idea of not going it alone, and working with a team of people who are also doing something radically new with their lives. I tend to be introverted, which doesn&#39;t mean I don&#39;t like people, it just means I like some downtime to myself. I might not be getting a ton of that when DBC onsite starts.</p>
+<p>JSON stands for &quot;JavaScript Object Notation&quot;, but the format itself is language agnostic--JSON passes data using simple data structures that all languages have and can parse. JSON is text that can be read by humans, which is handy. As the name suggests, JSON is a JavaScript object literal, similar to a hash or dictionary in other languages. A JSON response to a GET request to mylittlepony.com/information might look like this:</p>
 
-<p>Have my expectations of DBC changed?: No. I expected to work hard, and I expected to ultimately be in control of my own education. I really am paying for the DBC structure (because while I know I could teach myself all of this, and have been trying for months, DBC seems to have a good system going with how to learn a ton of stuff in a short period of time) and learning with like-minded (and not so like-minded, although at least we all have made the decision to attend DBC, so we have that in common) people.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="s2">"rainbow dash"</span><span class="err">:</span> <span class="s2">"pony"</span><span class="p">,</span>
+  <span class="s2">"spike"</span><span class="err">:</span> <span class="s2">"dragon"</span><span class="p">,</span>
+  <span class="s2">"canterlot"</span><span class="err">:</span> <span class="s2">"Capital of Equestria"</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>How I am feeling: Mostly excited. Also competitive (mainly with myself). A little nervous. One of the things Shereef talked about in the video is the two fears of students: some people have imposter syndrome, some people have I&#39;m-too-good-for-this syndrome, and some people have both simultaneously. I think I might have a little bit of both. I&#39;ve been self-studying since March, so it&#39;s a little weird to put up a blog post without any CSS and I&#39;m having to remind myself that the requirement for week 1 is the content of the blog post, not how it looks. I&#39;ve also been using Git and Github since March, but I had a serious case of &quot;I didn&#39;t know how much I didn&#39;t know!&quot; when I went through the week 1 curriculum on git--lots of stuff about branches and merging that I have never done before.</p>
+<p>Note the quotes around the names/keys (rainbow dash, spike, canterlot): you have to use strings for the names/keys, you can&#39;t use symbols or integers to point to values as you can when using hashes in some other languages. Unlike the names/keys, values don&#39;t have to be strings: arrays, numbers, booleans, strings or null are all valid data types for values in JSON.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="s2">"rainbow dash"</span><span class="err">:</span>
+    <span class="p">{</span> <span class="s2">"species"</span><span class="err">:</span> <span class="s2">"pony"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"pegasus"</span><span class="p">,</span>
+      <span class="s2">"cutieMark"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"age"</span><span class="err">:</span> <span class="mi">15</span>
+    <span class="p">},</span>
+  <span class="s2">"spike"</span><span class="err">:</span>
+    <span class="p">{</span> <span class="s2">"species"</span><span class="err">:</span> <span class="s2">"dragon"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"cutieMark"</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"age"</span><span class="err">:</span> <span class="mi">5</span>
+    <span class="p">},</span>
+  <span class="s2">"canterlot"</span><span class="err">:</span>
+    <span class="p">{</span> <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"Capital of Equestria"</span><span class="p">,</span>
+      <span class="s2">"residents"</span><span class="err">:</span> <span class="p">[</span><span class="s2">"Princess Cadance"</span><span class="p">,</span> <span class="s2">"Shining Armor"</span><span class="p">,</span> <span class="s2">"Princess Luna"</span><span class="p">,</span> <span class="s2">"Princess Celestia"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Because JSON is a JS object, it is simple to parse using JavaScript: simply send the JSON object into a JSON.parse() function, and access parsed data as you would access key/value pairs in any JS object literal.</p>
+
+<p>If you received a JSON object that looked like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">someResponse</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"rainbow dash"</span><span class="p">,</span>
+  <span class="s2">"age"</span><span class="p">:</span> <span class="mi">15</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>In JavaScript you could access the data like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myPony</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">someResponse</span><span class="p">);</span>
+
+<span class="nx">myPony</span><span class="p">[</span><span class="s2">"name"</span><span class="p">];</span> <span class="c1">// returns "rainbow dash"</span></code></pre></figure>
+
+<h3>XML</h3>
+
+<p>XML is short for Extensible Markup Language. XML is also a way to send data around in human readable text format and structured in such away that it is machine readable when parsed. For example:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;pony&gt;</span>
+  <span class="nt">&lt;name&gt;</span>Rainbow Dash<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;type&gt;</span>Pegaus<span class="nt">&lt;/type&gt;</span>
+  <span class="nt">&lt;cutieMark&gt;</span>true<span class="nt">&lt;/cutieMark&gt;</span>
+  <span class="nt">&lt;age&gt;</span>15<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/pony&gt;</span></code></pre></figure>
+
+<p>XML is a markup language, like HTML (it adds tags to text to format the text), and the hierarchical structure of XML is key: you can access the text of XML the same way you would access the inner text of a certain HMTL tag or CSS selector, and traverse up and down the XML tree. Using jQuery makes this (relatively) easy.</p>
+
+<h3>Which is easier to use?</h3>
+
+<p>For my money, JSON. One of the reasons hashes are so great is that they let you access values using specific keys, no iterating through an array (or, in this case, traversing a markup tree) is necessary. Both JSON and XML are human readable, but I think JSON reads easier since it doesn&#39;t include extraneous text (like the closing tags that XML needs, or repetitive tags that JSON makes unnecessary since data can be put in an array and pointed to it with one name/key). And if you are using JS, you can use the native JSON.parse() function and you are done. With XML, as far as I am aware you need to use a third party library like jQuery to parse the XML and then traverse the XML tree until you get what you need.</p>
 
 
 <!-- POST COMMENTS -->
@@ -115,8 +170,12 @@ ga('send', 'pageview');
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
     
+      <a class="prev" href="/blog/teaching_myself_swift/"><span>&laquo;&nbsp;How to teach yourself Swift in 8 days</span>
+      
+    </a>
     
-      <a class="next" href="/blog/t1-git-blog/"><span>Version control using Git: What if MS Word track changes was 1,000 times better?&nbsp;&raquo;</span>
+    
+      <a class="next" href="/blog/ruby_return_values/"><span>Return Values in Ruby: implicit, explicit, and puts, print, p&nbsp;&raquo;</span>
       
       </a>
     

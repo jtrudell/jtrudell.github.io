@@ -88,15 +88,15 @@ ga('send', 'pageview');
 
 <p>Say, for example, you wanted to split up an array of numbers into two groups: one set even numbers, one set odd. You could do this:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">].</span><span class="n">group_by</span> <span class="p">{</span><span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span><span class="o">.</span><span class="n">even?</span> <span class="p">}</span>
-<span class="c1">#=&gt; {false=&gt;[1, 3, 5], true=&gt;[2, 4]}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">group_by</span> <span class="p">{</span><span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span><span class="p">.</span><span class="nf">even?</span> <span class="p">}</span>
+<span class="c1">#=&gt; {false=&gt;[1, 3, 5], true=&gt;[2, 4]}</span></code></pre></figure>
 
 <p>In the above example, you are asking each number in the array if it is even. If it is even, it returns true, which is the key, and that number is a value associated with the true key. If it isn&#39;t even it returns false, which is then a key, and that value is associated with the false key. Pretty easy. You don&#39;t have to return true or false as keys, you can return as keys anything your code block returns:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span><span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="p">}</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">20</span><span class="p">).</span><span class="nf">group_by</span> <span class="p">{</span><span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="p">}</span>
 <span class="c1">#=&gt; {1.0=&gt;[1, 8, 15], 2.0=&gt;[2, 9, 16], 3.0=&gt;[3, 10, 17],</span>
 <span class="c1">#    0.5=&gt;[4, 11, 18], 1.5=&gt;[5, 12, 19], 2.5=&gt;[6, 13, 20],</span>
-<span class="c1">#    0.0=&gt;[7, 14]}</span></code></pre></div>
+<span class="c1">#    0.0=&gt;[7, 14]}</span></code></pre></figure>
 
 <p>The above code takes all integers between 1 and 20, and groups them by the remainder they return when divided by 3.5. The numbers 1,8, and 15 return a remainder of 1.0 when divided by 3.5; the numbers 2, 9 and 16 return a remainder of 2.0; etc. And that&#39;s a simple explanation of group_by.</p>
 
@@ -142,7 +142,7 @@ ga('send', 'pageview');
 
    <div class="footer">
    <div class="container">
-      <p class="copy">&copy; 2015 <a href="http://jentrudell.com">Jen Trudell</a>. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
+      <p class="copy">&copy; 2016 <a href="http://jentrudell.com">Jen Trudell</a>. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
 
       <div class="footer-links">
          <ul class="noList">

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Abstract Sequential & Growth vs. Fixed</title>
+    <title>Working With CSV Files in Ruby</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://jtrudell.github.io/blog/c3-thinking-style/">
+    <link rel="canonical" href="http://jtrudell.github.io/blog/csv_files/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -75,51 +75,69 @@ ga('send', 'pageview');
       <div class="container">
          <div class="post">
   
-  <h1 class="postTitle">Abstract Sequential & Growth vs. Fixed</h1>
-  <p class="meta">August 15, 2015 | <span class="time">3</span> Minute Read</p>
+  <h1 class="postTitle">Working With CSV Files in Ruby</h1>
+  <p class="meta">October 09, 2015 | <span class="time">4</span> Minute Read</p>
 
-  <h3>Thinking Style</h3>
+  <h4>comma, separated, values</h4>
 
-<p class="intro"><span class="dropcap">B</span>efore you start <a href="http://www.devbootcamp.com" target="_blank">Dev Bootcamp</a>, you have to take the <a href="http://www.thelearningweb.net/personalthink.html" target="_blank">Gregorc Personal Thinking Styles Quiz</a>. Turns out I am a "Abstract Sequential" thinker and learner. Which, according to the introduction to the quiz, means I <q>love the world of theory and abstract thought.</q> This is true. I love to learn, period, and what I love to learn isn't straight facts through memorization but theories, methods, and why things are they way they are. Some of the <a href="http://web.cortland.edu/andersmd/learning/Gregorc.htm" target="_blank">traits of abstract sequential learners</a> are as follows:</p>
+<p>CSV stands for &quot;comma separated values&quot; and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):</p>
 
-<h4>This learner likes:</h4>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_database</span><span class="p">.</span><span class="nf">csv</span>
 
-<ul>
-<li>his/her point to be heard</li>
-<li>analyzing situations before making a decision or acting</li>
-<li>applying logic in solving or finding solutions to problems</li>
-</ul>
+<span class="nb">id</span><span class="p">,</span><span class="nb">name</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span><span class="n">email</span>
+<span class="mi">1</span><span class="p">,</span><span class="n">joe</span> <span class="n">smith</span><span class="p">,</span> <span class="mi">555</span><span class="o">-</span><span class="mi">1234</span><span class="p">,</span><span class="n">joe</span><span class="vi">@smith</span><span class="p">.</span><span class="nf">com</span>
+<span class="mi">2</span><span class="p">,</span><span class="n">jane</span> <span class="n">burns</span><span class="p">,</span><span class="mi">444</span><span class="o">-</span><span class="mi">1234</span><span class="p">,</span><span class="n">jane</span><span class="vi">@aol</span><span class="p">.</span><span class="nf">com</span>
+<span class="mi">3</span><span class="p">,</span> <span class="n">pinkie</span> <span class="n">pie</span><span class="p">,</span><span class="mi">123</span><span class="o">-</span><span class="mi">9999</span><span class="p">,</span><span class="n">pinke_pie</span><span class="vi">@equestria</span><span class="p">.</span><span class="nf">com</span></code></pre></figure>
 
-<h4>They learn best when:</h4>
+<p>CSV files can contain headers. In our file above, the first row is the header, and it designates that in the lines of text that follow, the first item in each line before the first comma is an id, the second item before the second comma is a name, the third item before the third comma is a phone number, and the last item is an email. Commas are key here -- if you put a comma in between &quot;jane&quot; and &quot;burns&quot;, the id would still be &quot;2&quot; and her first name would be &quot;jane&quot;, but the file would think her phone number was &quot;burns&quot;. CSV files doen&#39;t need to contain headers, but they are useful to have as they act like column headers (and later, hash keys) for the individual pieces of comma separated data in the rows below.</p>
 
-<ul>
-<li>they have access to experts or references</li>
-<li>placed in stimulating environments</li>
-<li>able to work alone</li>
-</ul>
+<p>Ruby conveniently includes a <a href= "http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html">CSV class</a>, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:</p>
 
-<h4>What&#39;s hard for them?</h4>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="nb">require</span> <span class="s1">'csv'</span>
 
-<ul>
-<li>Being forced to work with those of differing views</li>
-<li>Too little time to deal with a subject thoroughly</li>
-<li>Repeating the same tasks over and over</li>
-<li>Lots of specific rules and regulations</li>
-<li>&quot;sentimental&quot; thinking</li>
-<li>Expressing their emotions</li>
-<li>Being diplomatic when convincing others</li>
-<li>Not monopolizing a conversation</li>
-</ul>
+  <span class="n">my_file</span> <span class="o">=</span> <span class="s1">'my_database.csv'</span>
+  <span class="n">my_people_data</span> <span class="o">=</span> <span class="p">[]</span>
 
-<h3>How My Thinking Style Plays Out in the Real World</h3>
+  <span class="no">CSV</span><span class="p">.</span><span class="nf">foreach</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="ss">headers: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+    <span class="n">my_people_data</span> <span class="o">&lt;&lt;</span> <span class="n">row</span>
+  <span class="k">end</span>
 
-<p>In the real world (or semi-real world) of Dev Bootcamp, my thinking style has worked really well. Applying logic to solving problems is well suited to the world of programming, and I have certainly been placed in a stimulating environment through the Phase 0 course work. I have also, except for a few weekly peer pairing sessions, been able to work alone. I think that once Phase 0 is over and I am onsite, it will be a challenge for me to spend 90% of my time pair programming. I like being around other people, but I definitely like to work on my own. Although it hasn&#39;t happened yet in Phase 0, I also imagine that the workload when we are all onsite will give me less time than I would like to spend on many subjects, and I will probably find that frustrating (ok, it will completely give me panic attacks). My instinct and preference is to fully understand things, no matter how long it takes, and having to time box and gain a shallow knowledge of how some things work will be difficult and, honestly, it will just suck. But that&#39;s one of the tradeoffs of DBC vs a CS degree: short vs. long, (relatively) cheap vs. $100k plus in student loans, broad and (perhaps, don&#39;t know for sure yet) shallow knowledge vs. narrow (and not necessarily job friendly) and deep knowledge.</p>
+  <span class="nb">print</span> <span class="n">my_people_data</span>
 
-<p><h3>Growth vs. Fixed Mindset</h3></p>
+  <span class="o">=&gt;</span> <span class="p">[</span><span class="c1">#&lt;CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com"&gt;, #&lt;CSV::Row "id":"2" "name":"jane burns" "phone":"444-1234" "email":"jane@aol.com"&gt;, #&lt;CSV::Row "id":"3" "name":" pinkie pie" "phone":"123-9999" "email":"pinke_pie@equestria.com"&gt;]</span></code></pre></figure>
 
-<p>Fortunately, I also know that I have a growth mindset. According to <a href="http://www.mindsetonline.com/whatisit/about/index.html" target="_blank">Carol Dweck</a>,<blockquote cite="http://www.mindsetonline.com/whatisit/about/index.html">&quot;In a growth mindset, people believe that their most basic abilities can be developed through dedication and hard work—brains and talent are just the starting point. This view creates a love of learning and a resilience that is essential for great accomplishment.&quot;</blockquote></p>
+<p>A few things to note in the above code. First, you have to require &#39;csv&#39; to use the CSV class. Second, the &quot;headers&quot; argument in the CSV.foreach method is optional. If you do not include it and only pass in the file name to CSV.foreach, it will assume that there are no headers and every row will be a set of data. Including headers in the argument sent to CSV.foreach means that CSV knows to look for them in the first row, and will then associate them with the corresponding pieces of data in the following rows.</p>
 
-<p>I know that I can learn to be comfortable solving problems with others. Although not going to lie, never going to love group work, the pair programming has been more fun that I thought it would be. I know I can learn how to deal with short timeframes when processing a ton of information. In my career as a lawyer, I did learn how to work with less time than I wanted (and a LOT more paper than I wanted), and I am sure I can learn how to do the same with my code. If I had a fixed mindset, I would throw up my hands, assuming that all of my traits and talents were what they were, and not work towards learning new ways to do things. And in the past, I&#39;ve certainly fallen into that trap--I&#39;m looking at you, 19 yearold self who dropped out of the CS program in college because I wasn&#39;t &quot;good at&quot; advanced calculus . Dev Bootcamp is a challenge, and I am confident I can learn how to work through it. Abstract sequential may be my thinking style, but that doesn&#39;t mean that the parts of it that don&#39;t work for me cannot be changed.</p>
+<p>CSV.foreach, with the headers option on, returns a CSV Row, with &quot;header&quot;: &quot;value&quot;, sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let&#39;s try that with our array of CSV Rows, my<em>people</em>data.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="nb">require</span> <span class="s1">'csv'</span>
+
+  <span class="n">my_people_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1">#&lt;CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com"&gt;,</span>
+    <span class="c1">#&lt;CSV::Row "id":"2" "name":"jane burns" "phone":"444-1234" "email":"jane@aol.com"&gt;,</span>
+    <span class="c1">#&lt;CSV::Row "id":"3" "name":" pinkie pie" "phone":"123-9999" "email":"pinke_pie@equestria.com"&gt;</span>
+    <span class="p">]</span>
+
+  <span class="k">class</span> <span class="nc">Pony</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+      <span class="vi">@name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
+      <span class="vi">@phone</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"phone"</span><span class="p">]</span>
+      <span class="vi">@email</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"email"</span><span class="p">]</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">pinkie_pie_data</span> <span class="o">=</span> <span class="n">my_people_data</span><span class="p">.</span><span class="nf">last</span>
+
+  <span class="n">pinkie_pie</span> <span class="o">=</span> <span class="no">Pony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">pinkie_pie_data</span><span class="p">)</span>
+
+  <span class="nb">puts</span> <span class="n">pinkie_pie</span><span class="p">.</span><span class="nf">inspect</span>
+
+  <span class="c1">#&lt;Pony:0x007f8a0a066cd8 @name=" pinkie pie", @phone="123-9999", @email="pinke_pie@equestria.com"&gt;</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span></code></pre></figure>
+
+<p>So what happend there? We have an array of CSV Row objects, called my<em>people</em>data, and we created a new Person class that is initialized by some data. @name, @phone, and @email are each assigned to some value in data we pass in, accessed by a key. We pull the data on pinkie pie from the my<em>people</em>data array, and we pass that data into Person.new. Person.new looks for &quot;name&quot;, &quot;phone&quot; and &quot;email&quot; in the csv data just as it would search a hash for keys, and finds the data (headers for the win!). And now we have a pinkie pie Pony object. With an email and a phone number, naturally, because pinkie pie is very popular.</p>
+
+<p>CSV is great because it is compact and relatively easy to deal with. You could have a large csv file with many, many lines, and as long as there is a header and the data on each line is appropriately separated by commas, it is easy to pull the data you need out of the csv file and pass it to ruby objects.</p>
 
 
 <!-- POST COMMENTS -->
@@ -146,12 +164,12 @@ ga('send', 'pageview');
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
     
-      <a class="prev" href="/blog/c2-css-design/"><span>&laquo;&nbsp;CSS: How the Block and Inline Display Properties Work</span>
+      <a class="prev" href="/blog/permissions/"><span>&laquo;&nbsp;Ruby: Permissions when writing to files</span>
       
     </a>
     
     
-      <a class="next" href="/blog/t3-arrays-hashes/"><span>Ruby: Arrays and Hashes&nbsp;&raquo;</span>
+      <a class="next" href="/blog/teaching_myself_swift/"><span>How to teach yourself Swift in 8 days&nbsp;&raquo;</span>
       
       </a>
     

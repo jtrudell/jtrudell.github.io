@@ -84,15 +84,15 @@ ga('send', 'pageview');
 
 <p class="intro"><span class="dropcap">C</span>ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala "key_1" => 1, which are also kosher for use in hashes in Ruby). Here's a hash in Ruby:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">pony</span> <span class="o">=</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="s2">&quot;earth pony&quot;</span><span class="p">,</span> <span class="ss">cutie_mark</span><span class="p">:</span> <span class="kp">false</span><span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">pony</span> <span class="o">=</span> <span class="p">{</span><span class="ss">color: </span><span class="s2">"yellow"</span><span class="p">,</span> <span class="ss">type: </span><span class="s2">"earth pony"</span><span class="p">,</span> <span class="ss">cutie_mark: </span><span class="kp">false</span><span class="p">}</span></code></pre></figure>
 
 <p>And here is an object literal in JavaScript:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pony</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
-  <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;earth pony&quot;</span><span class="p">,</span>
-  <span class="nx">cutieMark</span><span class="o">:</span> <span class="kc">false</span>
-<span class="p">};</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pony</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">color</span><span class="p">:</span> <span class="s2">"yellow"</span><span class="p">,</span>
+  <span class="na">type</span><span class="p">:</span> <span class="s2">"earth pony"</span><span class="p">,</span>
+  <span class="na">cutieMark</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">};</span></code></pre></figure>
 
 <p>Other than the certain syntax differences in the JS version (variable begins with &quot;var&quot;. semi-colon after the closing brace and the camelcase in &quot;cutie mark&quot;), they are identical. You would call the properties slightly differently, however. In Ruby, if you want to know what color the pony is, you would use pony[:color], because the word &quot;color&quot; in this case is a symbol (denoted by a semi-colon), not a string; in JavaScript, it is pony.color or pony[&quot;color&quot;] (the latter would also work with a Ruby hash, if instead of a symbol for color you used &quot;color&quot; =&gt; as the key). These differences are largely cosmetic. Both a Ruby hash and a JavaScript object literal let you define a set of key/value pairs associated and assign that set of pairs to a variable. You can even add key/value pairs to existing JavaScript objects and Ruby hashes in a similar way (in JS, pony.name = &quot;Applejack&quot; or pony[&quot;name&quot;] = &quot;Applejack&quot; and in Ruby, pony[:name] = &quot;Applejack&quot; or pony[&quot;name&quot;] = &quot;Applejack&quot;).</p>
 
@@ -140,7 +140,7 @@ ga('send', 'pageview');
 
    <div class="footer">
    <div class="container">
-      <p class="copy">&copy; 2015 <a href="http://jentrudell.com">Jen Trudell</a>. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
+      <p class="copy">&copy; 2016 <a href="http://jentrudell.com">Jen Trudell</a>. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
 
       <div class="footer-links">
          <ul class="noList">
