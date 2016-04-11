@@ -78,13 +78,13 @@ ga('send', 'pageview');
   <h1 class="postTitle">Ruby: Arrays and Hashes</h1>
   <p class="meta">August 16, 2015 | <span class="time">5</span> Minute Read</p>
 
-  <h4>My Dogs</h4>
+  <p>####My Dogs</p>
 
 <p class="intro"><span class="dropcap">I</span> have had four dogs in my life: my current dog, Sophie; the dog my mom got while I was in law school, Tobey; the dog I had for the longest while growing up, Jesse; and Nick, who was around when I was a toddler. Sophie is part black lab mixed with something (ok, I admit it, I know because we ran a DNA test: whippet). Tobey and Jesse were golden retrievers. From what I have been told, Nick was a real devil of a mutt (sweet dog, but he ran away a lot and almost chewed through our back door). I could arrange my dogs in various ways using ruby. If I wanted to just list out their names, I could use a simple array. Think of an array as just another name for a list. Each item in the array-list is separated by a comma, and the whole list is encapsulated with square brackets. You can put anything into an array (numbers, strings, other arrays, etc.), but since we are talking about my dogs, we are going to make the my_dogs_array an array of dog names:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_dogs_array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Sophie"</span><span class="p">,</span> <span class="s2">"Tobey"</span><span class="p">,</span> <span class="s2">"Jesse"</span><span class="p">,</span> <span class="s2">"Nick"</span><span class="p">]</span></code></pre></figure>
 
-<p>That&#39;s a nice list, but it doesn&#39;t really tell us anything other than the names of my dogs. What if you wanted to know what breed they are? We could use a hash, which is like a list of pairs. One member of the pair is a key, and the other member of the pair is the value that the key points to. Think of each key/value pair in a hash as a dog cage (big, roomy cages, with a dog bed, naturally). Each cage has a name tag with the name of the dog (the key) and in each cage is a certain breed of dog (the value). The cages are lined up in a row, in a room between two walls (the walls are curly braces in a hash). Here are my dogs and their breeds as a hash:</p>
+<p>That’s a nice list, but it doesn’t really tell us anything other than the names of my dogs. What if you wanted to know what breed they are? We could use a hash, which is like a list of pairs. One member of the pair is a key, and the other member of the pair is the value that the key points to. Think of each key/value pair in a hash as a dog cage (big, roomy cages, with a dog bed, naturally). Each cage has a name tag with the name of the dog (the key) and in each cage is a certain breed of dog (the value). The cages are lined up in a row, in a room between two walls (the walls are curly braces in a hash). Here are my dogs and their breeds as a hash:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_dogs_array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Sophie"</span><span class="p">,</span> <span class="s2">"Tobey"</span><span class="p">,</span> <span class="s2">"Jesse"</span><span class="p">,</span> <span class="s2">"Nick"</span><span class="p">]</span>
 <span class="n">my_dogs_hash</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Sophie"</span> <span class="o">=&gt;</span> <span class="s2">"lab mix"</span><span class="p">,</span> <span class="s2">"Tobey"</span> <span class="o">=&gt;</span> <span class="s2">"golden retriever"</span><span class="p">,</span>
@@ -92,11 +92,11 @@ ga('send', 'pageview');
 <span class="c1">#You can use colons instead of those arrow looking things</span>
 <span class="c1">#(hash rockets), like "Sophie": "lab mix"</span></code></pre></figure>
 
-<p>In a hash, there can only be one of each key (I can&#39;t have more than one Sophie--I mean, I guess in real life I could have two dogs named Sophie, but they wouldn&#39;t be clones of each other), but different keys can have the same value. It is perfectly ok that both Tobey and Jesse are golden retrievers, for example.</p>
+<p>In a hash, there can only be one of each key (I can’t have more than one Sophie–I mean, I guess in real life I could have two dogs named Sophie, but they wouldn’t be clones of each other), but different keys can have the same value. It is perfectly ok that both Tobey and Jesse are golden retrievers, for example.</p>
 
-<h4>Call the dogs</h4>
+<p>####Call the dogs</p>
 
-<p>So now we know what an array is, and what a hash is, but what if we want to get one piece of information out of the array or the hash? What if we don&#39;t want the whole list of names (in the case of an array) or list of key/value pairs (in the case of a hash)? We can call the dogs by their number in line for the array (called an index number) or, in the case of a hash, by the name of the key (in this case, literally the dog&#39;s name), as follows:</p>
+<p>So now we know what an array is, and what a hash is, but what if we want to get one piece of information out of the array or the hash? What if we don’t want the whole list of names (in the case of an array) or list of key/value pairs (in the case of a hash)? We can call the dogs by their number in line for the array (called an index number) or, in the case of a hash, by the name of the key (in this case, literally the dog’s name), as follows:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_dogs_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1">#Each item in an array is numbered left to right and starts with 0</span>
@@ -117,9 +117,9 @@ ga('send', 'pageview');
 
 <span class="c1">#=&gt; "devil mutt"</span></code></pre></figure>
 
-<h4>Mixing it up: Arrays and Hashes</h4>
+<p>####Mixing it up: Arrays and Hashes</p>
 
-<p>What if you wanted to know even more about my dogs? The my<em>dogs</em>hash only returns one value (the breed) for each key (the dog&#39;s name). What if you wanted to know something else about the dog, like its personality? We can have each key return more than one value by making the value an array, like so:</p>
+<p>What if you wanted to know even more about my dogs? The my_dogs_hash only returns one value (the breed) for each key (the dog’s name). What if you wanted to know something else about the dog, like its personality? We can have each key return more than one value by making the value an array, like so:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_dogs_super_hash</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Sophie"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"lab mix"</span><span class="p">,</span> <span class="s2">"great with kids"</span><span class="p">],</span>
                     <span class="s2">"Tobey"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"golden retriever"</span><span class="p">,</span> <span class="s2">"gentle giant"</span><span class="p">],</span>
@@ -130,12 +130,12 @@ ga('send', 'pageview');
 
 <span class="c1">#=&gt; ["golden retriever", "afraid of thunderstorms"]</span></code></pre></figure>
 
-<p>As you can see above, when we call the key &quot;Jesse&quot; from the my<em>dogs</em>super_hash, the value we get is an array which includes both that Jesse was a golden retriever and that she was afraid of thunderstorms. Not only can you mix arrays in with hashes (and vice versa, you could have an array OF hashes), you can also mix the methods you use to get values from them. Say you just wanted to know the personality of Sophie, which is the second item of the array in the hash value with the key &quot;Sophie&quot; (remember that the second item of the array is actually index number 1 for our purposes, since the first item is index number 0):</p>
+<p>As you can see above, when we call the key “Jesse” from the my_dogs_super_hash, the value we get is an array which includes both that Jesse was a golden retriever and that she was afraid of thunderstorms. Not only can you mix arrays in with hashes (and vice versa, you could have an array OF hashes), you can also mix the methods you use to get values from them. Say you just wanted to know the personality of Sophie, which is the second item of the array in the hash value with the key “Sophie” (remember that the second item of the array is actually index number 1 for our purposes, since the first item is index number 0):</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_dogs_super_hash</span><span class="p">[</span><span class="s2">"Sophie"</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 <span class="c1">#=&gt; "great with kids"</span></code></pre></figure>
 
-<p>There you have it! Thanks Dev Bootcamp, now I&#39;m missing Tobey and Jesse and, yes, even Nick.</p>
+<p>There you have it! Thanks Dev Bootcamp, now I’m missing Tobey and Jesse and, yes, even Nick.</p>
 
 
 <!-- POST COMMENTS -->

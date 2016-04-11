@@ -5,38 +5,40 @@
     <description>Developer</description>
     <link>http://jtrudell.github.io/</link>
     <atom:link href="http://jtrudell.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 Apr 2016 22:00:15 -0500</pubDate>
-    <lastBuildDate>Sun, 10 Apr 2016 22:00:15 -0500</lastBuildDate>
+    <pubDate>Sun, 10 Apr 2016 22:05:24 -0500</pubDate>
+    <lastBuildDate>Sun, 10 Apr 2016 22:05:24 -0500</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       
       <item>
         <title>Return Values in Ruby: implicit, explicit, and puts, print, p</title>
-        <description>&lt;p&gt;&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&amp;#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &amp;quot;return&amp;quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&amp;#39;s why:&lt;/p&gt;
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&#39;s why:
 
-&lt;h4&gt;What does this return?&lt;/h4&gt;
+####What does this return?
+Say you&#39;ve got a method that says hello.
 
-&lt;p&gt;Say you&amp;#39;ve got a method that says hello.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;Why hello there!&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;What does that method return? Most of the people I&amp;#39;ve been working with lately would answer that it returns absolutely nothing. It does nothing, because it doesn&amp;#39;t puts or print anything. But of course it has a return value, the string &amp;quot;Why hello there!&amp;quot; &lt;/p&gt;
 
-&lt;p&gt;&amp;quot;But it doesn&amp;#39;t do anythign when I run it in IRB.&amp;quot;&lt;/p&gt;
+What does that method return? Most of the people I&#39;ve been working with lately would answer that it returns absolutely nothing. It does nothing, because it doesn&#39;t puts or print anything. But of course it has a return value, the string &quot;Why hello there!&quot; 
 
-&lt;p&gt;&amp;quot;No, that&amp;#39;s right, it doesn&amp;#39;t print anything to the screen.&amp;quot;&lt;/p&gt;
+&quot;But it doesn&#39;t do anythign when I run it in IRB.&quot;
 
-&lt;p&gt;&amp;quot;So it&amp;#39;s not doing anything.&amp;quot;&lt;/p&gt;
+&quot;No, that&#39;s right, it doesn&#39;t print anything to the screen.&quot;
 
-&lt;p&gt;&amp;quot;Yes it is, it&amp;#39;s just not doing anything you can see. It is returning a string.&amp;quot;&lt;/p&gt;
+&quot;So it&#39;s not doing anything.&quot;
 
-&lt;p&gt;&amp;quot;Why, if it isn&amp;#39;t being printed out?&amp;quot;&lt;/p&gt;
+&quot;Yes it is, it&#39;s just not doing anything you can see. It is returning a string.&quot;
 
-&lt;h4&gt;And this is why it is really hard to teach people how to use the return values of methods, which is a really important leap to be able to make (how many times can I use &amp;quot;really&amp;quot; here?)&lt;/h4&gt;
+&quot;Why, if it isn&#39;t being printed out?&quot;
 
-&lt;p&gt;Yeah, that. REALLY IMPORTANT. You can&amp;#39;t start doing amazing things with Ruby until you start using, really using, not just printing to screen using, the return values of methods. And when you&amp;#39;ve been led to believe that the whole point of Ruby is writing simple programs that interact with the user at the console, then this of course makes no sense at all:&lt;/p&gt;
+####And this is why it is really hard to teach people how to use the return values of methods, which is a really important leap to be able to make (how many times can I use &quot;really&quot; here?)
+
+Yeah, that. REALLY IMPORTANT. You can&#39;t start doing amazing things with Ruby until you start using, really using, not just printing to screen using, the return values of methods. And when you&#39;ve been led to believe that the whole point of Ruby is writing simple programs that interact with the user at the console, then this of course makes no sense at all:
+
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
@@ -52,11 +54,13 @@
 &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;WHAT IS HAPPENING!&lt;/strong&gt; So many things. Add and subtract are methods with return values. They are one line methods, so the last line is the only line, and the last line of a method in Ruby returns without you telling it to return (this is called an &amp;quot;implicit return&amp;quot;). So when you call subtract(2, 1), 1 is returned. This return value can then be passed around anywere, include into another method (like add), or assigned to a variable. &lt;/p&gt;
 
-&lt;h4&gt;So what is the deal with puts, print and p?&lt;/h4&gt;
+**WHAT IS HAPPENING!** So many things. Add and subtract are methods with return values. They are one line methods, so the last line is the only line, and the last line of a method in Ruby returns without you telling it to return (this is called an &quot;implicit return&quot;). So when you call subtract(2, 1), 1 is returned. This return value can then be passed around anywere, include into another method (like add), or assigned to a variable. 
 
-&lt;p&gt;puts and print are both methods that generally do the same thing, print strings to the console. puts also adds a keyboard enter/return (a &amp;quot;\n&amp;quot; newline character), so it will end on a newline; print does not. They each have return values of nil. What they print to the console is NOT their return value. So had we done this with our add method above:&lt;/p&gt;
+####So what is the deal with puts, print and p?
+
+puts and print are both methods that generally do the same thing, print strings to the console. puts also adds a keyboard enter/return (a &quot;\n&quot; newline character), so it will end on a newline; print does not. They each have return values of nil. What they print to the console is NOT their return value. So had we done this with our add method above:
+
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
@@ -73,11 +77,13 @@
 &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;We would get the rather unexpected result of z being nil instead of 3. This is because we aren&amp;#39;t returning x + y in our add method, we are returning puts x + y, and puts and print always returns nil. (p is a little different. It both prints to the screen and returns, because it uses the built-in Ruby inspect method. Use p to debug, but then pull it out of your methods.) This can and has caused hours of confusion and head-banging-against-wall for beginners, who can&amp;#39;t figure out why everything is suddenly nil.&lt;/p&gt;
 
-&lt;h4&gt;Explicit return&lt;/h4&gt;
+We would get the rather unexpected result of z being nil instead of 3. This is because we aren&#39;t returning x + y in our add method, we are returning puts x + y, and puts and print always returns nil. (p is a little different. It both prints to the screen and returns, because it uses the built-in Ruby inspect method. Use p to debug, but then pull it out of your methods.) This can and has caused hours of confusion and head-banging-against-wall for beginners, who can&#39;t figure out why everything is suddenly nil.
 
-&lt;p&gt;You don&amp;#39;t have to return the last line of a method. Ruby will do that automatically as mentioned above, but if you&amp;#39;d rather return line 1 of a 2 line method, you could.&lt;/p&gt;
+####Explicit return
+
+You don&#39;t have to return the last line of a method. Ruby will do that automatically as mentioned above, but if you&#39;d rather return line 1 of a 2 line method, you could.
+
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Why hello there!&quot;&lt;/span&gt;
@@ -87,7 +93,9 @@
 &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Why hello there!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;In the above example, 2 + 6 would never happen, because &amp;quot;Why hello there!&amp;quot; is returned first, and you can only return once in a method. (Remember &amp;quot;Why hello there!&amp;quot; would be returned, but not printed to the screen, because we didn&amp;#39;t print, puts or p &amp;quot;Why hello there!&amp;quot; or puts/print/p add(2, 6) directly.) Why would you want to return before the last line of a method? Error handling, mostly. Returning exits your method. &lt;/p&gt;
+
+In the above example, 2 + 6 would never happen, because &quot;Why hello there!&quot; is returned first, and you can only return once in a method. (Remember &quot;Why hello there!&quot; would be returned, but not printed to the screen, because we didn&#39;t print, puts or p &quot;Why hello there!&quot; or puts/print/p add(2, 6) directly.) Why would you want to return before the last line of a method? Error handling, mostly. Returning exits your method. 
+
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Cat got your tongue?&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;empty?&lt;/span&gt;
@@ -102,14 +110,17 @@
 &lt;span class=&quot;s2&quot;&gt;&quot;Why hello there!&quot;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;In the first example, &amp;quot;Why hello there!&amp;quot; never happens because the name is an empty string, and &amp;quot;Cat got your tongue?&amp;quot; is returned, immediately exiting the method. We don&amp;#39;t want to say &amp;quot;Why hello there!&amp;quot; to someone who won&amp;#39;t even bother to give us their name.&lt;/p&gt;
 
-&lt;h3&gt;Back to those tutorials and what to do about them&lt;/h3&gt;
+In the first example, &quot;Why hello there!&quot; never happens because the name is an empty string, and &quot;Cat got your tongue?&quot; is returned, immediately exiting the method. We don&#39;t want to say &quot;Why hello there!&quot; to someone who won&#39;t even bother to give us their name.
 
-&lt;p&gt;I don&amp;#39;t know what the answer is. I&amp;#39;m complaining, but I did those same tutorials. I puts&amp;#39;d a ton of stuff to the console. I struggled with all of the above. Is there a better way to teach beginners? Seeing something printed to the console IS totally satisfying, and provides immediate feedback, but then again, so do error messages. Ideas? Anything alternatives that you&amp;#39;ve seen work?&lt;/p&gt;
+###Back to those tutorials and what to do about them
+I don&#39;t know what the answer is. I&#39;m complaining, but I did those same tutorials. I puts&#39;d a ton of stuff to the console. I struggled with all of the above. Is there a better way to teach beginners? Seeing something printed to the console IS totally satisfying, and provides immediate feedback, but then again, so do error messages. Ideas? Anything alternatives that you&#39;ve seen work?
+&lt;/p&gt;
 </description>
         
-          <description>&lt;p&gt;&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&amp;#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &amp;quot;return&amp;quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&amp;#39;s why:&lt;/p&gt;
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&#39;s why:
+
+&lt;/p&gt;
 </description>
         
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0500</pubDate>
@@ -123,13 +134,13 @@
       
       <item>
         <title>JSON, XML and YOU</title>
-        <description>&lt;h4&gt;So, I recently bombed a tech interview&lt;/h4&gt;
+        <description>&lt;p&gt;####So, I recently bombed a tech interview&lt;/p&gt;
 
-&lt;p&gt;It&amp;#39;s true, I did. I&amp;#39;m pretty new to tech interviews, and I was caught off guard by some of the questions. One question was about the pros and cons of using JSON vs. XML to send and receive data through HTTP requests (in this case, using AJAX), and I gave a vague answer (&amp;quot;JSON is easier to use!&amp;quot;) because I only had a vague understanding. So here&amp;#39;s a post for my edification and yours. And here&amp;#39;s to not bombing the next interview!&lt;/p&gt;
+&lt;p&gt;It’s true, I did. I’m pretty new to tech interviews, and I was caught off guard by some of the questions. One question was about the pros and cons of using JSON vs. XML to send and receive data through HTTP requests (in this case, using AJAX), and I gave a vague answer (“JSON is easier to use!”) because I only had a vague understanding. So here’s a post for my edification and yours. And here’s to not bombing the next interview!&lt;/p&gt;
 
-&lt;h3&gt;JSON&lt;/h3&gt;
+&lt;p&gt;###JSON&lt;/p&gt;
 
-&lt;p&gt;JSON stands for &amp;quot;JavaScript Object Notation&amp;quot;, but the format itself is language agnostic--JSON passes data using simple data structures that all languages have and can parse. JSON is text that can be read by humans, which is handy. As the name suggests, JSON is a JavaScript object literal, similar to a hash or dictionary in other languages. A JSON response to a GET request to mylittlepony.com/information might look like this:&lt;/p&gt;
+&lt;p&gt;JSON stands for “JavaScript Object Notation”, but the format itself is language agnostic–JSON passes data using simple data structures that all languages have and can parse. JSON is text that can be read by humans, which is handy. As the name suggests, JSON is a JavaScript object literal, similar to a hash or dictionary in other languages. A JSON response to a GET request to mylittlepony.com/information might look like this:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;rainbow dash&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -137,7 +148,7 @@
   &lt;span class=&quot;s2&quot;&gt;&quot;canterlot&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Capital of Equestria&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Note the quotes around the names/keys (rainbow dash, spike, canterlot): you have to use strings for the names/keys, you can&amp;#39;t use symbols or integers to point to values as you can when using hashes in some other languages. Unlike the names/keys, values don&amp;#39;t have to be strings: arrays, numbers, booleans, strings or null are all valid data types for values in JSON.&lt;/p&gt;
+&lt;p&gt;Note the quotes around the names/keys (rainbow dash, spike, canterlot): you have to use strings for the names/keys, you can’t use symbols or integers to point to values as you can when using hashes in some other languages. Unlike the names/keys, values don’t have to be strings: arrays, numbers, booleans, strings or null are all valid data types for values in JSON.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;rainbow dash&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;
@@ -173,7 +184,7 @@
 
 &lt;span class=&quot;nx&quot;&gt;myPony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// returns &quot;rainbow dash&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3&gt;XML&lt;/h3&gt;
+&lt;p&gt;###XML&lt;/p&gt;
 
 &lt;p&gt;XML is short for Extensible Markup Language. XML is also a way to send data around in human readable text format and structured in such away that it is machine readable when parsed. For example:&lt;/p&gt;
 
@@ -186,12 +197,13 @@
 
 &lt;p&gt;XML is a markup language, like HTML (it adds tags to text to format the text), and the hierarchical structure of XML is key: you can access the text of XML the same way you would access the inner text of a certain HMTL tag or CSS selector, and traverse up and down the XML tree. Using jQuery makes this (relatively) easy.&lt;/p&gt;
 
-&lt;h3&gt;Which is easier to use?&lt;/h3&gt;
+&lt;p&gt;###Which is easier to use?&lt;/p&gt;
 
-&lt;p&gt;For my money, JSON. One of the reasons hashes are so great is that they let you access values using specific keys, no iterating through an array (or, in this case, traversing a markup tree) is necessary. Both JSON and XML are human readable, but I think JSON reads easier since it doesn&amp;#39;t include extraneous text (like the closing tags that XML needs, or repetitive tags that JSON makes unnecessary since data can be put in an array and pointed to it with one name/key). And if you are using JS, you can use the native JSON.parse() function and you are done. With XML, as far as I am aware you need to use a third party library like jQuery to parse the XML and then traverse the XML tree until you get what you need.&lt;/p&gt;
+&lt;p&gt;For my money, JSON. One of the reasons hashes are so great is that they let you access values using specific keys, no iterating through an array (or, in this case, traversing a markup tree) is necessary. Both JSON and XML are human readable, but I think JSON reads easier since it doesn’t include extraneous text (like the closing tags that XML needs, or repetitive tags that JSON makes unnecessary since data can be put in an array and pointed to it with one name/key). And if you are using JS, you can use the native JSON.parse() function and you are done. With XML, as far as I am aware you need to use a third party library like jQuery to parse the XML and then traverse the XML tree until you get what you need.&lt;/p&gt;
 </description>
         
-          <description>&lt;h4&gt;So, I recently bombed a tech interview&lt;/h4&gt;
+          <description>&lt;p&gt;####So, I recently bombed a tech interview&lt;/p&gt;
+
 </description>
         
         <pubDate>Mon, 28 Dec 2015 00:00:00 -0600</pubDate>
@@ -205,32 +217,31 @@
       
       <item>
         <title>How to teach yourself Swift in 8 days</title>
-        <description>&lt;h4&gt;I don&amp;#39;t recommend this approach&lt;/h4&gt;
+        <description>&lt;p&gt;####I don’t recommend this approach
+My final project at &lt;a href=&quot;http://www.devbootcamp.com&quot;&gt;Dev Bootcamp&lt;/a&gt; was an iOS app called &lt;a href=&quot;https://github.com/Salt7900/breadcrumbs&quot;&gt;breadCrumbs&lt;/a&gt;. We had just spent 15 weeks on Ruby and Javascript. No one in my group of three knew a thing about Swift, other than that it replaced Objective-C, and it was what you had to use if you wanted to make an iOS app.&lt;/p&gt;
 
-&lt;p&gt;My final project at &lt;a href=&quot;http://www.devbootcamp.com&quot;&gt;Dev Bootcamp&lt;/a&gt; was an iOS app called &lt;a href =&quot;https://github.com/Salt7900/breadcrumbs&quot;&gt;breadCrumbs&lt;/a&gt;. We had just spent 15 weeks on Ruby and Javascript. No one in my group of three knew a thing about Swift, other than that it replaced Objective-C, and it was what you had to use if you wanted to make an iOS app.&lt;/p&gt;
+&lt;p&gt;You will probably have more than 8 days to teach yourself Swift. I am still teaching myself Swift, and if you look at the breadCrumbs repo, you’ll see that while the Swift we wrote worked, it wasn’t great, but it got the job done.&lt;/p&gt;
 
-&lt;p&gt;You will probably have more than 8 days to teach yourself Swift. I am still teaching myself Swift, and if you look at the breadCrumbs repo, you&amp;#39;ll see that while the Swift we wrote worked, it wasn&amp;#39;t great, but it got the job done.&lt;/p&gt;
+&lt;p&gt;###Where to start (don’t forget about Xcode!)&lt;/p&gt;
 
-&lt;h3&gt;Where to start (don&amp;#39;t forget about Xcode!)&lt;/h3&gt;
-
-&lt;p&gt;So you say you want to learn Swift? Where should you start? Here&amp;#39;s what I did:&lt;/p&gt;
+&lt;p&gt;So you say you want to learn Swift? Where should you start? Here’s what I did:&lt;/p&gt;
 
 &lt;p&gt;First, I checked the app store to see if there were apps I could use to learn a bit of Swift on my commute on the subway. I found a great little app called &lt;a href=&quot;http://swifty-app.com/&quot;&gt;swifty&lt;/a&gt;. It teaches you the very basics, and the first few lessons are free. I thought it was well worth it to shell out for all of the lessons. The interface is clean, and whoever wrote it had a pretty good sense of humor.&lt;/p&gt;
 
-&lt;p&gt;Next, I downloaded Apple&amp;#39;s free &lt;a href=&quot;https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11&quot;&gt;iBook on Swift&lt;/a&gt;. To be honest, I didn&amp;#39;t read past the introductory chapter. Not because it wasn&amp;#39;t interesting (it was), but because I didn&amp;#39;t have time. I&amp;#39;ve picked it up again, and it is a great free resource, straight from the company who created Swift.&lt;/p&gt;
+&lt;p&gt;Next, I downloaded Apple’s free &lt;a href=&quot;https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11&quot;&gt;iBook on Swift&lt;/a&gt;. To be honest, I didn’t read past the introductory chapter. Not because it wasn’t interesting (it was), but because I didn’t have time. I’ve picked it up again, and it is a great free resource, straight from the company who created Swift.&lt;/p&gt;
 
-&lt;p&gt;Then I did this: youtube, youtube, and more youtube. There are a TON of videos on youtube about developing apps for iOS. Swift is only a couple of years old, so check the date on the videos: older videos will be about Objective-C, not Swift. The thing about developing in iOS is that you don&amp;#39;t just need to learn Swift, you need to learn the IDE (integrated development environment) that is used to build iOS apps, and that&amp;#39;s Apple&amp;#39;s &lt;a href = &quot;https://developer.apple.com/xcode/&quot;&gt;Xcode&lt;/a&gt;. Unlike in prior years, Xcode is free, so go download it now, because you know what turns out to be a lot harder than learning Swift? Learning Xcode. Xcode is a phenomenal tool, but the interface is overwhelming and takes awhile to get used to. This is where youtube comes in: you&amp;#39;ll learn a bit of Swift on the videos, but you&amp;#39;ll also watch someone using Xcode. I recommend the whole series from &lt;a href=&quot;http://codewithchris.com/&quot;&gt;Code with Chris&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Then I did this: youtube, youtube, and more youtube. There are a TON of videos on youtube about developing apps for iOS. Swift is only a couple of years old, so check the date on the videos: older videos will be about Objective-C, not Swift. The thing about developing in iOS is that you don’t just need to learn Swift, you need to learn the IDE (integrated development environment) that is used to build iOS apps, and that’s Apple’s &lt;a href=&quot;https://developer.apple.com/xcode/&quot;&gt;Xcode&lt;/a&gt;. Unlike in prior years, Xcode is free, so go download it now, because you know what turns out to be a lot harder than learning Swift? Learning Xcode. Xcode is a phenomenal tool, but the interface is overwhelming and takes awhile to get used to. This is where youtube comes in: you’ll learn a bit of Swift on the videos, but you’ll also watch someone using Xcode. I recommend the whole series from &lt;a href=&quot;http://codewithchris.com/&quot;&gt;Code with Chris&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Given my 8 day schedule, I moved on from youtube to the more focused courses on &lt;a href=&quot;https://teamtreehouse.com/&quot;&gt;Treehouse&lt;/a&gt;. Not gonna lie, I&amp;#39;m a Treehouse evangelist. They gamify learning by giving you points (I love points), their videos are excellent, and their practice projects are challenging (please just don&amp;#39;t pass off one of their projects as a project of your own). The downside of Treehouse is that it isn&amp;#39;t free; the upside is that the first month is free, and you can suspend and reactivate your membership whenever you want. I found the Treehouse videos and exercises on Swift and iOS development to be as high quality as the rest of their content.&lt;/p&gt;
+&lt;p&gt;Given my 8 day schedule, I moved on from youtube to the more focused courses on &lt;a href=&quot;https://teamtreehouse.com/&quot;&gt;Treehouse&lt;/a&gt;. Not gonna lie, I’m a Treehouse evangelist. They gamify learning by giving you points (I love points), their videos are excellent, and their practice projects are challenging (please just don’t pass off one of their projects as a project of your own). The downside of Treehouse is that it isn’t free; the upside is that the first month is free, and you can suspend and reactivate your membership whenever you want. I found the Treehouse videos and exercises on Swift and iOS development to be as high quality as the rest of their content.&lt;/p&gt;
 
 &lt;p&gt;Playgrounds: Finally, Xcode has this cool thing called playgrounds, which are sandboxes for Swift. If you use Ruby, think of it playgrounds as a slower version of IRB (seriously slow). Open up Xcode, open a playground, and play around with Swift. Swift looks a lot like Javascript without the semicolons, so even if you know a tiny bit of Javascript, you should be able to write a tiny bit of Swift and see what your code returns in the playground.&lt;/p&gt;
 
 &lt;p&gt;Good luck! If you have any other good resources for beginners learning Swift, please let me know in the comments.&lt;/p&gt;
 </description>
         
-          <description>&lt;h4&gt;I don&amp;#39;t recommend this approach&lt;/h4&gt;
+          <description>&lt;p&gt;####I don’t recommend this approach
+My final project at &lt;a href=&quot;http://www.devbootcamp.com&quot;&gt;Dev Bootcamp&lt;/a&gt; was an iOS app called &lt;a href=&quot;https://github.com/Salt7900/breadcrumbs&quot;&gt;breadCrumbs&lt;/a&gt;. We had just spent 15 weeks on Ruby and Javascript. No one in my group of three knew a thing about Swift, other than that it replaced Objective-C, and it was what you had to use if you wanted to make an iOS app.&lt;/p&gt;
 
-&lt;p&gt;My final project at &lt;a href=&quot;http://www.devbootcamp.com&quot;&gt;Dev Bootcamp&lt;/a&gt; was an iOS app called &lt;a href =&quot;https://github.com/Salt7900/breadcrumbs&quot;&gt;breadCrumbs&lt;/a&gt;. We had just spent 15 weeks on Ruby and Javascript. No one in my group of three knew a thing about Swift, other than that it replaced Objective-C, and it was what you had to use if you wanted to make an iOS app.&lt;/p&gt;
 </description>
         
         <pubDate>Fri, 09 Oct 2015 00:00:00 -0500</pubDate>
@@ -244,9 +255,8 @@
       
       <item>
         <title>Working With CSV Files in Ruby</title>
-        <description>&lt;h4&gt;comma, separated, values&lt;/h4&gt;
-
-&lt;p&gt;CSV stands for &amp;quot;comma separated values&amp;quot; and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):&lt;/p&gt;
+        <description>&lt;p&gt;####comma, separated, values
+CSV stands for “comma separated values” and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;my_database&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;csv&lt;/span&gt;
 
@@ -255,9 +265,9 @@
 &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jane&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;burns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;444&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1234&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jane&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@aol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
 &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pinkie&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinke_pie&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@equestria&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;CSV files can contain headers. In our file above, the first row is the header, and it designates that in the lines of text that follow, the first item in each line before the first comma is an id, the second item before the second comma is a name, the third item before the third comma is a phone number, and the last item is an email. Commas are key here -- if you put a comma in between &amp;quot;jane&amp;quot; and &amp;quot;burns&amp;quot;, the id would still be &amp;quot;2&amp;quot; and her first name would be &amp;quot;jane&amp;quot;, but the file would think her phone number was &amp;quot;burns&amp;quot;. CSV files doen&amp;#39;t need to contain headers, but they are useful to have as they act like column headers (and later, hash keys) for the individual pieces of comma separated data in the rows below.&lt;/p&gt;
+&lt;p&gt;CSV files can contain headers. In our file above, the first row is the header, and it designates that in the lines of text that follow, the first item in each line before the first comma is an id, the second item before the second comma is a name, the third item before the third comma is a phone number, and the last item is an email. Commas are key here – if you put a comma in between “jane” and “burns”, the id would still be “2” and her first name would be “jane”, but the file would think her phone number was “burns”. CSV files doen’t need to contain headers, but they are useful to have as they act like column headers (and later, hash keys) for the individual pieces of comma separated data in the rows below.&lt;/p&gt;
 
-&lt;p&gt;Ruby conveniently includes a &lt;a href= &quot;http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html&quot;&gt;CSV class&lt;/a&gt;, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:&lt;/p&gt;
+&lt;p&gt;Ruby conveniently includes a &lt;a href=&quot;http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html&quot;&gt;CSV class&lt;/a&gt;, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;csv&#39;&lt;/span&gt;
 
@@ -272,9 +282,9 @@
 
   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;lt;CSV::Row &quot;id&quot;:&quot;1&quot; &quot;name&quot;:&quot;joe smith&quot; &quot;phone&quot;:&quot; 555-1234&quot; &quot;email&quot;:&quot;joe@smith.com&quot;&amp;gt;, #&amp;lt;CSV::Row &quot;id&quot;:&quot;2&quot; &quot;name&quot;:&quot;jane burns&quot; &quot;phone&quot;:&quot;444-1234&quot; &quot;email&quot;:&quot;jane@aol.com&quot;&amp;gt;, #&amp;lt;CSV::Row &quot;id&quot;:&quot;3&quot; &quot;name&quot;:&quot; pinkie pie&quot; &quot;phone&quot;:&quot;123-9999&quot; &quot;email&quot;:&quot;pinke_pie@equestria.com&quot;&amp;gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;A few things to note in the above code. First, you have to require &amp;#39;csv&amp;#39; to use the CSV class. Second, the &amp;quot;headers&amp;quot; argument in the CSV.foreach method is optional. If you do not include it and only pass in the file name to CSV.foreach, it will assume that there are no headers and every row will be a set of data. Including headers in the argument sent to CSV.foreach means that CSV knows to look for them in the first row, and will then associate them with the corresponding pieces of data in the following rows.&lt;/p&gt;
+&lt;p&gt;A few things to note in the above code. First, you have to require ‘csv’ to use the CSV class. Second, the “headers” argument in the CSV.foreach method is optional. If you do not include it and only pass in the file name to CSV.foreach, it will assume that there are no headers and every row will be a set of data. Including headers in the argument sent to CSV.foreach means that CSV knows to look for them in the first row, and will then associate them with the corresponding pieces of data in the following rows.&lt;/p&gt;
 
-&lt;p&gt;CSV.foreach, with the headers option on, returns a CSV Row, with &amp;quot;header&amp;quot;: &amp;quot;value&amp;quot;, sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let&amp;#39;s try that with our array of CSV Rows, my&lt;em&gt;people&lt;/em&gt;data.&lt;/p&gt;
+&lt;p&gt;CSV.foreach, with the headers option on, returns a CSV Row, with “header”: “value”, sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let’s try that with our array of CSV Rows, my_people_data.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;csv&#39;&lt;/span&gt;
 
@@ -301,14 +311,14 @@
   &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Pony:0x007f8a0a066cd8 @name=&quot; pinkie pie&quot;, @phone=&quot;123-9999&quot;, @email=&quot;pinke_pie@equestria.com&quot;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;So what happend there? We have an array of CSV Row objects, called my&lt;em&gt;people&lt;/em&gt;data, and we created a new Person class that is initialized by some data. @name, @phone, and @email are each assigned to some value in data we pass in, accessed by a key. We pull the data on pinkie pie from the my&lt;em&gt;people&lt;/em&gt;data array, and we pass that data into Person.new. Person.new looks for &amp;quot;name&amp;quot;, &amp;quot;phone&amp;quot; and &amp;quot;email&amp;quot; in the csv data just as it would search a hash for keys, and finds the data (headers for the win!). And now we have a pinkie pie Pony object. With an email and a phone number, naturally, because pinkie pie is very popular.&lt;/p&gt;
+&lt;p&gt;So what happend there? We have an array of CSV Row objects, called my_people_data, and we created a new Person class that is initialized by some data. @name, @phone, and @email are each assigned to some value in data we pass in, accessed by a key. We pull the data on pinkie pie from the my_people_data array, and we pass that data into Person.new. Person.new looks for “name”, “phone” and “email” in the csv data just as it would search a hash for keys, and finds the data (headers for the win!). And now we have a pinkie pie Pony object. With an email and a phone number, naturally, because pinkie pie is very popular.&lt;/p&gt;
 
 &lt;p&gt;CSV is great because it is compact and relatively easy to deal with. You could have a large csv file with many, many lines, and as long as there is a header and the data on each line is appropriately separated by commas, it is easy to pull the data you need out of the csv file and pass it to ruby objects.&lt;/p&gt;
 </description>
         
-          <description>&lt;h4&gt;comma, separated, values&lt;/h4&gt;
+          <description>&lt;p&gt;####comma, separated, values
+CSV stands for “comma separated values” and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):&lt;/p&gt;
 
-&lt;p&gt;CSV stands for &amp;quot;comma separated values&amp;quot; and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):&lt;/p&gt;
 </description>
         
         <pubDate>Fri, 09 Oct 2015 00:00:00 -0500</pubDate>
@@ -322,9 +332,8 @@
       
       <item>
         <title>Ruby: Permissions when writing to files</title>
-        <description>&lt;h4&gt;File Permissions&lt;/h4&gt;
-
-&lt;p&gt;Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren&amp;#39;t unique to ruby, and they aren&amp;#39;t unique to writing to files (there are permissions for reading and executing files as well, among others) but since I&amp;#39;m spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.&lt;/p&gt;
+        <description>&lt;p&gt;####File Permissions
+Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren’t unique to ruby, and they aren’t unique to writing to files (there are permissions for reading and executing files as well, among others) but since I’m spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.&lt;/p&gt;
 
 &lt;p&gt;In ruby, we can use the File class to open and write to files. For example:&lt;/p&gt;
 
@@ -334,32 +343,32 @@
     &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rainbow Dash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The above code will open a file called &amp;#39;my&lt;em&gt;little&lt;/em&gt;pony.txt&amp;#39; (note: File.open will create the file if it doesn&amp;#39;t already exist, and then open it), and write &amp;quot;Rainbow Dash&amp;quot; to that file. When using File.open, the first argument is the name of the file you are opening and the second argument, the &amp;#39;w&amp;#39;, is the file permission. &amp;#39;w&amp;#39; is shorthand for &amp;#39;write&amp;#39; and indeed that&amp;#39;s what happened. If you open my&lt;em&gt;little&lt;/em&gt;pony.txt you will see a single line of text, &amp;quot;Rainbow Dash&amp;quot;. But what if we want to add Pinkie Pie to my&lt;em&gt;little&lt;/em&gt;pony.txt?&lt;/p&gt;
+&lt;p&gt;The above code will open a file called ‘my_little_pony.txt’ (note: File.open will create the file if it doesn’t already exist, and then open it), and write “Rainbow Dash” to that file. When using File.open, the first argument is the name of the file you are opening and the second argument, the ‘w’, is the file permission. ‘w’ is shorthand for ‘write’ and indeed that’s what happened. If you open my_little_pony.txt you will see a single line of text, “Rainbow Dash”. But what if we want to add Pinkie Pie to my_little_pony.txt?&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;w&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Awesome, now we have Pinkie Pie in our file of ponies! Let&amp;#39;s check it out. Open my&lt;em&gt;little&lt;/em&gt;pony.txt and...hey! Where did Rainbow Dash go? Now our file only includes Pinkie Pie.&lt;/p&gt;
+&lt;p&gt;Awesome, now we have Pinkie Pie in our file of ponies! Let’s check it out. Open my_little_pony.txt and…hey! Where did Rainbow Dash go? Now our file only includes Pinkie Pie.&lt;/p&gt;
 
-&lt;h4&gt;the thing about &amp;#39;w&amp;#39; is that it is kind of overzealous&lt;/h4&gt;
+&lt;p&gt;####the thing about ‘w’ is that it is kind of overzealous&lt;/p&gt;
 
-&lt;p&gt;So it&amp;#39;s true, the &amp;#39;w&amp;#39; argument will write to the file. Unfortunately, it will also overwrite the entire file. If we want to just add on to the existing file, and not overwrite the entire thing, we can use &amp;#39;a&amp;#39; for append. Let&amp;#39;s rewind our last code and assume our file still has Rainbow Dash in it.&lt;/p&gt;
+&lt;p&gt;So it’s true, the ‘w’ argument will write to the file. Unfortunately, it will also overwrite the entire file. If we want to just add on to the existing file, and not overwrite the entire thing, we can use ‘a’ for append. Let’s rewind our last code and assume our file still has Rainbow Dash in it.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;That one little letter did it. Now we have Rainbow Dash and Pinkie Pie in our file, but they are all smooshed together on one line. Let&amp;#39;s rewind that last code too and add a new line character (and let&amp;#39;s also use the shorthand curly braces rather than do/end since our code block is only one line).&lt;/p&gt;
+&lt;p&gt;That one little letter did it. Now we have Rainbow Dash and Pinkie Pie in our file, but they are all smooshed together on one line. Let’s rewind that last code too and add a new line character (and let’s also use the shorthand curly braces rather than do/end since our code block is only one line).&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;And there you have it, Rainbow Dash and Pinkie Pie, written to a file on separate lines. There&amp;#39;s a lot more you can do with file permissions, but the difference between &amp;#39;w&amp;#39; and &amp;#39;a&amp;#39; trip a lot of people up -- keep them in mind when you decide how you want to write to your file.&lt;/p&gt;
+&lt;p&gt;And there you have it, Rainbow Dash and Pinkie Pie, written to a file on separate lines. There’s a lot more you can do with file permissions, but the difference between ‘w’ and ‘a’ trip a lot of people up – keep them in mind when you decide how you want to write to your file.&lt;/p&gt;
 </description>
         
-          <description>&lt;h4&gt;File Permissions&lt;/h4&gt;
+          <description>&lt;p&gt;####File Permissions
+Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren’t unique to ruby, and they aren’t unique to writing to files (there are permissions for reading and executing files as well, among others) but since I’m spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.&lt;/p&gt;
 
-&lt;p&gt;Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren&amp;#39;t unique to ruby, and they aren&amp;#39;t unique to writing to files (there are permissions for reading and executing files as well, among others) but since I&amp;#39;m spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.&lt;/p&gt;
 </description>
         
         <pubDate>Tue, 06 Oct 2015 00:00:00 -0500</pubDate>
@@ -390,45 +399,40 @@
       
       <item>
         <title>Algorithms: Big-O Notation</title>
-        <description>&lt;h4&gt;What&amp;#39;s an algorithm?&lt;/h4&gt;
+        <description>&lt;p&gt;####What’s an algorithm?&lt;/p&gt;
 
 &lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;n algorithm is a hard to pronounce word for something simple: a set of steps that can be used to solve a problem. A slightly longer definition is that an algorithm is a finite number of steps or rules that, if followed, give you a result. Algorithms are distinguished by three things: (1) the steps/rules are clear and unambiguous, (2) there is an end to the steps/rules (finite. the steps/rules don&#39;t go on forever.) and (3) following the steps/rules returns a result. Addition is an algorithm, which, given a list of numbers you want to add, can be expressed with the following steps: 1. given a list of numbers, 2. add the first number to the second number, 3. if there are more than two numers, add the sum of the first number and second number to the third number, 4. repeat step three for the fourth number (if any) and any subsequent numbers until there are no more numbers in the list, 5. return the final sum. If you don&#39;t like math, here&#39;s a peanut butter sandwich algorithm: 1. get out the peanut butter, 2. get out the bread, 3. get out the knife, 4. spread peanut butter on one slice of bread, 5. put the other slice of break on top of the slice of bread with the peanut butter on it, 6. return peanut butter sandwich.&lt;/p&gt;
 
-&lt;h4&gt;What makes a good algorithm? Measuring algorithm complexity.&lt;/h4&gt;
+&lt;p&gt;####What makes a good algorithm? Measuring algorithm complexity.
+Algorithms are measured and compared based on how complex they are. The addition algorithm and the peanut better sandwhich algorithm are linear algorithms–the more numbers you have, or the more peanut butter sandwiches you have to make, the more steps you have to take, and the amount of steps you have to take increase in direct proportion to how many numbers or peanut butter sandwiches you are working with. Think of a graph: the x-axis is the number of steps, and the y axis is the number of sandwhiches/numbers. With linear algorithms, you end up with a straight diagonal line. If it takes 3 steps (disregarding taking out the knife, peanut butter and bread for the moment) to make one peanut butter sandwhich, it should take 300 steps to make 100 sandwhiches. If n is the number of peanut butter sandwhiches, or the number of numbers in a list of numbers we want to add, we could represent the complexity of the algorithm by O(n).&lt;/p&gt;
 
-&lt;p&gt;Algorithms are measured and compared based on how complex they are. The addition algorithm and the peanut better sandwhich algorithm are linear algorithms--the more numbers you have, or the more peanut butter sandwiches you have to make, the more steps you have to take, and the amount of steps you have to take increase in direct proportion to how many numbers or peanut butter sandwiches you are working with. Think of a graph: the x-axis is the number of steps, and the y axis is the number of sandwhiches/numbers. With linear algorithms, you end up with a straight diagonal line. If it takes 3 steps (disregarding taking out the knife, peanut butter and bread for the moment) to make one peanut butter sandwhich, it should take 300 steps to make 100 sandwhiches. If n is the number of peanut butter sandwhiches, or the number of numbers in a list of numbers we want to add, we could represent the complexity of the algorithm by O(n).&lt;/p&gt;
+&lt;p&gt;####Big-O Notation
+That O(n) up there is known as Big-O notation. Big-O notation represents the upper-bound of complexity of an algorithm, or for our purposes the total number of steps it will take to run the algorithm through a given set of n-numbers for the addition algorithm or n-sandwhiches for the sandwich making algorithm. Big-O represents the worst case scenario of complexity. When calculating what Big-O is for a certain algorithm, we only care about the big picture. Big-O notation is not exact, it is an estimate of the upper-bound based on the significant steps in the algorithm. Trivial stuff, like getting out the peanut butter and bread and pulling the knife from the drawer only happens once–it is a constant. You can drop constants when using Big-O, because Big-O assumes n is trending towards infinity. If we included constants, we might write something like O(n+3), where the +3 is the get out bread step, get out peanut butter step, and get out knife step, each of which we had to do only once before we started making sandwhiches. But if we are making 100 sandwhiches, or a million sandwiches, do we really care about the extra 3 steps in the complexity of our algorithm (300 steps or 1,000,000 steps vs. 303 or 1,000,003)? Nope. We can leave it off, O(n) is good enough for our purposes. Not all algorithms can be represented by O(n) to show their complexity (although it would be a lot easier if they could be!). You could have an algorithm that is O(n^2), or O(2logn), etc.&lt;/p&gt;
 
-&lt;h4&gt;Big-O Notation&lt;/h4&gt;
+&lt;p&gt;####There a difference between complexity and runtime
+Big-O is a representation of how complex an algorithm is. It is NOT a measure of how long it would take to run the algorithm. It is not a measure of performance. The time it takes to run the algorithm depends on what we can call K. What is K? It’s a constant. K can be you, in the case of how fast you can make sandwhiches or add up numbers on a piece of paper, or your computer, if you are using your computer to do the addition, and the amount of memory and processor speed your computer has to run the data (or sandwiches) you are processing. Big-O doesn’t really care about K, because big-O doesn’t care about constants. Big-O just wants to tell you the upperbound of complexity for a given algorithm so you can compare it to other algorithms that do the same thing.&lt;/p&gt;
 
-&lt;p&gt;That O(n) up there is known as Big-O notation. Big-O notation represents the upper-bound of complexity of an algorithm, or for our purposes the total number of steps it will take to run the algorithm through a given set of n-numbers for the addition algorithm or n-sandwhiches for the sandwich making algorithm. Big-O represents the worst case scenario of complexity. When calculating what Big-O is for a certain algorithm, we only care about the big picture. Big-O notation is not exact, it is an estimate of the upper-bound based on the significant steps in the algorithm. Trivial stuff, like getting out the peanut butter and bread and pulling the knife from the drawer only happens once--it is a constant. You can drop constants when using Big-O, because Big-O assumes n is trending towards infinity. If we included constants, we might write something like O(n+3), where the +3 is the get out bread step, get out peanut butter step, and get out knife step, each of which we had to do only once before we started making sandwhiches. But if we are making 100 sandwhiches, or a million sandwiches, do we really care about the extra 3 steps in the complexity of our algorithm (300 steps or 1,000,000 steps vs. 303 or 1,000,003)? Nope. We can leave it off, O(n) is good enough for our purposes. Not all algorithms can be represented by O(n) to show their complexity (although it would be a lot easier if they could be!). You could have an algorithm that is O(n^2), or O(2logn), etc.&lt;/p&gt;
+&lt;p&gt;####Comparing Algorithms using Big-O
+So what’s the point of all this? Why do I care if my algorithm for making peanut butter sandwhiches is O(n)? I own a company that makes gourmet peanut butter sandwhiches and I need to make 20,000 peanut butter sandwiches (each sandwich represented by n) a day. By hand, with our 3 steps a sandwhich algorithm, that’s 60,000 steps. I want to buy a peanut butter sandwhich making machine, but only if it makes sense. With the machine, the steps are as follows for each sandwhich: 1. press button, 2. return sandwhich. At the beginning of each day we have to load up the machine with a ton of bread and peanut butter, but we only do that once a day and we don’t need to include it when calculating Big-O for our algorithm. You can program the machine to make sandwhiches in 100 sandwich batches, so for 100 sandwiches, it is still only two steps: 1. turn on machine, 2. return sandwiches. In this case, as long as there are less than or equal to 100 sandwiches, the sandwich machine will take 2 steps to make them. So we could represent the complexity of our sandwich machine making algorithm as O(n/100), where n is the number of sandwiches. There are some situations where this wouldn’t be accurate (if you were only making 50 sandwiches, for example), but as we learned above, we can ignore the outliers. We care about the big picture. If we are making 20,000 peanut butter sandwiches, this algorithm would suggest that at most it would take about 400 steps to make them (2 steps * (20,000 sandwiches/100)). A great improvement over the 60,000 steps it would take me by myself to make the sandwiches without the machine using my handmade sandwich algorithm.&lt;/p&gt;
 
-&lt;h4&gt;There a difference between complexity and runtime&lt;/h4&gt;
+&lt;p&gt;####The Big BIG Picture
+Obviously the sandwich machine making algorithm is less complex than the sandwich making by hand algorithm. We can compare those two algorithms using Big-O because they are doing the same thing. It wouldn’t make sense to say that the sandwich machine algorithm is less complex than the addition algorithm above. But we could compare different addition or multiplication algorithms (Yes, there are more ways to multiply numbers than the one you learned in elementary school. This &lt;a href=&quot;https://www.youtube.com/watch?v=170HCmphjUI&amp;amp;index=1&amp;amp;list=WL&quot; target=&quot;_blank&quot;&gt;Stanford video&lt;/a&gt; is a great intro to algorithms and uses multiplication as an example.). If we are multiplying numbers with hundreds or thousands of digits, we care which set of steps, which algorithm, is more efficient, because our hands are going to hurt like hell multiplying all those numbers and we want to keep the steps to a minimum. Similarly, if we are doing the multiplication on a computer, we care whether one algorithm will process our long list of numbers in 2 steps if each step takes 10 seconds, while another algorithm that is more complex will process it in 1000 steps and keep us from updating Facebook for 2000 seconds while it processes the list.&lt;/p&gt;
 
-&lt;p&gt;Big-O is a representation of how complex an algorithm is. It is NOT a measure of how long it would take to run the algorithm. It is not a measure of performance. The time it takes to run the algorithm depends on what we can call K. What is K? It&amp;#39;s a constant. K can be you, in the case of how fast you can make sandwhiches or add up numbers on a piece of paper, or your computer, if you are using your computer to do the addition, and the amount of memory and processor speed your computer has to run the data (or sandwiches) you are processing. Big-O doesn&amp;#39;t really care about K, because big-O doesn&amp;#39;t care about constants. Big-O just wants to tell you the upperbound of complexity for a given algorithm so you can compare it to other algorithms that do the same thing.&lt;/p&gt;
+&lt;p&gt;So that’s big-O notation. Keep in mind that it is the upper-bound, worse case scenario: it says “this, at most, is how many steps this algorithm will take, give some input n”. Big-O isn’t telling you anything about time or performance. If you want to figure that out, you will need to throw in some factor K (which could be how fast your processor is/how fast your peanut butter making machine is/how fast you write), which has nothing to do with the complexity of the algorithm being represented by Big-O. There’s other sorts of notation: big-Omega notation represents the lower bound, best case scenario for an algorithm: this is, at the very least, how many steps this algorithm will take to run. A gross simplification of theta notation is that it is when the worst case and the best case are the same: if, no matter what, an algorithm given an input n will take a certain number of steps to run, then you can represent it using theta notation.&lt;/p&gt;
 
-&lt;h4&gt;Comparing Algorithms using Big-O&lt;/h4&gt;
+&lt;p&gt;####Caveat
+I’m not a math major. I don’t have a CS degree. Half of this is probably wrong. Except I’m 100% positive about Big-O being the upperbound of complexity is right, and anyone who tells you Big-O represents runtime is flat out wrong. That being said, we all call tissue “kleenex” even though Kleenex is a brand name and not all tissue is Kleenex, and if someone asks you for a kleenex and you say “I don’t have kleenex, but I have a tissue” you are just being a jerk because you know damn well what they want. Someone at an interview is inevitably going to ask you about Big-O notation and runtime and you are just going to smile, node and pretend they are the same.&lt;/p&gt;
 
-&lt;p&gt;So what&amp;#39;s the point of all this? Why do I care if my algorithm for making peanut butter sandwhiches is O(n)? I own a company that makes gourmet peanut butter sandwhiches and I need to make 20,000 peanut butter sandwiches (each sandwich represented by n) a day. By hand, with our 3 steps a sandwhich algorithm, that&amp;#39;s 60,000 steps. I want to buy a peanut butter sandwhich making machine, but only if it makes sense. With the machine, the steps are as follows for each sandwhich: 1. press button, 2. return sandwhich. At the beginning of each day we have to load up the machine with a ton of bread and peanut butter, but we only do that once a day and we don&amp;#39;t need to include it when calculating Big-O for our algorithm. You can program the machine to make sandwhiches in 100 sandwich batches, so for 100 sandwiches, it is still only two steps: 1. turn on machine, 2. return sandwiches. In this case, as long as there are less than or equal to 100 sandwiches, the sandwich machine will take 2 steps to make them. So we could represent the complexity of our sandwich machine making algorithm as O(n/100), where n is the number of sandwiches. There are some situations where this wouldn&amp;#39;t be accurate (if you were only making 50 sandwiches, for example), but as we learned above, we can ignore the outliers. We care about the big picture. If we are making 20,000 peanut butter sandwiches, this algorithm would suggest that at most it would take about 400 steps to make them (2 steps * (20,000 sandwiches/100)). A great improvement over the 60,000 steps it would take me by myself to make the sandwiches without the machine using my handmade sandwich algorithm.&lt;/p&gt;
-
-&lt;h4&gt;The Big BIG Picture&lt;/h4&gt;
-
-&lt;p&gt;Obviously the sandwich machine making algorithm is less complex than the sandwich making by hand algorithm. We can compare those two algorithms using Big-O because they are doing the same thing. It wouldn&amp;#39;t make sense to say that the sandwich machine algorithm is less complex than the addition algorithm above. But we could compare different addition or multiplication algorithms (Yes, there are more ways to multiply numbers than the one you learned in elementary school. This &lt;a href=&quot;https://www.youtube.com/watch?v=170HCmphjUI&amp;index=1&amp;list=WL&quot; target=&quot;_blank&quot;&gt;Stanford video&lt;/a&gt; is a great intro to algorithms and uses multiplication as an example.). If we are multiplying numbers with hundreds or thousands of digits, we care which set of steps, which algorithm, is more efficient, because our hands are going to hurt like hell multiplying all those numbers and we want to keep the steps to a minimum. Similarly, if we are doing the multiplication on a computer, we care whether one algorithm will process our long list of numbers in 2 steps if each step takes 10 seconds, while another algorithm that is more complex will process it in 1000 steps and keep us from updating Facebook for 2000 seconds while it processes the list.&lt;/p&gt;
-
-&lt;p&gt;So that&amp;#39;s big-O notation. Keep in mind that it is the upper-bound, worse case scenario: it says &amp;quot;this, at most, is how many steps this algorithm will take, give some input n&amp;quot;. Big-O isn&amp;#39;t telling you anything about time or performance. If you want to figure that out, you will need to throw in some factor K (which could be how fast your processor is/how fast your peanut butter making machine is/how fast you write), which has nothing to do with the complexity of the algorithm being represented by Big-O. There&amp;#39;s other sorts of notation: big-Omega notation represents the lower bound, best case scenario for an algorithm: this is, at the very least, how many steps this algorithm will take to run. A gross simplification of theta notation is that it is when the worst case and the best case are the same: if, no matter what, an algorithm given an input n will take a certain number of steps to run, then you can represent it using theta notation.&lt;/p&gt;
-
-&lt;h4&gt;Caveat&lt;/h4&gt;
-
-&lt;p&gt;I&amp;#39;m not a math major. I don&amp;#39;t have a CS degree. Half of this is probably wrong. Except I&amp;#39;m 100% positive about Big-O being the upperbound of complexity is right, and anyone who tells you Big-O represents runtime is flat out wrong. That being said, we all call tissue &amp;quot;kleenex&amp;quot; even though Kleenex is a brand name and not all tissue is Kleenex, and if someone asks you for a kleenex and you say &amp;quot;I don&amp;#39;t have kleenex, but I have a tissue&amp;quot; you are just being a jerk because you know damn well what they want. Someone at an interview is inevitably going to ask you about Big-O notation and runtime and you are just going to smile, node and pretend they are the same.&lt;/p&gt;
-
-&lt;h4&gt;Links I found useful:&lt;/h4&gt;
+&lt;p&gt;####Links I found useful:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html&quot; target=&quot;_blank&quot;&gt;Plain English Explanation of Big O Notation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.coursera.org/course/algo&quot; target=&quot;_blank&quot;&gt;Algorithms: Design and Analysis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html&quot; target=&quot;_blank&quot;&gt;Plain English Explanation of Big O Notation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.coursera.org/course/algo&quot; target=&quot;_blank&quot;&gt;Algorithms: Design and Analysis&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         
-          <description>&lt;h4&gt;What&amp;#39;s an algorithm?&lt;/h4&gt;
+          <description>&lt;p&gt;####What’s an algorithm?&lt;/p&gt;
+
 </description>
         
         <pubDate>Thu, 17 Sep 2015 00:00:00 -0500</pubDate>
@@ -444,12 +448,13 @@
         <title>Conflict: the Condo from Hell</title>
         <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;W&lt;/span&gt;hen I first moved back to Chicago from NYC, I lived in a condo in Roscoe Village. The neighborhood was great, the inside of the condo was beautiful, and I was excited to be paying a fraction of what I would have paid in Brooklyn for the same type of place. There were only two problems: upstairs and downstairs. I lived on the third floor. The fourth floor was the top unit, and a couple with two giant yellow labs lived there. The second floor unit directly below me was  occupied by a guy in his early 20s who liked to party late and sleep-in. (The ground floor unit was commercial, owned by a mortgage company. They were great!). The people above me seemed like good folks, and I love dogs, but I did not love dogs wrestling above my head constantly, shaking my light fixtures. I did not love that the woman who lived above sounded like an elephant in high heels on their wood floors. The guy below me blasted house music at all hours of the night and then complained when my cat jumped off my bed in the morning. The sound of a 12 pound cat landing on the floor woke him up, and this was just completely unacceptable to him. The whole situation enraged me. I felt trapped and powerless, and in a way I was trapped: I couldn&#39;t just up and move, and on top of that I had not just one source of annoyance, but was sandwiched between two: I could barely hear myself think in my condo because of the people above me and the music below me, and I was afraid to walk around in my own place because of the guy below me.&lt;/p&gt;
 
-&lt;p&gt;So what did I do? I fumed, a lot. I googled &amp;quot;how to get back at noisy neighbors&amp;quot;. Reading stories written by people who were in similar situations was validating, and dreaming about &amp;quot;getting even&amp;quot;, even though I knew I wouldn&amp;#39;t do any of the things suggested, was cathartic. I&amp;#39;m not good at confrontation, but eventually I did ask the woman upstairs if she could try not to wear high heels in the house, and if they could try to keep the dogs from wrestling. The high heel situation improved, the dog wrestling did not. I tried talking to the guy below me about his loud music, and his response was basically that he could do whatever he wanted in his own place (but apparently I couldn&amp;#39;t do whatever I wanted in mine if it distured his beauty sleep). So I fumed some more. I blasted the speakers on my tv. I wore headphones. I bought a noise machine. Eventually, I got sort of used to it. Not happy, but used to it. And then finally I did move. Because sometimes you can&amp;#39;t change a situation, you need to remove yourself from it entirely. It&amp;#39;s not fair, but it happens.&lt;/p&gt;
+&lt;p&gt;So what did I do? I fumed, a lot. I googled “how to get back at noisy neighbors”. Reading stories written by people who were in similar situations was validating, and dreaming about “getting even”, even though I knew I wouldn’t do any of the things suggested, was cathartic. I’m not good at confrontation, but eventually I did ask the woman upstairs if she could try not to wear high heels in the house, and if they could try to keep the dogs from wrestling. The high heel situation improved, the dog wrestling did not. I tried talking to the guy below me about his loud music, and his response was basically that he could do whatever he wanted in his own place (but apparently I couldn’t do whatever I wanted in mine if it distured his beauty sleep). So I fumed some more. I blasted the speakers on my tv. I wore headphones. I bought a noise machine. Eventually, I got sort of used to it. Not happy, but used to it. And then finally I did move. Because sometimes you can’t change a situation, you need to remove yourself from it entirely. It’s not fair, but it happens.&lt;/p&gt;
 
-&lt;p&gt;We now live in a 100 year-old house in Oak Park. No one lives above us or below us. There are no granite countertops, double sinks or walk-in closets like in the condo. The kitchen desperately needs to be updated and the main bathroom is the size of a shoebox. But the neighborhood is great and the neighbors are also great (having their own walls, floors and ceilings helps). It&amp;#39;s been years since we moved, but I still cringe whenever my own dogs runs around the living room, until I remember there is nothing living in the basement for her to disturb except for maybe the cat.&lt;/p&gt;
+&lt;p&gt;We now live in a 100 year-old house in Oak Park. No one lives above us or below us. There are no granite countertops, double sinks or walk-in closets like in the condo. The kitchen desperately needs to be updated and the main bathroom is the size of a shoebox. But the neighborhood is great and the neighbors are also great (having their own walls, floors and ceilings helps). It’s been years since we moved, but I still cringe whenever my own dogs runs around the living room, until I remember there is nothing living in the basement for her to disturb except for maybe the cat.&lt;/p&gt;
 </description>
         
           <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;W&lt;/span&gt;hen I first moved back to Chicago from NYC, I lived in a condo in Roscoe Village. The neighborhood was great, the inside of the condo was beautiful, and I was excited to be paying a fraction of what I would have paid in Brooklyn for the same type of place. There were only two problems: upstairs and downstairs. I lived on the third floor. The fourth floor was the top unit, and a couple with two giant yellow labs lived there. The second floor unit directly below me was  occupied by a guy in his early 20s who liked to party late and sleep-in. (The ground floor unit was commercial, owned by a mortgage company. They were great!). The people above me seemed like good folks, and I love dogs, but I did not love dogs wrestling above my head constantly, shaking my light fixtures. I did not love that the woman who lived above sounded like an elephant in high heels on their wood floors. The guy below me blasted house music at all hours of the night and then complained when my cat jumped off my bed in the morning. The sound of a 12 pound cat landing on the floor woke him up, and this was just completely unacceptable to him. The whole situation enraged me. I felt trapped and powerless, and in a way I was trapped: I couldn&#39;t just up and move, and on top of that I had not just one source of annoyance, but was sandwiched between two: I could barely hear myself think in my condo because of the people above me and the music below me, and I was afraid to walk around in my own place because of the guy below me.&lt;/p&gt;
+
 </description>
         
         <pubDate>Wed, 16 Sep 2015 00:00:00 -0500</pubDate>
@@ -463,11 +468,10 @@
       
       <item>
         <title>JavaScript Objects Look Suspiciously Similar to Ruby Hashes</title>
-        <description>&lt;h3&gt;Ruby vs. JavaScript&lt;/h3&gt;
+        <description>&lt;p&gt;###Ruby vs. JavaScript
+####JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/p&gt;
 
-&lt;h4&gt;JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/h4&gt;
-
-&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;C&lt;/span&gt;ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala &quot;key_1&quot; =&gt; 1, which are also kosher for use in hashes in Ruby). Here&#39;s a hash in Ruby:&lt;/p&gt;
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;C&lt;/span&gt;ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala &quot;key_1&quot; =&amp;gt; 1, which are also kosher for use in hashes in Ruby). Here&#39;s a hash in Ruby:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;pony&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;earth pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cutie_mark: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -479,14 +483,14 @@
   &lt;span class=&quot;na&quot;&gt;cutieMark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Other than the certain syntax differences in the JS version (variable begins with &amp;quot;var&amp;quot;. semi-colon after the closing brace and the camelcase in &amp;quot;cutie mark&amp;quot;), they are identical. You would call the properties slightly differently, however. In Ruby, if you want to know what color the pony is, you would use pony[:color], because the word &amp;quot;color&amp;quot; in this case is a symbol (denoted by a semi-colon), not a string; in JavaScript, it is pony.color or pony[&amp;quot;color&amp;quot;] (the latter would also work with a Ruby hash, if instead of a symbol for color you used &amp;quot;color&amp;quot; =&amp;gt; as the key). These differences are largely cosmetic. Both a Ruby hash and a JavaScript object literal let you define a set of key/value pairs associated and assign that set of pairs to a variable. You can even add key/value pairs to existing JavaScript objects and Ruby hashes in a similar way (in JS, pony.name = &amp;quot;Applejack&amp;quot; or pony[&amp;quot;name&amp;quot;] = &amp;quot;Applejack&amp;quot; and in Ruby, pony[:name] = &amp;quot;Applejack&amp;quot; or pony[&amp;quot;name&amp;quot;] = &amp;quot;Applejack&amp;quot;).&lt;/p&gt;
+&lt;p&gt;Other than the certain syntax differences in the JS version (variable begins with “var”. semi-colon after the closing brace and the camelcase in “cutie mark”), they are identical. You would call the properties slightly differently, however. In Ruby, if you want to know what color the pony is, you would use pony[:color], because the word “color” in this case is a symbol (denoted by a semi-colon), not a string; in JavaScript, it is pony.color or pony[“color”] (the latter would also work with a Ruby hash, if instead of a symbol for color you used “color” =&amp;gt; as the key). These differences are largely cosmetic. Both a Ruby hash and a JavaScript object literal let you define a set of key/value pairs associated and assign that set of pairs to a variable. You can even add key/value pairs to existing JavaScript objects and Ruby hashes in a similar way (in JS, pony.name = “Applejack” or pony[“name”] = “Applejack” and in Ruby, pony[:name] = “Applejack” or pony[“name”] = “Applejack”).&lt;/p&gt;
 
-&lt;p&gt;The underlying difference is in how Ruby and Javascript use objects. In Ruby everything (or almost everything, I&amp;#39;m told) is an object. A string is an object, a symbol is an object, a hash is an object, an integer is an object, and yes, an object is an object. In JavaScript, not everything is an object--booleans, strings, and numbers are not objects. A string literal, Like var x = &amp;quot;earth pony&amp;quot; (which is different from an actual String object in JS, created by declaring var x = newString(&amp;quot;earth pony&amp;quot;)), in JavaScript is a primitive value, and not an object. Objects are groupings of properties and respond to certain methods, and &amp;quot;earth pony&amp;quot; and the number 4, in Javascript, technically do not have properties and methods--they are just the space taken up by the bits necessary to create the values &amp;quot;earth pony&amp;quot; and 4. The reason that you can use methods on string literals is that Javascript coerces them into String (note the capital &amp;quot;S&amp;quot;) objects, much like it can coerce the string &amp;quot;4&amp;quot; into the number 4 (which is something Ruby would not do).&lt;/p&gt;
+&lt;p&gt;The underlying difference is in how Ruby and Javascript use objects. In Ruby everything (or almost everything, I’m told) is an object. A string is an object, a symbol is an object, a hash is an object, an integer is an object, and yes, an object is an object. In JavaScript, not everything is an object–booleans, strings, and numbers are not objects. A string literal, Like var x = “earth pony” (which is different from an actual String object in JS, created by declaring var x = newString(“earth pony”)), in JavaScript is a primitive value, and not an object. Objects are groupings of properties and respond to certain methods, and “earth pony” and the number 4, in Javascript, technically do not have properties and methods–they are just the space taken up by the bits necessary to create the values “earth pony” and 4. The reason that you can use methods on string literals is that Javascript coerces them into String (note the capital “S”) objects, much like it can coerce the string “4” into the number 4 (which is something Ruby would not do).&lt;/p&gt;
 </description>
         
-          <description>&lt;h3&gt;Ruby vs. JavaScript&lt;/h3&gt;
+          <description>&lt;p&gt;###Ruby vs. JavaScript
+####JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/p&gt;
 
-&lt;h4&gt;JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/h4&gt;
 </description>
         
         <pubDate>Sat, 12 Sep 2015 00:00:00 -0500</pubDate>
@@ -500,22 +504,23 @@
       
       <item>
         <title>Challenge and Integrity</title>
-        <description>&lt;h4&gt;Challenge&lt;/h4&gt;
+        <description>&lt;p&gt;####Challenge&lt;/p&gt;
 
 &lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt; like a good challenge. It is why I went to law school. It is why I moved to NYC to work after law school knowing very few people. It is one of the reasons I taught myself how to code. When I see something that looks hard to do, I want to try it. Sometimes I give up, and that&#39;s ok as long as I&#39;m giving up for the right reasons. When I was in middle school, I dreamed of being an NBA player. I was 4&#39;10 and a girl. It was ok to give up on the impossible. Unlike playing in the NBA, learning to code isn&#39;t impossible. Sure, coding can be really, really tough, but the rush I get when I finally solve a tough coding problem makes the challenge fun.&lt;/p&gt;
 
-&lt;h3&gt;Integrity&lt;/h3&gt;
+&lt;p&gt;###Integrity&lt;/p&gt;
 
-&lt;p&gt;I value integrity, in myself and in others. Being a lawyer was challenging, and it certainly wouldn&amp;#39;t have been impossible for me to continue to succeed as a practicing lawyer, but, for me, being a lawyer lacked integrity. I was pretty good at being a finance attorney and I provided my clients with excellent representation, but my heart wasn&amp;#39;t in it. I am not of the &amp;quot;you have to love what you do!&amp;quot; school of thought. I think that&amp;#39;s pretty unrealistic, to always love, or even like, your job. But I do think that if you are privileged and lucky enough (because of education, economics, age, ability, where you live, etc.) to be able to do what you want, you should do something that meshes with your interests and does not leave you waking up in the morning dreading the day ahead. Continuing to be a lawyer wasn&amp;#39;t fair to myself, and being unhappy a lot of the time wasn&amp;#39;t fair to my family or friends. Being a lawyer simply was not the way to live the rest of my life, to live a life with integrity.&lt;/p&gt;
+&lt;p&gt;I value integrity, in myself and in others. Being a lawyer was challenging, and it certainly wouldn’t have been impossible for me to continue to succeed as a practicing lawyer, but, for me, being a lawyer lacked integrity. I was pretty good at being a finance attorney and I provided my clients with excellent representation, but my heart wasn’t in it. I am not of the “you have to love what you do!” school of thought. I think that’s pretty unrealistic, to always love, or even like, your job. But I do think that if you are privileged and lucky enough (because of education, economics, age, ability, where you live, etc.) to be able to do what you want, you should do something that meshes with your interests and does not leave you waking up in the morning dreading the day ahead. Continuing to be a lawyer wasn’t fair to myself, and being unhappy a lot of the time wasn’t fair to my family or friends. Being a lawyer simply was not the way to live the rest of my life, to live a life with integrity.&lt;/p&gt;
 
-&lt;h3&gt;Stereotype Threat and Self-Worth&lt;/h3&gt;
+&lt;p&gt;###Stereotype Threat and Self-Worth&lt;/p&gt;
 
 &lt;blockquote&gt;&quot;A general means for protecting the self from perceived threats and the consequences of failure is to allow people to affirm their self-worth.&quot;&lt;/blockquote&gt;
 
-&lt;p&gt;The above quote is from &lt;a href = &quot;http://www.reducingstereotypethreat.org/reduce.html#encouragingself&quot; target=&quot;_blank&quot;&gt;an article&lt;/a&gt; DBC suggested we read. Stereotype threat is, in short, performing poorly at a task because you are part of a group which is stereotyped as bad at that task. Think of women and math/tech/code. I&amp;#39;m not incredibly concerned about failing at DBC or coding. I know I&amp;#39;m up to the task, and I&amp;#39;ve worked hard and gotten through rough spots, and will continue to work hard and get through future rough spots. I am concerned, however, about having a difficult time finding a job after DBC because I of the stereotype that women are not good at tech/math, and I&amp;#39;m afraid that my fear will result in me performing poorly during technical interviews. Reminding myself that I like a good challenge (combating stereotypes AND solving problems during interviews == double the challenge!) and that I value integrity (I need to be true to myself, and do the best I can, not worry about how other people might be perceiving me) will hopefully help me assuage my anxiety and feel good about myself. Self-worth translated into a boost of self-confidence to stamp down stereotype threat.&lt;/p&gt;
+&lt;p&gt;The above quote is from &lt;a href=&quot;http://www.reducingstereotypethreat.org/reduce.html#encouragingself&quot; target=&quot;_blank&quot;&gt;an article&lt;/a&gt; DBC suggested we read. Stereotype threat is, in short, performing poorly at a task because you are part of a group which is stereotyped as bad at that task. Think of women and math/tech/code. I’m not incredibly concerned about failing at DBC or coding. I know I’m up to the task, and I’ve worked hard and gotten through rough spots, and will continue to work hard and get through future rough spots. I am concerned, however, about having a difficult time finding a job after DBC because I of the stereotype that women are not good at tech/math, and I’m afraid that my fear will result in me performing poorly during technical interviews. Reminding myself that I like a good challenge (combating stereotypes AND solving problems during interviews == double the challenge!) and that I value integrity (I need to be true to myself, and do the best I can, not worry about how other people might be perceiving me) will hopefully help me assuage my anxiety and feel good about myself. Self-worth translated into a boost of self-confidence to stamp down stereotype threat.&lt;/p&gt;
 </description>
         
-          <description>&lt;h4&gt;Challenge&lt;/h4&gt;
+          <description>&lt;p&gt;####Challenge&lt;/p&gt;
+
 </description>
         
         <pubDate>Fri, 11 Sep 2015 00:00:00 -0500</pubDate>
