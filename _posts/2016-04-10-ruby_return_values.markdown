@@ -7,7 +7,7 @@ date:   2016-04-10
 <p class="intro"><span class="dropcap">I</span>'ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this "return" business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here's why:
 
 ####What does this return?
-Say you've got a method that says hello.
+Say you have a method that says hello.
 
 {% highlight ruby %}
 
