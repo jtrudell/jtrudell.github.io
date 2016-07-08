@@ -4,7 +4,7 @@ title:  "Ruby: Arrays and Hashes"
 date:   2015-08-16
 ---
 
-####My Dogs
+#### My Dogs
 
 <p class="intro"><span class="dropcap">I</span> have had four dogs in my life: my current dog, Sophie; the dog my mom got while I was in law school, Tobey; the dog I had for the longest while growing up, Jesse; and Nick, who was around when I was a toddler. Sophie is part black lab mixed with something (ok, I admit it, I know because we ran a DNA test: whippet). Tobey and Jesse were golden retrievers. From what I have been told, Nick was a real devil of a mutt (sweet dog, but he ran away a lot and almost chewed through our back door). I could arrange my dogs in various ways using ruby. If I wanted to just list out their names, I could use a simple array. Think of an array as just another name for a list. Each item in the array-list is separated by a comma, and the whole list is encapsulated with square brackets. You can put anything into an array (numbers, strings, other arrays, etc.), but since we are talking about my dogs, we are going to make the my_dogs_array an array of dog names:</p>
 
@@ -24,7 +24,7 @@ my_dogs_hash = {"Sophie" => "lab mix", "Tobey" => "golden retriever",
 
 In a hash, there can only be one of each key (I can't have more than one Sophie--I mean, I guess in real life I could have two dogs named Sophie, but they wouldn't be clones of each other), but different keys can have the same value. It is perfectly ok that both Tobey and Jesse are golden retrievers, for example.
 
-####Call the dogs
+#### Call the dogs
 
 So now we know what an array is, and what a hash is, but what if we want to get one piece of information out of the array or the hash? What if we don't want the whole list of names (in the case of an array) or list of key/value pairs (in the case of a hash)? We can call the dogs by their number in line for the array (called an index number) or, in the case of a hash, by the name of the key (in this case, literally the dog's name), as follows:
 
@@ -49,7 +49,7 @@ my_dogs_hash["Nick"]
 #=> "devil mutt"
 {% endhighlight %}
 
-####Mixing it up: Arrays and Hashes
+#### Mixing it up: Arrays and Hashes
 
 What if you wanted to know even more about my dogs? The my_dogs_hash only returns one value (the breed) for each key (the dog's name). What if you wanted to know something else about the dog, like its personality? We can have each key return more than one value by making the value an array, like so:
 

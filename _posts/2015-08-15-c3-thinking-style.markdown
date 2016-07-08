@@ -8,17 +8,17 @@ date:   2015-08-15
 
 <p class="intro"><span class="dropcap">B</span>efore you start <a href="http://www.devbootcamp.com" target="_blank">Dev Bootcamp</a>, you have to take the <a href="http://www.thelearningweb.net/personalthink.html" target="_blank">Gregorc Personal Thinking Styles Quiz</a>. Turns out I am a "Abstract Sequential" thinker and learner. Which, according to the introduction to the quiz, means I <q>love the world of theory and abstract thought.</q> This is true. I love to learn, period, and what I love to learn isn't straight facts through memorization but theories, methods, and why things are they way they are. Some of the <a href="http://web.cortland.edu/andersmd/learning/Gregorc.htm" target="_blank">traits of abstract sequential learners</a> are as follows:</p>
 
-#### This learner likes:
+####  This learner likes:
 - his/her point to be heard
 - analyzing situations before making a decision or acting
 - applying logic in solving or finding solutions to problems
 
-#### They learn best when:
+####  They learn best when:
 - they have access to experts or references
 - placed in stimulating environments
 - able to work alone
 
-#### What's hard for them?
+####  What's hard for them?
 - Being forced to work with those of differing views
 - Too little time to deal with a subject thoroughly
 - Repeating the same tasks over and over

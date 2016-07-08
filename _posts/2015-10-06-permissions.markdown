@@ -5,7 +5,7 @@ date:   2015-10-06
 ---
 
 
-####File Permissions
+#### File Permissions
 Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren't unique to ruby, and they aren't unique to writing to files (there are permissions for reading and executing files as well, among others) but since I'm spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.
 
 In ruby, we can use the File class to open and write to files. For example:
@@ -32,7 +32,7 @@ The above code will open a file called 'my_little_pony.txt' (note: File.open wil
 
 Awesome, now we have Pinkie Pie in our file of ponies! Let's check it out. Open my_little_pony.txt and...hey! Where did Rainbow Dash go? Now our file only includes Pinkie Pie.
 
-####the thing about 'w' is that it is kind of overzealous
+#### the thing about 'w' is that it is kind of overzealous
 
 So it's true, the 'w' argument will write to the file. Unfortunately, it will also overwrite the entire file. If we want to just add on to the existing file, and not overwrite the entire thing, we can use 'a' for append. Let's rewind our last code and assume our file still has Rainbow Dash in it.
 

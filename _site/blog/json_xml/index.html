@@ -78,26 +78,23 @@ ga('send', 'pageview');
   <h1 class="postTitle">JSON, XML and YOU</h1>
   <p class="meta">December 28, 2015 | <span class="time">4</span> Minute Read</p>
 
-  <p>####So, I recently bombed a tech interview</p>
+  <h4 id="so-i-recently-bombed-a-tech-interview">So, I recently bombed a tech interview</h4>
 
 <p>It’s true, I did. I’m pretty new to tech interviews, and I was caught off guard by some of the questions. One question was about the pros and cons of using JSON vs. XML to send and receive data through HTTP requests (in this case, using AJAX), and I gave a vague answer (“JSON is easier to use!”) because I only had a vague understanding. So here’s a post for my edification and yours. And here’s to not bombing the next interview!</p>
 
-<p>###JSON</p>
+<h3 id="json">JSON</h3>
 
 <p>JSON stands for “JavaScript Object Notation”, but the format itself is language agnostic–JSON passes data using simple data structures that all languages have and can parse. JSON is text that can be read by humans, which is handy. As the name suggests, JSON is a JavaScript object literal, similar to a hash or dictionary in other languages. A JSON response to a GET request to mylittlepony.com/information might look like this:</p>
 
-<figure class="highlight">
-  <pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
   <span class="s2">"rainbow dash"</span><span class="err">:</span> <span class="s2">"pony"</span><span class="p">,</span>
   <span class="s2">"spike"</span><span class="err">:</span> <span class="s2">"dragon"</span><span class="p">,</span>
   <span class="s2">"canterlot"</span><span class="err">:</span> <span class="s2">"Capital of Equestria"</span>
-<span class="p">}</span></code></pre>
-</figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>Note the quotes around the names/keys (rainbow dash, spike, canterlot): you have to use strings for the names/keys, you can’t use symbols or integers to point to values as you can when using hashes in some other languages. Unlike the names/keys, values don’t have to be strings: arrays, numbers, booleans, strings or null are all valid data types for values in JSON.</p>
 
-<figure class="highlight">
-  <pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
   <span class="s2">"rainbow dash"</span><span class="err">:</span>
     <span class="p">{</span> <span class="s2">"species"</span><span class="err">:</span> <span class="s2">"pony"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"pegasus"</span><span class="p">,</span>
@@ -114,44 +111,37 @@ ga('send', 'pageview');
     <span class="p">{</span> <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"Capital of Equestria"</span><span class="p">,</span>
       <span class="s2">"residents"</span><span class="err">:</span> <span class="p">[</span><span class="s2">"Princess Cadance"</span><span class="p">,</span> <span class="s2">"Shining Armor"</span><span class="p">,</span> <span class="s2">"Princess Luna"</span><span class="p">,</span> <span class="s2">"Princess Celestia"</span><span class="p">]</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre>
-</figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>Because JSON is a JS object, it is simple to parse using JavaScript: simply send the JSON object into a JSON.parse() function, and access parsed data as you would access key/value pairs in any JS object literal.</p>
 
 <p>If you received a JSON object that looked like this:</p>
 
-<figure class="highlight">
-  <pre><code class="language-javascript" data-lang="javascript"><span class="nx">someResponse</span> <span class="o">=</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">someResponse</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"rainbow dash"</span><span class="p">,</span>
   <span class="s2">"age"</span><span class="p">:</span> <span class="mi">15</span>
-<span class="p">}</span></code></pre>
-</figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>In JavaScript you could access the data like this:</p>
 
-<figure class="highlight">
-  <pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myPony</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">someResponse</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myPony</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">someResponse</span><span class="p">);</span>
 
-<span class="nx">myPony</span><span class="p">[</span><span class="s2">"name"</span><span class="p">];</span> <span class="c1">// returns "rainbow dash"</span></code></pre>
-</figure>
+<span class="nx">myPony</span><span class="p">[</span><span class="s2">"name"</span><span class="p">];</span> <span class="c1">// returns "rainbow dash"</span></code></pre></figure>
 
-<p>###XML</p>
+<h3 id="xml">XML</h3>
 
 <p>XML is short for Extensible Markup Language. XML is also a way to send data around in human readable text format and structured in such away that it is machine readable when parsed. For example:</p>
 
-<figure class="highlight">
-  <pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;pony&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;pony&gt;</span>
   <span class="nt">&lt;name&gt;</span>Rainbow Dash<span class="nt">&lt;/name&gt;</span>
   <span class="nt">&lt;type&gt;</span>Pegaus<span class="nt">&lt;/type&gt;</span>
   <span class="nt">&lt;cutieMark&gt;</span>true<span class="nt">&lt;/cutieMark&gt;</span>
   <span class="nt">&lt;age&gt;</span>15<span class="nt">&lt;/age&gt;</span>
-<span class="nt">&lt;/pony&gt;</span></code></pre>
-</figure>
+<span class="nt">&lt;/pony&gt;</span></code></pre></figure>
 
 <p>XML is a markup language, like HTML (it adds tags to text to format the text), and the hierarchical structure of XML is key: you can access the text of XML the same way you would access the inner text of a certain HMTL tag or CSS selector, and traverse up and down the XML tree. Using jQuery makes this (relatively) easy.</p>
 
-<p>###Which is easier to use?</p>
+<h3 id="which-is-easier-to-use">Which is easier to use?</h3>
 
 <p>For my money, JSON. One of the reasons hashes are so great is that they let you access values using specific keys, no iterating through an array (or, in this case, traversing a markup tree) is necessary. Both JSON and XML are human readable, but I think JSON reads easier since it doesn’t include extraneous text (like the closing tags that XML needs, or repetitive tags that JSON makes unnecessary since data can be put in an array and pointed to it with one name/key). And if you are using JS, you can use the native JSON.parse() function and you are done. With XML, as far as I am aware you need to use a third party library like jQuery to parse the XML and then traverse the XML tree until you get what you need.</p>
 

@@ -9,9 +9,9 @@ date:   2014-12-15
 # Heading 1
 ## Heading 2
 ### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
+####  Heading 4
+#### # Heading 5
+#### ## Heading 6
 
 <blockquote>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.</blockquote>
 

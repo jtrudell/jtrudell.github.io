@@ -78,24 +78,21 @@ ga('send', 'pageview');
   <h1 class="postTitle">JavaScript Objects Look Suspiciously Similar to Ruby Hashes</h1>
   <p class="meta">September 12, 2015 | <span class="time">2</span> Minute Read</p>
 
-  <p>###Ruby vs. JavaScript
-####JavaScript Objects Look Suspiciously Similar to Ruby Hashes</p>
+  <h3 id="ruby-vs-javascript">Ruby vs. JavaScript</h3>
 
-<p class="intro"><span class="dropcap">C</span>ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala “key_1” =&gt; 1, which are also kosher for use in hashes in Ruby). Here’s a hash in Ruby:</p>
+<h4 id="javascript-objects-look-suspiciously-similar-to-ruby-hashes">JavaScript Objects Look Suspiciously Similar to Ruby Hashes</h4>
 
-<figure class="highlight">
-  <pre><code class="language-ruby" data-lang="ruby"><span class="n">pony</span> <span class="o">=</span> <span class="p">{</span><span class="ss">color: </span><span class="s2">"yellow"</span><span class="p">,</span> <span class="ss">type: </span><span class="s2">"earth pony"</span><span class="p">,</span> <span class="ss">cutie_mark: </span><span class="kp">false</span><span class="p">}</span></code></pre>
-</figure>
+<p class="intro"><span class="dropcap">C</span>ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala "key_1" =&gt; 1, which are also kosher for use in hashes in Ruby). Here's a hash in Ruby:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">pony</span> <span class="o">=</span> <span class="p">{</span><span class="ss">color: </span><span class="s2">"yellow"</span><span class="p">,</span> <span class="ss">type: </span><span class="s2">"earth pony"</span><span class="p">,</span> <span class="ss">cutie_mark: </span><span class="kp">false</span><span class="p">}</span></code></pre></figure>
 
 <p>And here is an object literal in JavaScript:</p>
 
-<figure class="highlight">
-  <pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pony</span> <span class="o">=</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pony</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">color</span><span class="p">:</span> <span class="s2">"yellow"</span><span class="p">,</span>
   <span class="na">type</span><span class="p">:</span> <span class="s2">"earth pony"</span><span class="p">,</span>
   <span class="na">cutieMark</span><span class="p">:</span> <span class="kc">false</span>
-<span class="p">};</span></code></pre>
-</figure>
+<span class="p">};</span></code></pre></figure>
 
 <p>Other than the certain syntax differences in the JS version (variable begins with “var”. semi-colon after the closing brace and the camelcase in “cutie mark”), they are identical. You would call the properties slightly differently, however. In Ruby, if you want to know what color the pony is, you would use pony[:color], because the word “color” in this case is a symbol (denoted by a semi-colon), not a string; in JavaScript, it is pony.color or pony[“color”] (the latter would also work with a Ruby hash, if instead of a symbol for color you used “color” =&gt; as the key). These differences are largely cosmetic. Both a Ruby hash and a JavaScript object literal let you define a set of key/value pairs associated and assign that set of pairs to a variable. You can even add key/value pairs to existing JavaScript objects and Ruby hashes in a similar way (in JS, pony.name = “Applejack” or pony[“name”] = “Applejack” and in Ruby, pony[:name] = “Applejack” or pony[“name”] = “Applejack”).</p>
 

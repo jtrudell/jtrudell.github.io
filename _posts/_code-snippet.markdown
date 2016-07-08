@@ -4,7 +4,7 @@ title:  "Enumerable: group_by"
 date:   2015-08-20
 ---
 
-####group_by
+#### group_by
 
 <p class="intro"><span class="dropcap">S</span>ince Dev Bootcamp wouldn't let me write about my favorite enumerable method of all time, inject, you are getting group_by, which is also pretty useful (just not as awesome as inject). What does group_by do? If you don't include a block of code after you call the method (blocks are the code wrapped in braces include after calling a method (you can also wrap the code in "do" and "end", instead of braces) it returns an enumerator, which I'm not going to address here. If you include a block, according to <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html#method-i-group_by" target="_blank">Ruby Docs</a>, group_by:</p>
 

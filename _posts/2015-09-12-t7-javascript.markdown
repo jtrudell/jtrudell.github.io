@@ -4,8 +4,9 @@ title:  "JavaScript Objects Look Suspiciously Similar to Ruby Hashes"
 date:   2015-09-12
 ---
 
-###Ruby vs. JavaScript
-####JavaScript Objects Look Suspiciously Similar to Ruby Hashes
+### Ruby vs. JavaScript
+
+#### JavaScript Objects Look Suspiciously Similar to Ruby Hashes
 
 <p class="intro"><span class="dropcap">C</span>ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala "key_1" => 1, which are also kosher for use in hashes in Ruby). Here's a hash in Ruby:</p>
 
