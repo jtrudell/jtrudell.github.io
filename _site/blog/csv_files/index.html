@@ -54,15 +54,15 @@ ga('send', 'pageview');
                  </li>
                  
                  <li class="element   ">
-                     <a href="/projects.html">Projects</a>
+                     <a href="/projects/index.html">Projects</a>
                  </li>
                  
                  <li class="element   ">
-                     <a href="/about.html">About</a>
+                     <a href="/about/index.html">About</a>
                  </li>
                  
                  <li class="element   last">
-                     <a href="/contact.html">Contact</a>
+                     <a href="/contact/index.html">Contact</a>
                  </li>
                  
              </ul>
@@ -78,22 +78,24 @@ ga('send', 'pageview');
   <h1 class="postTitle">Working With CSV Files in Ruby</h1>
   <p class="meta">October 09, 2015 | <span class="time">4</span> Minute Read</p>
 
-  <h4>comma, separated, values</h4>
+  <p>####comma, separated, values
+CSV stands for “comma separated values” and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):</p>
 
-<p>CSV stands for &quot;comma separated values&quot; and csv files contain rows of text. Each row has strings separated by commas. Each row, and the comma separated strings within each row, can be thought of as a single record in a database.  These files can hold all sorts of information in strings, but here is an example of a short database in a csv file (the first line is the (optional) header line. More on that below.):</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">my_database</span><span class="p">.</span><span class="nf">csv</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby"><span class="n">my_database</span><span class="p">.</span><span class="nf">csv</span>
 
 <span class="nb">id</span><span class="p">,</span><span class="nb">name</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span><span class="n">email</span>
 <span class="mi">1</span><span class="p">,</span><span class="n">joe</span> <span class="n">smith</span><span class="p">,</span> <span class="mi">555</span><span class="o">-</span><span class="mi">1234</span><span class="p">,</span><span class="n">joe</span><span class="vi">@smith</span><span class="p">.</span><span class="nf">com</span>
 <span class="mi">2</span><span class="p">,</span><span class="n">jane</span> <span class="n">burns</span><span class="p">,</span><span class="mi">444</span><span class="o">-</span><span class="mi">1234</span><span class="p">,</span><span class="n">jane</span><span class="vi">@aol</span><span class="p">.</span><span class="nf">com</span>
-<span class="mi">3</span><span class="p">,</span> <span class="n">pinkie</span> <span class="n">pie</span><span class="p">,</span><span class="mi">123</span><span class="o">-</span><span class="mi">9999</span><span class="p">,</span><span class="n">pinke_pie</span><span class="vi">@equestria</span><span class="p">.</span><span class="nf">com</span></code></pre></figure>
+<span class="mi">3</span><span class="p">,</span> <span class="n">pinkie</span> <span class="n">pie</span><span class="p">,</span><span class="mi">123</span><span class="o">-</span><span class="mi">9999</span><span class="p">,</span><span class="n">pinke_pie</span><span class="vi">@equestria</span><span class="p">.</span><span class="nf">com</span></code></pre>
+</figure>
 
-<p>CSV files can contain headers. In our file above, the first row is the header, and it designates that in the lines of text that follow, the first item in each line before the first comma is an id, the second item before the second comma is a name, the third item before the third comma is a phone number, and the last item is an email. Commas are key here -- if you put a comma in between &quot;jane&quot; and &quot;burns&quot;, the id would still be &quot;2&quot; and her first name would be &quot;jane&quot;, but the file would think her phone number was &quot;burns&quot;. CSV files doen&#39;t need to contain headers, but they are useful to have as they act like column headers (and later, hash keys) for the individual pieces of comma separated data in the rows below.</p>
+<p>CSV files can contain headers. In our file above, the first row is the header, and it designates that in the lines of text that follow, the first item in each line before the first comma is an id, the second item before the second comma is a name, the third item before the third comma is a phone number, and the last item is an email. Commas are key here – if you put a comma in between “jane” and “burns”, the id would still be “2” and her first name would be “jane”, but the file would think her phone number was “burns”. CSV files doen’t need to contain headers, but they are useful to have as they act like column headers (and later, hash keys) for the individual pieces of comma separated data in the rows below.</p>
 
-<p>Ruby conveniently includes a <a href= "http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html">CSV class</a>, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:</p>
+<p>Ruby conveniently includes a <a href="http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html">CSV class</a>, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="nb">require</span> <span class="s1">'csv'</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby">  <span class="nb">require</span> <span class="s1">'csv'</span>
 
   <span class="n">my_file</span> <span class="o">=</span> <span class="s1">'my_database.csv'</span>
   <span class="n">my_people_data</span> <span class="o">=</span> <span class="p">[]</span>
@@ -104,13 +106,15 @@ ga('send', 'pageview');
 
   <span class="nb">print</span> <span class="n">my_people_data</span>
 
-  <span class="o">=&gt;</span> <span class="p">[</span><span class="c1">#&lt;CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com"&gt;, #&lt;CSV::Row "id":"2" "name":"jane burns" "phone":"444-1234" "email":"jane@aol.com"&gt;, #&lt;CSV::Row "id":"3" "name":" pinkie pie" "phone":"123-9999" "email":"pinke_pie@equestria.com"&gt;]</span></code></pre></figure>
+  <span class="o">=&gt;</span> <span class="p">[</span><span class="c1">#&lt;CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com"&gt;, #&lt;CSV::Row "id":"2" "name":"jane burns" "phone":"444-1234" "email":"jane@aol.com"&gt;, #&lt;CSV::Row "id":"3" "name":" pinkie pie" "phone":"123-9999" "email":"pinke_pie@equestria.com"&gt;]</span></code></pre>
+</figure>
 
-<p>A few things to note in the above code. First, you have to require &#39;csv&#39; to use the CSV class. Second, the &quot;headers&quot; argument in the CSV.foreach method is optional. If you do not include it and only pass in the file name to CSV.foreach, it will assume that there are no headers and every row will be a set of data. Including headers in the argument sent to CSV.foreach means that CSV knows to look for them in the first row, and will then associate them with the corresponding pieces of data in the following rows.</p>
+<p>A few things to note in the above code. First, you have to require ‘csv’ to use the CSV class. Second, the “headers” argument in the CSV.foreach method is optional. If you do not include it and only pass in the file name to CSV.foreach, it will assume that there are no headers and every row will be a set of data. Including headers in the argument sent to CSV.foreach means that CSV knows to look for them in the first row, and will then associate them with the corresponding pieces of data in the following rows.</p>
 
-<p>CSV.foreach, with the headers option on, returns a CSV Row, with &quot;header&quot;: &quot;value&quot;, sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let&#39;s try that with our array of CSV Rows, my<em>people</em>data.</p>
+<p>CSV.foreach, with the headers option on, returns a CSV Row, with “header”: “value”, sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let’s try that with our array of CSV Rows, my_people_data.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="nb">require</span> <span class="s1">'csv'</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby">  <span class="nb">require</span> <span class="s1">'csv'</span>
 
   <span class="n">my_people_data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1">#&lt;CSV::Row "id":"1" "name":"joe smith" "phone":" 555-1234" "email":"joe@smith.com"&gt;,</span>
@@ -133,9 +137,10 @@ ga('send', 'pageview');
   <span class="nb">puts</span> <span class="n">pinkie_pie</span><span class="p">.</span><span class="nf">inspect</span>
 
   <span class="c1">#&lt;Pony:0x007f8a0a066cd8 @name=" pinkie pie", @phone="123-9999", @email="pinke_pie@equestria.com"&gt;</span>
-<span class="o">=&gt;</span> <span class="kp">nil</span></code></pre></figure>
+<span class="o">=&gt;</span> <span class="kp">nil</span></code></pre>
+</figure>
 
-<p>So what happend there? We have an array of CSV Row objects, called my<em>people</em>data, and we created a new Person class that is initialized by some data. @name, @phone, and @email are each assigned to some value in data we pass in, accessed by a key. We pull the data on pinkie pie from the my<em>people</em>data array, and we pass that data into Person.new. Person.new looks for &quot;name&quot;, &quot;phone&quot; and &quot;email&quot; in the csv data just as it would search a hash for keys, and finds the data (headers for the win!). And now we have a pinkie pie Pony object. With an email and a phone number, naturally, because pinkie pie is very popular.</p>
+<p>So what happend there? We have an array of CSV Row objects, called my_people_data, and we created a new Person class that is initialized by some data. @name, @phone, and @email are each assigned to some value in data we pass in, accessed by a key. We pull the data on pinkie pie from the my_people_data array, and we pass that data into Person.new. Person.new looks for “name”, “phone” and “email” in the csv data just as it would search a hash for keys, and finds the data (headers for the win!). And now we have a pinkie pie Pony object. With an email and a phone number, naturally, because pinkie pie is very popular.</p>
 
 <p>CSV is great because it is compact and relatively easy to deal with. You could have a large csv file with many, many lines, and as long as there is a header and the data on each line is appropriately separated by commas, it is easy to pull the data you need out of the csv file and pass it to ruby objects.</p>
 

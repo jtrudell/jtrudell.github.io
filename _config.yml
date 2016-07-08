@@ -8,6 +8,9 @@ permalink: blog/:title/
 
 markdown: kramdown
 
+kramdown:
+  parse_block_html: true
+
 gems: [jekyll-paginate]
 
 paginate: 5

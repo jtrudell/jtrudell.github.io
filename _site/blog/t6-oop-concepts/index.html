@@ -54,15 +54,15 @@ ga('send', 'pageview');
                  </li>
                  
                  <li class="element   ">
-                     <a href="/projects.html">Projects</a>
+                     <a href="/projects/index.html">Projects</a>
                  </li>
                  
                  <li class="element   ">
-                     <a href="/about.html">About</a>
+                     <a href="/about/index.html">About</a>
                  </li>
                  
                  <li class="element   last">
-                     <a href="/contact.html">Contact</a>
+                     <a href="/contact/index.html">Contact</a>
                  </li>
                  
              </ul>
@@ -78,34 +78,53 @@ ga('send', 'pageview');
   <h1 class="postTitle">Ruby: blocks, procs and lambdas</h1>
   <p class="meta">September 06, 2015 | <span class="time">4</span> Minute Read</p>
 
-  <h4>blocks</h4>
+  <p>####blocks</p>
 
-<p class="intro"><span class="dropcap">F</span>irst, the easy part: blocks! Two ways of representing the same block in Ruby are set out below. In the first case, the block is inside curly braces; in the second, the block is between the words "do" and "end". You would generally reserve use of curly braces to encapsulate blocks that can be expressed in one line or code, and do/end statements for blocks that stretch our over more than one line.</p>
+<p class="intro"><span class="dropcap">F</span>irst, the easy part: blocks! Two ways of representing the same block in Ruby are set out below. In the first case, the block is inside curly braces; in the second, the block is between the words “do” and “end”. You would generally reserve use of curly braces to encapsulate blocks that can be expressed in one line or code, and do/end statements for blocks that stretch our over more than one line.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
 
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
   <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="k">end</span></code></pre></figure>
+<span class="k">end</span></code></pre>
+</figure>
 
-<p>&quot;|number| number * 2&quot; is the block of code. It is passed to the method .each, and .each runs that block of code on each number in the array. Think of blocks as &quot;blocks of code&quot; and you should be ok.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>”</td>
+      <td>number</td>
+      <td>number * 2” is the block of code. It is passed to the method .each, and .each runs that block of code on each number in the array. Think of blocks as “blocks of code” and you should be ok.</td>
+    </tr>
+  </tbody>
+</table>
 
-<h4>procs</h4>
+<p>####procs
+Next up, procs. In the simplest terms, a proc is a block assigned to a variable, like “x = |number| number * 2”, only with slightly more complicated syntax. In order to assign a code block to a variable, you have to create a new proc. Let’s see how that works:</p>
 
-<p>Next up, procs. In the simplest terms, a proc is a block assigned to a variable, like &quot;x = |number| number * 2&quot;, only with slightly more complicated syntax. In order to assign a code block to a variable, you have to create a new proc. Let&#39;s see how that works:</p>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby"><span class="n">some_code</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">each</span><span class="p">(</span><span class="o">&amp;</span><span class="n">some_code</span><span class="p">)</span></code></pre>
+</figure>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">some_code</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">].</span><span class="nf">each</span><span class="p">(</span><span class="o">&amp;</span><span class="n">some_code</span><span class="p">)</span></code></pre></figure>
+<p>Here, we have created a variable called some_code, which is equal to a new proc. We have created the new proc by calling Proc.new and then typing the code block after it. On the next line, we have again called .each on the array, but instead of typing out the block, we have sent each an argument “&amp;some_code”. The &amp; symbol before our some_code variable let’s the .each method know to expect a proc and not give us an error. The code block is sent to the .each method the exact same way as if we had typed it out like we did in the section on blocks above.</p>
 
-<p>Here, we have created a variable called some<em>code, which is equal to a new proc. We have created the new proc by calling Proc.new and then typing the code block after it. On the next line, we have again called .each on the array, but instead of typing out the block, we have sent each an argument &quot;&amp;some</em>code&quot;. The &amp; symbol before our some_code variable let&#39;s the .each method know to expect a proc and not give us an error. The code block is sent to the .each method the exact same way as if we had typed it out like we did in the section on blocks above.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Why use procs? Imagine that you need to pass the same bit of code over and over to different methods, and that the code block is much more complicated than just “</td>
+      <td>number</td>
+      <td>number * 2”. Rather than typing the block repeatedly, you could create a proc with the code block and assign that proc to a variable. Thereafter, you could just pass the variable, preceded by an &amp;, to the methods that need your code block. DRY!</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Why use procs? Imagine that you need to pass the same bit of code over and over to different methods, and that the code block is much more complicated than just &quot;|number| number * 2&quot;. Rather than typing the block repeatedly, you could create a proc with the code block and assign that proc to a variable. Thereafter, you could just pass the variable, preceded by an &amp;, to the methods that need your code block. DRY!</p>
+<p>####lambdas
+Finally, lambdas. Just like procs are resuable fancy blocks, lambdas are sort of fancy procs. Lambdas are code blocks like procs, but with additional functionality. Lambdas recognize arguments; procs don’t. If your method requires 2 arguments and you called it with a proc using only one argument, the proc will run. If you try that with a lambda, you’ll get an argument error. Let’s see how that works with the code block we have been using and a new method, .call.</p>
 
-<h4>lambdas</h4>
-
-<p>Finally, lambdas. Just like procs are resuable fancy blocks, lambdas are sort of fancy procs. Lambdas are code blocks like procs, but with additional functionality. Lambdas recognize arguments; procs don&#39;t. If your method requires 2 arguments and you called it with a proc using only one argument, the proc will run. If you try that with a lambda, you&#39;ll get an argument error. Let&#39;s see how that works with the code block we have been using and a new method, .call.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">our_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby"><span class="n">our_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="n">our_lambda</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="n">our_proc</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">#this will ignore the 3 and multiply the first argument, 2, by 2</span>
@@ -113,9 +132,10 @@ ga('send', 'pageview');
 <span class="n">our_lambda</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">#this will raise an argument error, because our_lambda,</span>
 <span class="c1">#unlike our_proc, knows to look for one argument for the</span>
-<span class="c1">#variable number, and we have provided two</span></code></pre></figure>
+<span class="c1">#variable number, and we have provided two</span></code></pre>
+</figure>
 
-<p>You create a lambda like your create a proc, but rather than &quot;Proc.new&quot; you use a lowercase &quot;lambda&quot; followed by the relevant block. In the above code, the method .call does what you would expect: it calls our<em>proc or our</em>lamba, and passes our<em>proc and/or our</em>lambda arguments if any are provided. In this way both the proc and the lambda are acting like methods, but the lambda is closer to a real method in that it monitors the number of arguments (and does a few other things that are beyond the scope of this blog entry).</p>
+<p>You create a lambda like your create a proc, but rather than “Proc.new” you use a lowercase “lambda” followed by the relevant block. In the above code, the method .call does what you would expect: it calls our_proc or our_lamba, and passes our_proc and/or our_lambda arguments if any are provided. In this way both the proc and the lambda are acting like methods, but the lambda is closer to a real method in that it monitors the number of arguments (and does a few other things that are beyond the scope of this blog entry).</p>
 
 
 <!-- POST COMMENTS -->

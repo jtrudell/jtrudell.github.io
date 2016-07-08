@@ -54,15 +54,15 @@ ga('send', 'pageview');
                  </li>
                  
                  <li class="element   ">
-                     <a href="/projects.html">Projects</a>
+                     <a href="/projects/index.html">Projects</a>
                  </li>
                  
                  <li class="element   ">
-                     <a href="/about.html">About</a>
+                     <a href="/about/index.html">About</a>
                  </li>
                  
                  <li class="element   last">
-                     <a href="/contact.html">Contact</a>
+                     <a href="/contact/index.html">Contact</a>
                  </li>
                  
              </ul>
@@ -78,13 +78,13 @@ ga('send', 'pageview');
   <h1 class="postTitle">Ruby Classes: Who needs Brogrammers when you've got Bronies?</h1>
   <p class="meta">August 29, 2015 | <span class="time">4</span> Minute Read</p>
 
-  <p><p class="intro"><span class="dropcap">F</span>ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&#39;ve seen <a href="http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/" target="_blank">Bronies</a>. <img src="/../assets/img/cartwheel.gif" alt="cartwheel"></p>
+  <p class="intro"><span class="dropcap">F</span>ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I’ve seen <a href="http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/" target="_blank">Bronies</a>. <img src="/../assets/img/cartwheel.gif" alt="cartwheel" />
 
-<h4>MyLittlePony</h4>
+####MyLittlePony
+Let’s create a class and make some ponies! Below I’ve made a class called MyLittlePony, so we can create our own pony objects. Each pony is initialized with three things we will specify when we call MyLittlePony.new: a name, <a href="http://mlp.wikia.com/wiki/Ponies" target="_blank">type of pony</a>, and whether the pony has a <a href="http://mlp.wikia.com/wiki/Cutie_marks" target="_blank">cutie mark</a>. Each pony object is also initialized with a default hometown set to <a href="http://mlp.wikia.com/wiki/Ponyville" target="_blank">Ponyville</a>, and an empty array to list the pony’s friends. I’ve also created two methods: one to let our pony say hi, and the other to list our pony’s friends. Since the name of our pony and the type of pony it is should never change (ok ok, so Princess Twilight used to be a Unicorn and now she’s an Alicorn, but she’s an outlier), I’ve assigned those variables to attr_reader–objects (including other ponies) outside the MyLittlePony class will be able to read each pony’s name and type, but not change it. Since has_cutie_mark could change from false to true (little ponies don’t start off with cutie marks, they have to earn them! Or something. Ask my daughters.), and hometown and friends can change (obviously you can add friends, but our ponies will never lose friends!), I’ve made those variables attr_accessor, so they are both readable and writeable outside the class if we want to change them later (say our pony moves to Canterlot, gains friends, etc.)
 
-<p>Let&#39;s create a class and make some ponies! Below I&#39;ve made a class called MyLittlePony, so we can create our own pony objects. Each pony is initialized with three things we will specify when we call MyLittlePony.new: a name, <a href="http://mlp.wikia.com/wiki/Ponies" target="_blank">type of pony</a>, and whether the pony has a <a href="http://mlp.wikia.com/wiki/Cutie_marks" target="_blank">cutie mark</a>. Each pony object is also initialized with a default hometown set to <a href="http://mlp.wikia.com/wiki/Ponyville" target="_blank">Ponyville</a>, and an empty array to list the pony&#39;s friends. I&#39;ve also created two methods: one to let our pony say hi, and the other to list our pony&#39;s friends. Since the name of our pony and the type of pony it is should never change (ok ok, so Princess Twilight used to be a Unicorn and now she&#39;s an Alicorn, but she&#39;s an outlier), I&#39;ve assigned those variables to attr<em>reader--objects (including other ponies) outside the MyLittlePony class will be able to read each pony&#39;s name and type, but not change it. Since has</em>cutie<em>mark could change from false to true (little ponies don&#39;t start off with cutie marks, they have to earn them! Or something. Ask my daughters.), and hometown and friends can change (obviously you can add friends, but our ponies will never lose friends!), I&#39;ve made those variables attr</em>accessor, so they are both readable and writeable outside the class if we want to change them later (say our pony moves to Canterlot, gains friends, etc.)</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">MyLittlePony</span>
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">MyLittlePony</span>
   <span class="kp">attr_reader</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:type</span>
   <span class="kp">attr_accessor</span> <span class="ss">:has_cutie_mark</span><span class="p">,</span> <span class="ss">:hometown</span><span class="p">,</span> <span class="ss">:friends</span>
 
@@ -105,26 +105,31 @@ ga('send', 'pageview');
   <span class="k">def</span> <span class="nf">list_friends</span>
     <span class="vi">@friends</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">friend</span><span class="o">|</span> <span class="nb">p</span> <span class="n">friend</span><span class="p">.</span><span class="nf">name</span><span class="p">}</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
+<span class="k">end</span></code>&lt;/pre&gt;</figure>
 
-<p>Now that we&#39;ve got our MyLittlePony class, let&#39;s make some ponies! I&#39;m going to make each of the main characters from the show <a href="https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_is_Magic" target="blank">Friendship is Magic.</a></p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">twilight</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Twilight Sparkle"</span><span class="p">,</span> <span class="s2">"Alicorn"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
+Now that we’ve got our MyLittlePony class, let’s make some ponies! I’m going to make each of the main characters from the show <a href="https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_is_Magic" target="blank">Friendship is Magic.</a>
+
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="n">twilight</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Twilight Sparkle"</span><span class="p">,</span> <span class="s2">"Alicorn"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 <span class="n">apple_jack</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Applejack"</span><span class="p">,</span> <span class="s2">"Earth Pony"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 <span class="n">rainbow_dash</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Rainbow Dash"</span><span class="p">,</span> <span class="s2">"Pegasus"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 <span class="n">pinkie_pie</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Pinkie Pie"</span><span class="p">,</span> <span class="s2">"Earth Pony"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 <span class="n">rarity</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Rarity"</span><span class="p">,</span> <span class="s2">"Unicorn"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
-<span class="n">flutter_shy</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Flutter Shy"</span><span class="p">,</span> <span class="s2">"Pegasus"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span></code></pre></figure>
+<span class="n">flutter_shy</span> <span class="o">=</span> <span class="no">MyLittlePony</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Flutter Shy"</span><span class="p">,</span> <span class="s2">"Pegasus"</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span></code>&lt;/pre&gt;</figure>
 
-<p>Wow, that&#39;s a lot of ponies. Hey Twilight, say hi to the readers!</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">twlight</span><span class="p">.</span><span class="nf">say_hi</span>
+Wow, that’s a lot of ponies. Hey Twilight, say hi to the readers!
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="n">twlight</span><span class="p">.</span><span class="nf">say_hi</span>
 <span class="c1">#=&gt; Hi! My name is Twilight Sparkle and I am an Alicorn pony.</span>
-<span class="c1">#=&gt; I live in Ponyville. I do have my cutie mark.</span></code></pre></figure>
+<span class="c1">#=&gt; I live in Ponyville. I do have my cutie mark.</span></code>&lt;/pre&gt;</figure>
 
-<p>Thanks Twilight! How about we give you some friends? We can do this outside the class by calling twilight.friends=[list some friends here], since we made @friends part of attr<em>accessor. And we can use the list</em>friends method to list all of Twilight&#39;s friends&#39; names, since each pony&#39;s name variable is included in attr_reader.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">twilight</span><span class="p">.</span><span class="nf">friends</span> <span class="o">=</span> <span class="p">[</span><span class="n">apple_jack</span><span class="p">,</span> <span class="n">rainbow_dash</span><span class="p">,</span> <span class="n">pinkie_pie</span><span class="p">,</span>
+Thanks Twilight! How about we give you some friends? We can do this outside the class by calling twilight.friends=[list some friends here], since we made @friends part of attr_accessor. And we can use the list_friends method to list all of Twilight’s friends’ names, since each pony’s name variable is included in attr_reader.
+
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="n">twilight</span><span class="p">.</span><span class="nf">friends</span> <span class="o">=</span> <span class="p">[</span><span class="n">apple_jack</span><span class="p">,</span> <span class="n">rainbow_dash</span><span class="p">,</span> <span class="n">pinkie_pie</span><span class="p">,</span>
                     <span class="n">rarity</span><span class="p">,</span> <span class="n">flutter_shy</span><span class="p">]</span>
 <span class="n">twilight</span><span class="p">.</span><span class="nf">list_friends</span>
 
@@ -132,9 +137,11 @@ ga('send', 'pageview');
     <span class="s2">"Rainbow Dash"</span>
     <span class="s2">"Pinkie Pie"</span>
     <span class="s2">"Rarity"</span>
-    <span class="s2">"Flutter Shy"</span></code></pre></figure>
+    <span class="s2">"Flutter Shy"</span></code>&lt;/pre&gt;</figure>
 
-<p>There you have it, a My Little Pony Ruby lesson. Full source code for your solo pony-creating is <a href="/../assets/misc/my_little_pony.rb" target="_blank">here</a>.</p>
+
+There you have it, a My Little Pony Ruby lesson. Full source code for your solo pony-creating is <a href="/../assets/misc/my_little_pony.rb" target="_blank">here</a>.
+</p>
 
 
 <!-- POST COMMENTS -->

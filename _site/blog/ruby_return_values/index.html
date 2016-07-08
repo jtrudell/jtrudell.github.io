@@ -54,15 +54,15 @@ ga('send', 'pageview');
                  </li>
                  
                  <li class="element   ">
-                     <a href="/projects.html">Projects</a>
+                     <a href="/projects/index.html">Projects</a>
                  </li>
                  
                  <li class="element   ">
-                     <a href="/about.html">About</a>
+                     <a href="/about/index.html">About</a>
                  </li>
                  
                  <li class="element   last">
-                     <a href="/contact.html">Contact</a>
+                     <a href="/contact/index.html">Contact</a>
                  </li>
                  
              </ul>
@@ -78,33 +78,35 @@ ga('send', 'pageview');
   <h1 class="postTitle">Return Values in Ruby: implicit, explicit, and puts, print, p</h1>
   <p class="meta">April 10, 2016 | <span class="time">5</span> Minute Read</p>
 
-  <p><p class="intro"><span class="dropcap">I</span>&#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&#39;s why:</p>
+  <p class="intro"><span class="dropcap">I</span>‘ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this “return” business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here’s why:
 
-<h4>What does this return?</h4>
+###What does this return?
+Say you have a method that says hello.
 
-<p>Say you&#39;ve got a method that says hello.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">hello</span>
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">"Why hello there!"</span>
-<span class="k">end</span></code></pre></figure>
+<span class="k">end</span></code>&lt;/pre&gt;</figure>
 
-<p>What does that method return? Most of the people I&#39;ve been working with lately would answer that it returns absolutely nothing. It does nothing, because it doesn&#39;t puts or print anything. But of course it has a return value, the string &quot;Why hello there!&quot; </p>
 
-<p>&quot;But it doesn&#39;t do anythign when I run it in IRB.&quot;</p>
+What does that method return? Most of the people I’ve been working with lately would answer that it returns absolutely nothing. It does nothing, because it doesn’t puts or print anything. But of course it has a return value, the string “Why hello there!”
 
-<p>&quot;No, that&#39;s right, it doesn&#39;t print anything to the screen.&quot;</p>
+“But it doesn’t do anythign when I run it in IRB.”
 
-<p>&quot;So it&#39;s not doing anything.&quot;</p>
+“No, that’s right, it doesn’t print anything to the screen.”
 
-<p>&quot;Yes it is, it&#39;s just not doing anything you can see. It is returning a string.&quot;</p>
+“So it’s not doing anything.”
 
-<p>&quot;Why, if it isn&#39;t being printed out?&quot;</p>
+“Yes it is, it’s just not doing anything you can see. It is returning a string.”
 
-<h4>And this is why it is really hard to teach people how to use the return values of methods, which is a really important leap to be able to make (how many times can I use &quot;really&quot; here?)</h4>
+“Why, if it isn’t being printed out?”
 
-<p>Yeah, that. REALLY IMPORTANT. You can&#39;t start doing amazing things with Ruby until you start using, really using, not just printing to screen using, the return values of methods. And when you&#39;ve been led to believe that the whole point of Ruby is writing simple programs that interact with the user at the console, then this of course makes no sense at all:</p>
+###And this is why it is really hard to teach people how to use the return values of methods, which is a really important leap to be able to make (how many times can I use “really” here?)
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+Yeah, that. REALLY IMPORTANT. You can’t start doing amazing things with Ruby until you start using, really using, not just printing to screen using, the return values of methods. And when you’ve been led to believe that the whole point of Ruby is writing simple programs that interact with the user at the console, then this of course makes no sense at all:
+
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
   <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">end</span>
 
@@ -116,15 +118,17 @@ ga('send', 'pageview');
 
 <span class="nb">puts</span> <span class="n">z</span>
 <span class="mi">2</span>
- <span class="o">=&gt;</span> <span class="kp">nil</span></code></pre></figure>
+ <span class="o">=&gt;</span> <span class="kp">nil</span></code>&lt;/pre&gt;</figure>
 
-<p><strong>WHAT IS HAPPENING!</strong> So many things. Add and subtract are methods with return values. They are one line methods, so the last line is the only line, and the last line of a method in Ruby returns without you telling it to return (this is called an &quot;implicit return&quot;). So when you call subtract(2, 1), 1 is returned. This return value can then be passed around anywere, include into another method (like add), or assigned to a variable. </p>
 
-<h4>So what is the deal with puts, print and p?</h4>
+<strong>WHAT IS HAPPENING!</strong> So many things. Add and subtract are methods with return values. They are one line methods, so the last line is the only line, and the last line of a method in Ruby returns without you telling it to return (this is called an “implicit return”). So when you call subtract(2, 1), 1 is returned. This return value can then be passed around anywere, include into another method (like add), or assigned to a variable.
 
-<p>puts and print are both methods that generally do the same thing, print strings to the console. puts also adds a keyboard enter/return (a &quot;\n&quot; newline character), so it will end on a newline; print does not. They each have return values of nil. What they print to the console is NOT their return value. So had we done this with our add method above:</p>
+####So what is the deal with puts, print and p?
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+puts and print are both methods that generally do the same thing, print strings to the console. puts also adds a keyboard enter/return (a “\n” newline character), so it will end on a newline; print does not. They each have return values of nil. What they print to the console is NOT their return value. So had we done this with our add method above:
+
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">end</span>
 
@@ -137,25 +141,29 @@ ga('send', 'pageview');
  <span class="o">=&gt;</span> <span class="kp">false</span>
 
 <span class="n">z</span> <span class="o">==</span> <span class="kp">nil</span>
- <span class="o">=&gt;</span> <span class="kp">true</span></code></pre></figure>
+ <span class="o">=&gt;</span> <span class="kp">true</span></code>&lt;/pre&gt;</figure>
 
-<p>We would get the rather unexpected result of z being nil instead of 3. This is because we aren&#39;t returning x + y in our add method, we are returning puts x + y, and puts and print always returns nil. (p is a little different. It both prints to the screen and returns, because it uses the built-in Ruby inspect method. Use p to debug, but then pull it out of your methods.) This can and has caused hours of confusion and head-banging-against-wall for beginners, who can&#39;t figure out why everything is suddenly nil.</p>
 
-<h4>Explicit return</h4>
+We would get the rather unexpected result of z being nil instead of 3. This is because we aren’t returning x + y in our add method, we are returning puts x + y, and puts and print always returns nil. (p is a little different. It both prints to the screen and returns, because it uses the built-in Ruby inspect method. Use p to debug, but then pull it out of your methods.) This can and has caused hours of confusion and head-banging-against-wall for beginners, who can’t figure out why everything is suddenly nil.
 
-<p>You don&#39;t have to return the last line of a method. Ruby will do that automatically as mentioned above, but if you&#39;d rather return line 1 of a 2 line method, you could.</p>
+####Explicit return
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+You don’t have to return the last line of a method. Ruby will do that automatically as mentioned above, but if you’d rather return line 1 of a 2 line method, you could.
+
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
   <span class="k">return</span> <span class="s2">"Why hello there!"</span>
   <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">end</span>
 
 <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
- <span class="o">=&gt;</span> <span class="s2">"Why hello there!"</span></code></pre></figure>
+ <span class="o">=&gt;</span> <span class="s2">"Why hello there!"</span></code>&lt;/pre&gt;</figure>
 
-<p>In the above example, 2 + 6 would never happen, because &quot;Why hello there!&quot; is returned first, and you can only return once in a method. (Remember &quot;Why hello there!&quot; would be returned, but not printed to the screen, because we didn&#39;t print, puts or p &quot;Why hello there!&quot; or puts/print/p add(2, 6) directly.) Why would you want to return before the last line of a method? Error handling, mostly. Returning exits your method. </p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+In the above example, 2 + 6 would never happen, because “Why hello there!” is returned first, and you can only return once in a method. (Remember “Why hello there!” would be returned, but not printed to the screen, because we didn’t print, puts or p “Why hello there!” or puts/print/p add(2, 6) directly.) Why would you want to return before the last line of a method? Error handling, mostly. Returning exits your method.
+
+
+<figure class="highlight">&lt;pre&gt;<code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
   <span class="k">return</span> <span class="s2">"Cat got your tongue?"</span> <span class="k">if</span> <span class="nb">name</span><span class="p">.</span><span class="nf">empty?</span>
   <span class="s2">"Why hello there!"</span>
 <span class="k">end</span>
@@ -166,13 +174,14 @@ ga('send', 'pageview');
 
 <span class="nb">puts</span> <span class="n">hello</span><span class="p">(</span><span class="s2">"Ruby"</span><span class="p">)</span>
 <span class="s2">"Why hello there!"</span>
-<span class="o">=&gt;</span> <span class="kp">nil</span></code></pre></figure>
+<span class="o">=&gt;</span> <span class="kp">nil</span></code>&lt;/pre&gt;</figure>
 
-<p>In the first example, &quot;Why hello there!&quot; never happens because the name is an empty string, and &quot;Cat got your tongue?&quot; is returned, immediately exiting the method. We don&#39;t want to say &quot;Why hello there!&quot; to someone who won&#39;t even bother to give us their name.</p>
 
-<h3>Back to those tutorials and what to do about them</h3>
+In the first example, “Why hello there!” never happens because the name is an empty string, and “Cat got your tongue?” is returned, immediately exiting the method. We don’t want to say “Why hello there!” to someone who won’t even bother to give us their name.
 
-<p>I don&#39;t know what the answer is. I&#39;m complaining, but I did those same tutorials. I puts&#39;d a ton of stuff to the console. I struggled with all of the above. Is there a better way to teach beginners? Seeing something printed to the console IS totally satisfying, and provides immediate feedback, but then again, so do error messages. Ideas? Anything alternatives that you&#39;ve seen work?</p>
+###Back to those tutorials and what to do about them
+I don’t know what the answer is. I’m complaining, but I did those same tutorials. I puts’d a ton of stuff to the console. I struggled with all of the above. Is there a better way to teach beginners? Seeing something printed to the console IS totally satisfying, and provides immediate feedback, but then again, so do error messages. Ideas? Anything alternatives that you’ve seen work?
+</p>
 
 
 <!-- POST COMMENTS -->

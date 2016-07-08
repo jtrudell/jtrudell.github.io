@@ -54,15 +54,15 @@ ga('send', 'pageview');
                  </li>
                  
                  <li class="element   ">
-                     <a href="/projects.html">Projects</a>
+                     <a href="/projects/index.html">Projects</a>
                  </li>
                  
                  <li class="element   ">
-                     <a href="/about.html">About</a>
+                     <a href="/about/index.html">About</a>
                  </li>
                  
                  <li class="element   last">
-                     <a href="/contact.html">Contact</a>
+                     <a href="/contact/index.html">Contact</a>
                  </li>
                  
              </ul>
@@ -76,41 +76,48 @@ ga('send', 'pageview');
          <div class="post">
   
   <h1 class="postTitle">Ruby: Permissions when writing to files</h1>
-  <p class="meta">October 06, 2015 | <span class="time">2</span> Minute Read</p>
+  <p class="meta">October 06, 2015 | <span class="time">3</span> Minute Read</p>
 
-  <h4>File Permissions</h4>
-
-<p>Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren&#39;t unique to ruby, and they aren&#39;t unique to writing to files (there are permissions for reading and executing files as well, among others) but since I&#39;m spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.</p>
+  <p>####File Permissions
+Understanding file permissions when you write to files is important, because if you use the wrong permission, you could have unintended consequences (overwriting an entire file when you only meant to add something to the existing content, for example). Of course file permissions aren’t unique to ruby, and they aren’t unique to writing to files (there are permissions for reading and executing files as well, among others) but since I’m spending a lot of my time writing ruby and writing to files, you are going to get ruby examples of writing to files.</p>
 
 <p>In ruby, we can use the File class to open and write to files. For example:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">my_file</span> <span class="o">=</span> <span class="s1">'my_little_pony.txt'</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby">  <span class="n">my_file</span> <span class="o">=</span> <span class="s1">'my_little_pony.txt'</span>
 
   <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
     <span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"Rainbow Dash"</span><span class="p">)</span>
-  <span class="k">end</span></code></pre></figure>
+  <span class="k">end</span></code></pre>
+</figure>
 
-<p>The above code will open a file called &#39;my<em>little</em>pony.txt&#39; (note: File.open will create the file if it doesn&#39;t already exist, and then open it), and write &quot;Rainbow Dash&quot; to that file. When using File.open, the first argument is the name of the file you are opening and the second argument, the &#39;w&#39;, is the file permission. &#39;w&#39; is shorthand for &#39;write&#39; and indeed that&#39;s what happened. If you open my<em>little</em>pony.txt you will see a single line of text, &quot;Rainbow Dash&quot;. But what if we want to add Pinkie Pie to my<em>little</em>pony.txt?</p>
+<p>The above code will open a file called ‘my_little_pony.txt’ (note: File.open will create the file if it doesn’t already exist, and then open it), and write “Rainbow Dash” to that file. When using File.open, the first argument is the name of the file you are opening and the second argument, the ‘w’, is the file permission. ‘w’ is shorthand for ‘write’ and indeed that’s what happened. If you open my_little_pony.txt you will see a single line of text, “Rainbow Dash”. But what if we want to add Pinkie Pie to my_little_pony.txt?</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby">  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
     <span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"Pinkie Pie"</span><span class="p">)</span>
-  <span class="k">end</span></code></pre></figure>
+  <span class="k">end</span></code></pre>
+</figure>
 
-<p>Awesome, now we have Pinkie Pie in our file of ponies! Let&#39;s check it out. Open my<em>little</em>pony.txt and...hey! Where did Rainbow Dash go? Now our file only includes Pinkie Pie.</p>
+<p>Awesome, now we have Pinkie Pie in our file of ponies! Let’s check it out. Open my_little_pony.txt and…hey! Where did Rainbow Dash go? Now our file only includes Pinkie Pie.</p>
 
-<h4>the thing about &#39;w&#39; is that it is kind of overzealous</h4>
+<p>####the thing about ‘w’ is that it is kind of overzealous</p>
 
-<p>So it&#39;s true, the &#39;w&#39; argument will write to the file. Unfortunately, it will also overwrite the entire file. If we want to just add on to the existing file, and not overwrite the entire thing, we can use &#39;a&#39; for append. Let&#39;s rewind our last code and assume our file still has Rainbow Dash in it.</p>
+<p>So it’s true, the ‘w’ argument will write to the file. Unfortunately, it will also overwrite the entire file. If we want to just add on to the existing file, and not overwrite the entire thing, we can use ‘a’ for append. Let’s rewind our last code and assume our file still has Rainbow Dash in it.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby">  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
     <span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"Pinkie Pie"</span><span class="p">)</span>
-  <span class="k">end</span></code></pre></figure>
+  <span class="k">end</span></code></pre>
+</figure>
 
-<p>That one little letter did it. Now we have Rainbow Dash and Pinkie Pie in our file, but they are all smooshed together on one line. Let&#39;s rewind that last code too and add a new line character (and let&#39;s also use the shorthand curly braces rather than do/end since our code block is only one line).</p>
+<p>That one little letter did it. Now we have Rainbow Dash and Pinkie Pie in our file, but they are all smooshed together on one line. Let’s rewind that last code too and add a new line character (and let’s also use the shorthand curly braces rather than do/end since our code block is only one line).</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> Pinkie Pie"</span><span class="p">)}</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-ruby" data-lang="ruby">  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">my_file</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> Pinkie Pie"</span><span class="p">)}</span></code></pre>
+</figure>
 
-<p>And there you have it, Rainbow Dash and Pinkie Pie, written to a file on separate lines. There&#39;s a lot more you can do with file permissions, but the difference between &#39;w&#39; and &#39;a&#39; trip a lot of people up -- keep them in mind when you decide how you want to write to your file.</p>
+<p>And there you have it, Rainbow Dash and Pinkie Pie, written to a file on separate lines. There’s a lot more you can do with file permissions, but the difference between ‘w’ and ‘a’ trip a lot of people up – keep them in mind when you decide how you want to write to your file.</p>
 
 
 <!-- POST COMMENTS -->
