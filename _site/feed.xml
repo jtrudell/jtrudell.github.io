@@ -5,8 +5,8 @@
     <description>Developer</description>
     <link>http://jtrudell.github.io/</link>
     <atom:link href="http://jtrudell.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jul 2016 11:08:04 -0500</pubDate>
-    <lastBuildDate>Fri, 08 Jul 2016 11:08:04 -0500</lastBuildDate>
+    <pubDate>Fri, 08 Jul 2016 11:11:32 -0500</pubDate>
+    <lastBuildDate>Fri, 08 Jul 2016 11:11:32 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       
@@ -435,28 +435,6 @@
     
       
       <item>
-        <title>Conflict: the Condo from Hell</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;W&lt;/span&gt;hen I first moved back to Chicago from NYC, I lived in a condo in Roscoe Village. The neighborhood was great, the inside of the condo was beautiful, and I was excited to be paying a fraction of what I would have paid in Brooklyn for the same type of place. There were only two problems: upstairs and downstairs. I lived on the third floor. The fourth floor was the top unit, and a couple with two giant yellow labs lived there. The second floor unit directly below me was  occupied by a guy in his early 20s who liked to party late and sleep-in. (The ground floor unit was commercial, owned by a mortgage company. They were great!). The people above me seemed like good folks, and I love dogs, but I did not love dogs wrestling above my head constantly, shaking my light fixtures. I did not love that the woman who lived above sounded like an elephant in high heels on their wood floors. The guy below me blasted house music at all hours of the night and then complained when my cat jumped off my bed in the morning. The sound of a 12 pound cat landing on the floor woke him up, and this was just completely unacceptable to him. The whole situation enraged me. I felt trapped and powerless, and in a way I was trapped: I couldn&#39;t just up and move, and on top of that I had not just one source of annoyance, but was sandwiched between two: I could barely hear myself think in my condo because of the people above me and the music below me, and I was afraid to walk around in my own place because of the guy below me.&lt;/p&gt;
-
-&lt;p&gt;So what did I do? I fumed, a lot. I googled “how to get back at noisy neighbors”. Reading stories written by people who were in similar situations was validating, and dreaming about “getting even”, even though I knew I wouldn’t do any of the things suggested, was cathartic. I’m not good at confrontation, but eventually I did ask the woman upstairs if she could try not to wear high heels in the house, and if they could try to keep the dogs from wrestling. The high heel situation improved, the dog wrestling did not. I tried talking to the guy below me about his loud music, and his response was basically that he could do whatever he wanted in his own place (but apparently I couldn’t do whatever I wanted in mine if it distured his beauty sleep). So I fumed some more. I blasted the speakers on my tv. I wore headphones. I bought a noise machine. Eventually, I got sort of used to it. Not happy, but used to it. And then finally I did move. Because sometimes you can’t change a situation, you need to remove yourself from it entirely. It’s not fair, but it happens.&lt;/p&gt;
-
-&lt;p&gt;We now live in a 100 year-old house in Oak Park. No one lives above us or below us. There are no granite countertops, double sinks or walk-in closets like in the condo. The kitchen desperately needs to be updated and the main bathroom is the size of a shoebox. But the neighborhood is great and the neighbors are also great (having their own walls, floors and ceilings helps). It’s been years since we moved, but I still cringe whenever my own dogs runs around the living room, until I remember there is nothing living in the basement for her to disturb except for maybe the cat.&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;W&lt;/span&gt;hen I first moved back to Chicago from NYC, I lived in a condo in Roscoe Village. The neighborhood was great, the inside of the condo was beautiful, and I was excited to be paying a fraction of what I would have paid in Brooklyn for the same type of place. There were only two problems: upstairs and downstairs. I lived on the third floor. The fourth floor was the top unit, and a couple with two giant yellow labs lived there. The second floor unit directly below me was  occupied by a guy in his early 20s who liked to party late and sleep-in. (The ground floor unit was commercial, owned by a mortgage company. They were great!). The people above me seemed like good folks, and I love dogs, but I did not love dogs wrestling above my head constantly, shaking my light fixtures. I did not love that the woman who lived above sounded like an elephant in high heels on their wood floors. The guy below me blasted house music at all hours of the night and then complained when my cat jumped off my bed in the morning. The sound of a 12 pound cat landing on the floor woke him up, and this was just completely unacceptable to him. The whole situation enraged me. I felt trapped and powerless, and in a way I was trapped: I couldn&#39;t just up and move, and on top of that I had not just one source of annoyance, but was sandwiched between two: I could barely hear myself think in my condo because of the people above me and the music below me, and I was afraid to walk around in my own place because of the guy below me.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 16 Sep 2015 00:00:00 -0500</pubDate>
-        <link>http://jtrudell.github.io/blog/c8-conflict/</link>
-        <guid isPermaLink="true">http://jtrudell.github.io/blog/c8-conflict/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
         <title>JavaScript Objects Look Suspiciously Similar to Ruby Hashes</title>
         <description>&lt;h3 id=&quot;ruby-vs-javascript&quot;&gt;Ruby vs. JavaScript&lt;/h3&gt;
 
@@ -493,29 +471,128 @@
     
       
       <item>
-        <title>Challenge and Integrity</title>
-        <description>&lt;h4 id=&quot;challenge&quot;&gt;Challenge&lt;/h4&gt;
+        <title>Ruby: blocks, procs and lambdas</title>
+        <description>&lt;h4 id=&quot;blocks&quot;&gt;blocks&lt;/h4&gt;
 
-&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt; like a good challenge. It is why I went to law school. It is why I moved to NYC to work after law school knowing very few people. It is one of the reasons I taught myself how to code. When I see something that looks hard to do, I want to try it. Sometimes I give up, and that&#39;s ok as long as I&#39;m giving up for the right reasons. When I was in middle school, I dreamed of being an NBA player. I was 4&#39;10 and a girl. It was ok to give up on the impossible. Unlike playing in the NBA, learning to code isn&#39;t impossible. Sure, coding can be really, really tough, but the rush I get when I finally solve a tough coding problem makes the challenge fun.&lt;/p&gt;
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;irst, the easy part: blocks! Two ways of representing the same block in Ruby are set out below. In the first case, the block is inside curly braces; in the second, the block is between the words &quot;do&quot; and &quot;end&quot;. You would generally reserve use of curly braces to encapsulate blocks that can be expressed in one line or code, and do/end statements for blocks that stretch our over more than one line.&lt;/p&gt;
 
-&lt;h3 id=&quot;integrity&quot;&gt;Integrity&lt;/h3&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;I value integrity, in myself and in others. Being a lawyer was challenging, and it certainly wouldn’t have been impossible for me to continue to succeed as a practicing lawyer, but, for me, being a lawyer lacked integrity. I was pretty good at being a finance attorney and I provided my clients with excellent representation, but my heart wasn’t in it. I am not of the “you have to love what you do!” school of thought. I think that’s pretty unrealistic, to always love, or even like, your job. But I do think that if you are privileged and lucky enough (because of education, economics, age, ability, where you live, etc.) to be able to do what you want, you should do something that meshes with your interests and does not leave you waking up in the morning dreading the day ahead. Continuing to be a lawyer wasn’t fair to myself, and being unhappy a lot of the time wasn’t fair to my family or friends. Being a lawyer simply was not the way to live the rest of my life, to live a life with integrity.&lt;/p&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;stereotype-threat-and-self-worth&quot;&gt;Stereotype Threat and Self-Worth&lt;/h3&gt;
+&lt;p&gt;&quot;|number| number * 2&quot; is the block of code. It is passed to the method .each, and .each runs that block of code on each number in the array. Think of blocks as &quot;blocks of code&quot; and you should be ok.&lt;/p&gt;
 
-&lt;blockquote&gt;&quot;A general means for protecting the self from perceived threats and the consequences of failure is to allow people to affirm their self-worth.&quot;&lt;/blockquote&gt;
+&lt;h4 id=&quot;procs&quot;&gt;procs&lt;/h4&gt;
 
-&lt;p&gt;The above quote is from &lt;a href=&quot;http://www.reducingstereotypethreat.org/reduce.html#encouragingself&quot; target=&quot;_blank&quot;&gt;an article&lt;/a&gt; DBC suggested we read. Stereotype threat is, in short, performing poorly at a task because you are part of a group which is stereotyped as bad at that task. Think of women and math/tech/code. I’m not incredibly concerned about failing at DBC or coding. I know I’m up to the task, and I’ve worked hard and gotten through rough spots, and will continue to work hard and get through future rough spots. I am concerned, however, about having a difficult time finding a job after DBC because I of the stereotype that women are not good at tech/math, and I’m afraid that my fear will result in me performing poorly during technical interviews. Reminding myself that I like a good challenge (combating stereotypes AND solving problems during interviews == double the challenge!) and that I value integrity (I need to be true to myself, and do the best I can, not worry about how other people might be perceiving me) will hopefully help me assuage my anxiety and feel good about myself. Self-worth translated into a boost of self-confidence to stamp down stereotype threat.&lt;/p&gt;
+&lt;p&gt;Next up, procs. In the simplest terms, a proc is a block assigned to a variable, like &quot;x = |number| number * 2&quot;, only with slightly more complicated syntax. In order to assign a code block to a variable, you have to create a new proc. Let&#39;s see how that works:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;some_code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some_code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here, we have created a variable called some_code, which is equal to a new proc. We have created the new proc by calling Proc.new and then typing the code block after it. On the next line, we have again called .each on the array, but instead of typing out the block, we have sent each an argument “&amp;amp;some_code”. The &amp;amp; symbol before our some_code variable let’s the .each method know to expect a proc and not give us an error. The code block is sent to the .each method the exact same way as if we had typed it out like we did in the section on blocks above.&lt;/p&gt;
+
+&lt;p&gt;Why use procs? Imagine that you need to pass the same bit of code over and over to different methods, and that the code block is much more complicated than just &quot;|number| number * 2&quot;. Rather than typing the block repeatedly, you could create a proc with the code block and assign that proc to a variable. Thereafter, you could just pass the variable, preceded by an &amp;amp;, to the methods that need your code block. DRY!&lt;/p&gt;
+
+&lt;h4 id=&quot;lambdas&quot;&gt;lambdas&lt;/h4&gt;
+
+&lt;p&gt;Finally, lambdas. Just like procs are resuable fancy blocks, lambdas are sort of fancy procs. Lambdas are code blocks like procs, but with additional functionality. Lambdas recognize arguments; procs don’t. If your method requires 2 arguments and you called it with a proc using only one argument, the proc will run. If you try that with a lambda, you’ll get an argument error. Let’s see how that works with the code block we have been using and a new method, .call.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;our_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;our_lambda&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;our_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#this will ignore the 3 and multiply the first argument, 2, by 2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;our_lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#this will raise an argument error, because our_lambda,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#unlike our_proc, knows to look for one argument for the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#variable number, and we have provided two&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You create a lambda like your create a proc, but rather than “Proc.new” you use a lowercase “lambda” followed by the relevant block. In the above code, the method .call does what you would expect: it calls our_proc or our_lamba, and passes our_proc and/or our_lambda arguments if any are provided. In this way both the proc and the lambda are acting like methods, but the lambda is closer to a real method in that it monitors the number of arguments (and does a few other things that are beyond the scope of this blog entry).&lt;/p&gt;
 </description>
         
-          <description>&lt;h4 id=&quot;challenge&quot;&gt;Challenge&lt;/h4&gt;
+          <description>&lt;h4 id=&quot;blocks&quot;&gt;blocks&lt;/h4&gt;
 
 </description>
         
-        <pubDate>Fri, 11 Sep 2015 00:00:00 -0500</pubDate>
-        <link>http://jtrudell.github.io/blog/c7-values/</link>
-        <guid isPermaLink="true">http://jtrudell.github.io/blog/c7-values/</guid>
+        <pubDate>Sun, 06 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t6-oop-concepts/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t6-oop-concepts/</guid>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Ruby Classes: Who needs Brogrammers when you&#39;ve got Bronies?</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&#39;ve seen &lt;a href=&quot;http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/&quot; target=&quot;_blank&quot;&gt;Bronies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;mylittlepony&quot;&gt;MyLittlePony&lt;/h4&gt;
+
+&lt;p&gt;Let’s create a class and make some ponies! Below I’ve made a class called MyLittlePony, so we can create our own pony objects. Each pony is initialized with three things we will specify when we call MyLittlePony.new: a name, &lt;a href=&quot;http://mlp.wikia.com/wiki/Ponies&quot; target=&quot;_blank&quot;&gt;type of pony&lt;/a&gt;, and whether the pony has a &lt;a href=&quot;http://mlp.wikia.com/wiki/Cutie_marks&quot; target=&quot;_blank&quot;&gt;cutie mark&lt;/a&gt;. Each pony object is also initialized with a default hometown set to &lt;a href=&quot;http://mlp.wikia.com/wiki/Ponyville&quot; target=&quot;_blank&quot;&gt;Ponyville&lt;/a&gt;, and an empty array to list the pony’s friends. I’ve also created two methods: one to let our pony say hi, and the other to list our pony’s friends. Since the name of our pony and the type of pony it is should never change (ok ok, so Princess Twilight used to be a Unicorn and now she’s an Alicorn, but she’s an outlier), I’ve assigned those variables to attr_reader–objects (including other ponies) outside the MyLittlePony class will be able to read each pony’s name and type, but not change it. Since has_cutie_mark could change from false to true (little ponies don’t start off with cutie marks, they have to earn them! Or something. Ask my daughters.), and hometown and friends can change (obviously you can add friends, but our ponies will never lose friends!), I’ve made those variables attr_accessor, so they are both readable and writeable outside the class if we want to change them later (say our pony moves to Canterlot, gains friends, etc.)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyLittlePony&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:type&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:has_cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:hometown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:friends&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has_cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@has_cutie_mark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has_cutie_mark&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@hometown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ponyville&quot;&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@friends&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@has_cutie_mark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;do&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;don&#39;t&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi! My name is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; and I am an &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@type&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; pony.
+    I live in &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@hometown&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. I &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; have my cutie mark.&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;list_friends&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now that we’ve got our MyLittlePony class, let’s make some ponies! I’m going to make each of the main characters from the show &lt;a href=&quot;https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_is_Magic&quot; target=&quot;blank&quot;&gt;Friendship is Magic.&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Twilight Sparkle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Alicorn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apple_jack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Applejack&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Earth Pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rainbow_dash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rainbow Dash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pegasus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pinkie_pie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Earth Pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rarity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rarity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Unicorn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;flutter_shy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Flutter Shy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pegasus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Wow, that’s a lot of ponies. Hey Twilight, say hi to the readers!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twlight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Hi! My name is Twilight Sparkle and I am an Alicorn pony.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; I live in Ponyville. I do have my cutie mark.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Thanks Twilight! How about we give you some friends? We can do this outside the class by calling twilight.friends=[list some friends here], since we made @friends part of attr_accessor. And we can use the list_friends method to list all of Twilight’s friends’ names, since each pony’s name variable is included in attr_reader.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;friends&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apple_jack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rainbow_dash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pinkie_pie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;rarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flutter_shy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;list_friends&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;Applejack&quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Rainbow Dash&quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Rarity&quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Flutter Shy&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;There you have it, a My Little Pony Ruby lesson. Full source code for your solo pony-creating is &lt;a href=&quot;/../assets/misc/my_little_pony.rb&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&#39;ve seen &lt;a href=&quot;http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/&quot; target=&quot;_blank&quot;&gt;Bronies&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 29 Aug 2015 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/t5-ruby-classes/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/t5-ruby-classes/</guid>
         
         
       </item>
