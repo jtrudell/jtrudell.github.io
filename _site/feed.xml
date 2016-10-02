@@ -5,14 +5,210 @@
     <description>Developer</description>
     <link>http://jtrudell.github.io/</link>
     <atom:link href="http://jtrudell.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jul 2016 11:11:32 -0500</pubDate>
-    <lastBuildDate>Fri, 08 Jul 2016 11:11:32 -0500</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Sun, 02 Oct 2016 10:49:46 -0500</pubDate>
+    <lastBuildDate>Sun, 02 Oct 2016 10:49:46 -0500</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
+    
+      
+      <item>
+        <title>Structs: Some more Ruby (and a little C)</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt; had a dream the other night about structs. I was a struct master (this is like being a ninja, only dorky). Are you relatively new to Ruby, but have a good handle on classes? Are you afraid of Structs, or haven't heard of them? This post is for you.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-a-ruby-struct&quot;&gt;What’s a Ruby struct?&lt;/h2&gt;
+
+&lt;p&gt;Struct is a class in Ruby. Just like Hash is a class in Ruby and you can use Hash.new, you can use Struct.new. Hash.new without any arguments creates a new, empty hash; Struct.new creates a new struct (you do have to pass at least one argument to it; more on that below). You know what a hash is (a data structure that stores key value pairs), but what on earth is a struct?
+A “struct” in programming is a type of data structure; in fact, it just means “structure”. It initially came from the C programming language, where everything is “typed”. In C if you want to declare a variable, you have to tell it what type of thing it is going to hold.&lt;/p&gt;
+
+&lt;p&gt;For example, in ruby we can do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# an integer, or int in C&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Aruba'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# a string, or 5 chars (characters) in C&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# a float with 2 decimal points, or a double in C&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In C we would have to do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Hey program, x is an int! */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Aruba&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Hey program, y is 5 chars! */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Hey program, z is a double! */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Typing in C applies to everything, not just simple data structures. Got an array in C? You couldn’t put x, y and z in it, because they hold 3 different data types. If you want to hold data of different types in C, you have to get creative and use a more complex data structure. And that’s where structs come in.&lt;/p&gt;
+
+&lt;p&gt;Our array in ruby:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# An integer, a string and a float in one array? A-ok!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Our array in C:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* nope, will break */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* ok, an array of type int */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We can’t use an array to hold different types in C, but we could use a struct:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/* define a variable 'our_struct', of type struct */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;our_struct&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above C struct is a “structured data type”: you can reuse it, much like a class, as long as it has the same “structure”: x has to be an integer, y has to be an array of 5 chars, and z has to be a double.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/* Declare an empty variable, w, which is a struct of the type our_struct */&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;our_struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/* start assigning values to it */&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Aruba&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;ok-great-but-why-do-we-care-about-structs-in-ruby&quot;&gt;Ok, great, but why do we care about structs in Ruby?&lt;/h3&gt;
+&lt;p&gt;In ruby we can throw all different types of data into an array, or a hash, or any other data structure. Ruby doesn’t care about types in the same way that a strictly typed language like C does.&lt;/p&gt;
+
+&lt;p&gt;Ruby doesn’t &lt;em&gt;generally&lt;/em&gt; care about types, until it does. For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ThreeThings&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:word&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@num2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ThreeThings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'hi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Hi'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ThreeThings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'yo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;TypeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;can&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coerced&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Fixnum&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Well, that’s no good! We can’t add the integer 3 and the string ‘yo’ (in Ruby speak, we can’t coerce ‘yo’ into being a number). How could we prevent that from happening? We could always check is @num1 and @num2 are numbers, and if they are not try to call .to_i or .to_f on them, but that’s cumbersome. We can do better.&lt;/p&gt;
+
+&lt;p&gt;First, notice that a lot of the ThreeThings class declaration is taken up by declaring instance variables and attr_accessor methods. One reason people like Structs in ruby is that they can behave as mini classes. So we can do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;ThreeThings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ThreeThings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cowabunga!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;num1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;word&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cowabunga&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;That’s pretty convenient, we got our attr_accessors and instance variables all defined in one line of code by passing them as arguments to Struct.new. That alone is a good reason to use a struct (and more on this reason below)–you need to create multiple collections of data that all share similar characteristics, but don’t need the overhead of a class.&lt;/p&gt;
+
+&lt;p&gt;But what if we wanted to define our own instance methods? Can we combine a Struct and a class? Yes! (Should we? Eh…)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ThreeThingsAgain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add_it_again&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_it_again&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Class ThreeThingsAgain works mostly like class ThreeThings, only it inherits from a struct so we don’t need to use the initialize method, or define attr_accessors–the Struct class in Ruby does that for us.
+Caveat: inheriting from structs, while convenient, isn’t ideal (for one thing, do you REALLY want to initialize your class with public instance variables that can be read and written to all over the place? Read &lt;a href=&quot;http://thepugautomatic.com/2013/08/struct-inheritance-is-overused/&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Inheriting from a struct is clever, but probably the best use of structs in Ruby is as a plain grouping of data.&lt;/p&gt;
+
+&lt;p&gt;Which leads us back to this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ThreeThingsThree&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:a_struct&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a_struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@a_struct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a_struct&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a_struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a_struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;num2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a_struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;word&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;MyStruct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:num1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:num2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;justin_for_lyfe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Justin Bieber'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;belieber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ThreeThingsThree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;justin_for_lyfe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;belieber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;belieber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Justin&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bieber&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So, we initialized a class with a struct. We don’t have to worry about variable order when creating instances of our class since we only use one argument in the initialize method, but we still need to worry about order when creating new MyStruct objects. Because new instances of MyStruct don’t require arguments when they are initialized (unlike new instances of ThreeThingsThree, which would break if we tried to create a new instance without one argument), we can mitigate the argument order issue by using good naming conventions in our when we create a new Struct:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# we could do this&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;selena_rules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Selena Gomez'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# But we could also just do this:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;selena_still_rules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;selena_still_rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;num1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# num1? Must be a number!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;selena_still_rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;num2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ditto&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;selena_still_rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Selena Gomez'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# word? Must be a string!&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;selena&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ThreeThingsThree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selena_still_rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# yahoo!!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As long as we have used descriptive names for our instance variables when we define our struct, we have a road map for what data type goes where. If we had instead defined MyStruct as Struct.new(:x, :y, :z), we’d be in trouble (much like Justin Bieber)&lt;/p&gt;
+
+&lt;h2 id=&quot;structs-are-cool&quot;&gt;Structs are cool&lt;/h2&gt;
+
+&lt;p&gt;Not as cool as ninjas, but still pretty cool. Questions, comments, corrections to my C syntax? All welcome. Leave a comment!&lt;/p&gt;
+
+&lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/&quot; target=&quot;_blank&quot;&gt;Static vs. dynamic typing of programming languages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6RLxPdZ59y0&quot; target=&quot;_blank&quot;&gt;Harvard CS50 Video on Structures&lt;/a&gt; (Entire &lt;a href=&quot;https://www.edx.org/course/introduction-computer-science-harvardx-cs50x&quot; target=&quot;_blank&quot;&gt;Harvard CS50 intro to CS class&lt;/a&gt; is free online and highly recommended)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.2.0/Struct.html&quot; target=&quot;_blank&quot;&gt;Go to the source: Ruby Struct Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt; had a dream the other night about structs. I was a struct master (this is like being a ninja, only dorky). Are you relatively new to Ruby, but have a good handle on classes? Are you afraid of Structs, or haven't heard of them? This post is for you.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 02 Oct 2016 00:00:00 -0500</pubDate>
+        <link>http://jtrudell.github.io/blog/ruby-structs/</link>
+        <guid isPermaLink="true">http://jtrudell.github.io/blog/ruby-structs/</guid>
+        
+        
+      </item>
+      
     
       
       <item>
         <title>Return Values in Ruby: implicit, explicit, and puts, print, p</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&#39;s why:&lt;/p&gt;
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here's why:&lt;/p&gt;
 
 &lt;h3 id=&quot;what-does-this-return&quot;&gt;What does this return?&lt;/h3&gt;
 
@@ -109,7 +305,7 @@
 &lt;p&gt;I don’t know what the answer is. I’m complaining, but I did those same tutorials. I puts’d a ton of stuff to the console. I struggled with all of the above. Is there a better way to teach beginners? Seeing something printed to the console IS totally satisfying, and provides immediate feedback, but then again, so do error messages. Ideas? Anything alternatives that you’ve seen work?&lt;/p&gt;
 </description>
         
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;&#39;ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here&#39;s why:&lt;/p&gt;
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;I&lt;/span&gt;'ve been working a lot with people who are new to Ruby (and new to programming altogether), and a common theme is not understanding the values that are returned from Ruby methods, or that anything is returned at all, and what all this &quot;return&quot; business is all about. I sort of blame this on beginner tutorials that make it seem like the only way to use Ruby is by printing to the console, and here's why:&lt;/p&gt;
 
 </description>
         
@@ -259,9 +455,9 @@
 
 &lt;p&gt;Ruby conveniently includes a &lt;a href=&quot;http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html&quot;&gt;CSV class&lt;/a&gt;, which allows us to do various things with CSV files. One thing we can do is open a CSV file and read each line, turning it into a CSV::Row object, like so:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;csv&#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'csv'&lt;/span&gt;
 
-  &lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;my_database.csv&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'my_database.csv'&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;my_people_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 
   &lt;span class=&quot;no&quot;&gt;CSV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
@@ -276,7 +472,7 @@
 
 &lt;p&gt;CSV.foreach, with the headers option on, returns a CSV Row, with “header”: “value”, sort of like a hash (note there are no commas between differents sets of headers and values, as there would be in a hash). In fact, you could send a CSV Row into a hash! Let’s try that with our array of CSV Rows, my_people_data.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;csv&#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'csv'&lt;/span&gt;
 
   &lt;span class=&quot;n&quot;&gt;my_people_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;#&amp;lt;CSV::Row &quot;id&quot;:&quot;1&quot; &quot;name&quot;:&quot;joe smith&quot; &quot;phone&quot;:&quot; 555-1234&quot; &quot;email&quot;:&quot;joe@smith.com&quot;&amp;gt;,&lt;/span&gt;
@@ -327,15 +523,15 @@
 
 &lt;p&gt;In ruby, we can use the File class to open and write to files. For example:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;my_little_pony.txt&#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'my_little_pony.txt'&lt;/span&gt;
 
-  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;w&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'w'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rainbow Dash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The above code will open a file called ‘my_little_pony.txt’ (note: File.open will create the file if it doesn’t already exist, and then open it), and write “Rainbow Dash” to that file. When using File.open, the first argument is the name of the file you are opening and the second argument, the ‘w’, is the file permission. ‘w’ is shorthand for ‘write’ and indeed that’s what happened. If you open my_little_pony.txt you will see a single line of text, “Rainbow Dash”. But what if we want to add Pinkie Pie to my_little_pony.txt?&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;w&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'w'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -345,13 +541,13 @@
 
 &lt;p&gt;So it’s true, the ‘w’ argument will write to the file. Unfortunately, it will also overwrite the entire file. If we want to just add on to the existing file, and not overwrite the entire thing, we can use ‘a’ for append. Let’s rewind our last code and assume our file still has Rainbow Dash in it.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;That one little letter did it. Now we have Rainbow Dash and Pinkie Pie in our file, but they are all smooshed together on one line. Let’s rewind that last code too and add a new line character (and let’s also use the shorthand curly braces rather than do/end since our code block is only one line).&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And there you have it, Rainbow Dash and Pinkie Pie, written to a file on separate lines. There’s a lot more you can do with file permissions, but the difference between ‘w’ and ‘a’ trip a lot of people up – keep them in mind when you decide how you want to write to your file.&lt;/p&gt;
 </description>
@@ -371,11 +567,11 @@
     
       
       <item>
-        <title>Don&#39;t Be Lazy: how to ask questions on the internet</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;lmost every night, my wife asks me what the weather is going to be like tomorrow. She has an iphone and a laptop, knows how to turn on the television, and can read. But every night, she still asks me, like I&#39;m the farmer&#39;s almanac personified. And every night I pull out my iphone and look up the weather for her. I do it because I love her. But I don&#39;t love strangers on the internet, and neither do you. If you went on Stack Overflow and asked what the weather was going to be like tomorrow every night, you&#39;d probably be banned from posting. It&#39;s simple: people don&#39;t like to feel taken advantage of. People like to help people who are already helping themselves. If you have a question, the very first thing you should do before you post anything on the internet is to Google. You might find the answer to your question. In fact, someone may have already asked your exact same question (there is truly nothing new under the sun, even in programming). If you don&#39;t find the answer to your question, you will likely find answers to similar questions, and can then better frame your own question. Showing that you have looked for your own answers and have gotten close makes it much more likely that people will want to help you over the finish line. This shouldn&#39;t put you off from asking questions--on the contrary, it should be empowering. You can do research. You don&#39;t have to rely on other people to always answer your questions. And when you really do need help, you are more likely to find it if you first put in the work to search for an answer to your own question. Also, tomorrow&#39;s forecast is partly cloudy, high of 75. Should be a beautiful day.&lt;/p&gt;
+        <title>Don't Be Lazy: how to ask questions on the internet</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;lmost every night, my wife asks me what the weather is going to be like tomorrow. She has an iphone and a laptop, knows how to turn on the television, and can read. But every night, she still asks me, like I'm the farmer's almanac personified. And every night I pull out my iphone and look up the weather for her. I do it because I love her. But I don't love strangers on the internet, and neither do you. If you went on Stack Overflow and asked what the weather was going to be like tomorrow every night, you'd probably be banned from posting. It's simple: people don't like to feel taken advantage of. People like to help people who are already helping themselves. If you have a question, the very first thing you should do before you post anything on the internet is to Google. You might find the answer to your question. In fact, someone may have already asked your exact same question (there is truly nothing new under the sun, even in programming). If you don't find the answer to your question, you will likely find answers to similar questions, and can then better frame your own question. Showing that you have looked for your own answers and have gotten close makes it much more likely that people will want to help you over the finish line. This shouldn't put you off from asking questions--on the contrary, it should be empowering. You can do research. You don't have to rely on other people to always answer your questions. And when you really do need help, you are more likely to find it if you first put in the work to search for an answer to your own question. Also, tomorrow's forecast is partly cloudy, high of 75. Should be a beautiful day.&lt;/p&gt;
 </description>
         
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;lmost every night, my wife asks me what the weather is going to be like tomorrow. She has an iphone and a laptop, knows how to turn on the television, and can read. But every night, she still asks me, like I&#39;m the farmer&#39;s almanac personified. And every night I pull out my iphone and look up the weather for her. I do it because I love her. But I don&#39;t love strangers on the internet, and neither do you. If you went on Stack Overflow and asked what the weather was going to be like tomorrow every night, you&#39;d probably be banned from posting. It&#39;s simple: people don&#39;t like to feel taken advantage of. People like to help people who are already helping themselves. If you have a question, the very first thing you should do before you post anything on the internet is to Google. You might find the answer to your question. In fact, someone may have already asked your exact same question (there is truly nothing new under the sun, even in programming). If you don&#39;t find the answer to your question, you will likely find answers to similar questions, and can then better frame your own question. Showing that you have looked for your own answers and have gotten close makes it much more likely that people will want to help you over the finish line. This shouldn&#39;t put you off from asking questions--on the contrary, it should be empowering. You can do research. You don&#39;t have to rely on other people to always answer your questions. And when you really do need help, you are more likely to find it if you first put in the work to search for an answer to your own question. Also, tomorrow&#39;s forecast is partly cloudy, high of 75. Should be a beautiful day.&lt;/p&gt;
+          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;lmost every night, my wife asks me what the weather is going to be like tomorrow. She has an iphone and a laptop, knows how to turn on the television, and can read. But every night, she still asks me, like I'm the farmer's almanac personified. And every night I pull out my iphone and look up the weather for her. I do it because I love her. But I don't love strangers on the internet, and neither do you. If you went on Stack Overflow and asked what the weather was going to be like tomorrow every night, you'd probably be banned from posting. It's simple: people don't like to feel taken advantage of. People like to help people who are already helping themselves. If you have a question, the very first thing you should do before you post anything on the internet is to Google. You might find the answer to your question. In fact, someone may have already asked your exact same question (there is truly nothing new under the sun, even in programming). If you don't find the answer to your question, you will likely find answers to similar questions, and can then better frame your own question. Showing that you have looked for your own answers and have gotten close makes it much more likely that people will want to help you over the finish line. This shouldn't put you off from asking questions--on the contrary, it should be empowering. You can do research. You don't have to rely on other people to always answer your questions. And when you really do need help, you are more likely to find it if you first put in the work to search for an answer to your own question. Also, tomorrow's forecast is partly cloudy, high of 75. Should be a beautiful day.&lt;/p&gt;
 </description>
         
         <pubDate>Thu, 24 Sep 2015 00:00:00 -0500</pubDate>
@@ -391,7 +587,7 @@
         <title>Algorithms: Big-O Notation</title>
         <description>&lt;h4 id=&quot;whats-an-algorithm&quot;&gt;What’s an algorithm?&lt;/h4&gt;
 
-&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;n algorithm is a hard to pronounce word for something simple: a set of steps that can be used to solve a problem. A slightly longer definition is that an algorithm is a finite number of steps or rules that, if followed, give you a result. Algorithms are distinguished by three things: (1) the steps/rules are clear and unambiguous, (2) there is an end to the steps/rules (finite. the steps/rules don&#39;t go on forever.) and (3) following the steps/rules returns a result. Addition is an algorithm, which, given a list of numbers you want to add, can be expressed with the following steps: 1. given a list of numbers, 2. add the first number to the second number, 3. if there are more than two numers, add the sum of the first number and second number to the third number, 4. repeat step three for the fourth number (if any) and any subsequent numbers until there are no more numbers in the list, 5. return the final sum. If you don&#39;t like math, here&#39;s a peanut butter sandwich algorithm: 1. get out the peanut butter, 2. get out the bread, 3. get out the knife, 4. spread peanut butter on one slice of bread, 5. put the other slice of break on top of the slice of bread with the peanut butter on it, 6. return peanut butter sandwich.&lt;/p&gt;
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;n algorithm is a hard to pronounce word for something simple: a set of steps that can be used to solve a problem. A slightly longer definition is that an algorithm is a finite number of steps or rules that, if followed, give you a result. Algorithms are distinguished by three things: (1) the steps/rules are clear and unambiguous, (2) there is an end to the steps/rules (finite. the steps/rules don't go on forever.) and (3) following the steps/rules returns a result. Addition is an algorithm, which, given a list of numbers you want to add, can be expressed with the following steps: 1. given a list of numbers, 2. add the first number to the second number, 3. if there are more than two numers, add the sum of the first number and second number to the third number, 4. repeat step three for the fourth number (if any) and any subsequent numbers until there are no more numbers in the list, 5. return the final sum. If you don't like math, here's a peanut butter sandwich algorithm: 1. get out the peanut butter, 2. get out the bread, 3. get out the knife, 4. spread peanut butter on one slice of bread, 5. put the other slice of break on top of the slice of bread with the peanut butter on it, 6. return peanut butter sandwich.&lt;/p&gt;
 
 &lt;h4 id=&quot;what-makes-a-good-algorithm-measuring-algorithm-complexity&quot;&gt;What makes a good algorithm? Measuring algorithm complexity.&lt;/h4&gt;
 &lt;p&gt;Algorithms are measured and compared based on how complex they are. The addition algorithm and the peanut better sandwhich algorithm are linear algorithms–the more numbers you have, or the more peanut butter sandwiches you have to make, the more steps you have to take, and the amount of steps you have to take increase in direct proportion to how many numbers or peanut butter sandwiches you are working with. Think of a graph: the x-axis is the number of steps, and the y axis is the number of sandwhiches/numbers. With linear algorithms, you end up with a straight diagonal line. If it takes 3 steps (disregarding taking out the knife, peanut butter and bread for the moment) to make one peanut butter sandwhich, it should take 300 steps to make 100 sandwhiches. If n is the number of peanut butter sandwhiches, or the number of numbers in a list of numbers we want to add, we could represent the complexity of the algorithm by O(n).&lt;/p&gt;
@@ -440,7 +636,7 @@
 
 &lt;h4 id=&quot;javascript-objects-look-suspiciously-similar-to-ruby-hashes&quot;&gt;JavaScript Objects Look Suspiciously Similar to Ruby Hashes&lt;/h4&gt;
 
-&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;C&lt;/span&gt;ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala &quot;key_1&quot; =&amp;gt; 1, which are also kosher for use in hashes in Ruby). Here&#39;s a hash in Ruby:&lt;/p&gt;
+&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;C&lt;/span&gt;ertain JavaScript objects, Javascript object literals (there are also JavaScript prototype objects, which are similar to Ruby classes, just not as inuitive. Because, JavaScript!), look identical to hashes in Ruby which use symbols as keys (as opposed to hash rockets following a string or integer as a key, ala &quot;key_1&quot; =&amp;gt; 1, which are also kosher for use in hashes in Ruby). Here's a hash in Ruby:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;pony&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;earth pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cutie_mark: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -486,7 +682,7 @@
 
 &lt;h4 id=&quot;procs&quot;&gt;procs&lt;/h4&gt;
 
-&lt;p&gt;Next up, procs. In the simplest terms, a proc is a block assigned to a variable, like &quot;x = |number| number * 2&quot;, only with slightly more complicated syntax. In order to assign a code block to a variable, you have to create a new proc. Let&#39;s see how that works:&lt;/p&gt;
+&lt;p&gt;Next up, procs. In the simplest terms, a proc is a block assigned to a variable, like &quot;x = |number| number * 2&quot;, only with slightly more complicated syntax. In order to assign a code block to a variable, you have to create a new proc. Let's see how that works:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;some_code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some_code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -519,80 +715,6 @@
         <pubDate>Sun, 06 Sep 2015 00:00:00 -0500</pubDate>
         <link>http://jtrudell.github.io/blog/t6-oop-concepts/</link>
         <guid isPermaLink="true">http://jtrudell.github.io/blog/t6-oop-concepts/</guid>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Ruby Classes: Who needs Brogrammers when you&#39;ve got Bronies?</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&#39;ve seen &lt;a href=&quot;http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/&quot; target=&quot;_blank&quot;&gt;Bronies&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;mylittlepony&quot;&gt;MyLittlePony&lt;/h4&gt;
-
-&lt;p&gt;Let’s create a class and make some ponies! Below I’ve made a class called MyLittlePony, so we can create our own pony objects. Each pony is initialized with three things we will specify when we call MyLittlePony.new: a name, &lt;a href=&quot;http://mlp.wikia.com/wiki/Ponies&quot; target=&quot;_blank&quot;&gt;type of pony&lt;/a&gt;, and whether the pony has a &lt;a href=&quot;http://mlp.wikia.com/wiki/Cutie_marks&quot; target=&quot;_blank&quot;&gt;cutie mark&lt;/a&gt;. Each pony object is also initialized with a default hometown set to &lt;a href=&quot;http://mlp.wikia.com/wiki/Ponyville&quot; target=&quot;_blank&quot;&gt;Ponyville&lt;/a&gt;, and an empty array to list the pony’s friends. I’ve also created two methods: one to let our pony say hi, and the other to list our pony’s friends. Since the name of our pony and the type of pony it is should never change (ok ok, so Princess Twilight used to be a Unicorn and now she’s an Alicorn, but she’s an outlier), I’ve assigned those variables to attr_reader–objects (including other ponies) outside the MyLittlePony class will be able to read each pony’s name and type, but not change it. Since has_cutie_mark could change from false to true (little ponies don’t start off with cutie marks, they have to earn them! Or something. Ask my daughters.), and hometown and friends can change (obviously you can add friends, but our ponies will never lose friends!), I’ve made those variables attr_accessor, so they are both readable and writeable outside the class if we want to change them later (say our pony moves to Canterlot, gains friends, etc.)&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyLittlePony&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:type&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:has_cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:hometown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:friends&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has_cutie_mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@has_cutie_mark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has_cutie_mark&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@hometown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ponyville&quot;&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@friends&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@has_cutie_mark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;do&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;don&#39;t&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi! My name is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; and I am an &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@type&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; pony.
-    I live in &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@hometown&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. I &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_do&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; have my cutie mark.&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;list_friends&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Now that we’ve got our MyLittlePony class, let’s make some ponies! I’m going to make each of the main characters from the show &lt;a href=&quot;https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_is_Magic&quot; target=&quot;blank&quot;&gt;Friendship is Magic.&lt;/a&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Twilight Sparkle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Alicorn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;apple_jack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Applejack&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Earth Pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;rainbow_dash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rainbow Dash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pegasus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pinkie_pie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Earth Pony&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;rarity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rarity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Unicorn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;flutter_shy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyLittlePony&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Flutter Shy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pegasus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Wow, that’s a lot of ponies. Hey Twilight, say hi to the readers!&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twlight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Hi! My name is Twilight Sparkle and I am an Alicorn pony.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; I live in Ponyville. I do have my cutie mark.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Thanks Twilight! How about we give you some friends? We can do this outside the class by calling twilight.friends=[list some friends here], since we made @friends part of attr_accessor. And we can use the list_friends method to list all of Twilight’s friends’ names, since each pony’s name variable is included in attr_reader.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;friends&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apple_jack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rainbow_dash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pinkie_pie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;rarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flutter_shy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;twilight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;list_friends&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;Applejack&quot;&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;Rainbow Dash&quot;&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;Pinkie Pie&quot;&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;Rarity&quot;&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;Flutter Shy&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;There you have it, a My Little Pony Ruby lesson. Full source code for your solo pony-creating is &lt;a href=&quot;/../assets/misc/my_little_pony.rb&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;&lt;span class=&quot;dropcap&quot;&gt;F&lt;/span&gt;ull disclosure: My favor MLP is Rainbow Dash. I have three little girls. I watch My Little Pony daily. My five yearold contributed to this blog post. And yes, I&#39;ve seen &lt;a href=&quot;http://www.usatoday.com/story/popcandy/2013/09/12/bronies-movie/2805503/&quot; target=&quot;_blank&quot;&gt;Bronies&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Sat, 29 Aug 2015 00:00:00 -0500</pubDate>
-        <link>http://jtrudell.github.io/blog/t5-ruby-classes/</link>
-        <guid isPermaLink="true">http://jtrudell.github.io/blog/t5-ruby-classes/</guid>
         
         
       </item>

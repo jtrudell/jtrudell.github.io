@@ -161,7 +161,7 @@ end
 {% endhighlight %}
 
 Class ThreeThingsAgain works mostly like class ThreeThings, only it inherits from a struct so we don't need to use the initialize method, or define attr_accessors--the Struct class in Ruby does that for us.
-Caveat: inheriting from structs, while convenient, isn't ideal (for one thing, do you REALLY want to initialize your class with public instance variables that can be read and written to all over the place? Read <a href="http://thepugautomatic.com/2013/08/struct-inheritance-is-overused/">this</a>). 
+Caveat: inheriting from structs, while convenient, isn't ideal (for one thing, do you REALLY want to initialize your class with public instance variables that can be read and written to all over the place? Read <a href="http://thepugautomatic.com/2013/08/struct-inheritance-is-overused/" target="_blank">this</a>). 
 
 Inheriting from a struct is clever, but probably the best use of structs in Ruby is as a plain grouping of data.
 
@@ -222,6 +222,6 @@ As long as we have used descriptive names for our instance variables when we def
 Not as cool as ninjas, but still pretty cool. Questions, comments, corrections to my C syntax? All welcome. Leave a comment!
 
 ### Further reading:
-- <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">Static vs. dynamic typing of programming languages</a>
-- <a href="https://www.youtube.com/watch?v=6RLxPdZ59y0">Harvard CS50 Video on Structures</a> (Entire <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x">Harvard CS50 intro to CS class</a> is free online and highly recommended)
-- <a href="https://ruby-doc.org/core-2.2.0/Struct.html">Go to the source: Ruby Struct Documentation</a>
+- <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/" target="_blank">Static vs. dynamic typing of programming languages</a>
+- <a href="https://www.youtube.com/watch?v=6RLxPdZ59y0" target="_blank">Harvard CS50 Video on Structures</a> (Entire <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x" target="_blank">Harvard CS50 intro to CS class</a> is free online and highly recommended)
+- <a href="https://ruby-doc.org/core-2.2.0/Struct.html" target="_blank">Go to the source: Ruby Struct Documentation</a>
