@@ -11,3 +11,7 @@ title: Jen Trudell | About
 
   <p>I'm a software engineer at MortgageHippo in Chicago, working primarily in React/Redux. I'm a proud Dev Bootcamp graduate (Purple Martins!). In a prior life, I was a finance attorney in Chicago, and before that in NYC. Want to know more? Checkout my profile on <a href="http://www.linkedin.com/in/jktrudell" target="_blank">Linkedin</a>.</p>
 </div>
+
+<div>
+	<iframe src="https://resume.creddle.io/embed/eqfsstj0ea0" width="850" height="1100" seamless></iframe>
+</div>
